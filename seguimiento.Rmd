@@ -1,0 +1,70 @@
+---
+title: "PROMSACE seguimiento de encuestas"
+author: "Hernan Nuñez"
+date: "1/7/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Librerias usadas
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+
+## Base de datos (28 feb al 30 marzo)
+  Vista preliminar del inicio y final de las encuestas
+
+```{r}
+df <- read_excel("D:/descargas/Reporte corregido francisco 30junio.xlsx", 
+    sheet = "R", range = "A1:G373", col_types = c("date", 
+        "text", "text", "text", "text", "numeric", 
+        "numeric"))
+
+df$Mes <- factor(df$Mes, levels = c("Febrero", "Marzo", "Abril", "Mayo", "Junio"))
+
+df$`Dia de la Semana` <- factor(df$`Dia de la Semana`, levels = c("lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"))
+
+df$Tipo <- factor(df$Tipo, levels = c("Recopilada","Completa", "Completa y efectiva"))
+
+glimpse(df)
+```
+
+## Resultados generales
+
+### Recuento segun fecha
+
+```{r}
+ggplot(df, aes(x = Fecha, y = Recuento, color = Tipo)) +
+  geom_point()
+```
+
+### Acumulado segun fecha
+
+```{r}
+ggplot(df, aes(x = Fecha, y = Acumulado, color = Tipo)) +
+  geom_point()
+```
+
+### Variacion segun los dias
+
+```{r}
+ggplot(df, aes(x = `Dia de la Semana`, y = Recuento, color = Tipo)) +
+  geom_boxplot()
+```
+
+### Recuento segun meses
+
+```{r}
+df_meses <- df %>%
+            group_by(Mes, Tipo) %>%
+            summarise(cantidad = sum(Recuento), se = sd(Recuento), upper = cantidad +               se, lower = cantidad - se)
+
+ggplot(df_meses, aes(x = Mes, y = cantidad, fill = Tipo)) +
+  geom_col(position = "dodge") +
+   geom_errorbar(aes(ymin = lower, ymax = upper), position = "dodge")
+```
+

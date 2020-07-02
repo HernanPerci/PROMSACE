@@ -224,3 +224,137 @@ ggplot(df_marzo_completayefectiva_sicovid, aes(Recuento)) +
   geom_histogram(binwidth = 1)
 ```
 
+## Abril
+
+```{r}
+df_abril <- df %>%
+            filter(Mes == "Abril")
+```
+
+### Recuento Abril
+
+```{r}
+ggplot(df_abril, aes(x = Fecha, y = Recuento, color = Tipo)) +
+  geom_line()
+```
+
+### Distribucion de recopilada Abril
+
+```{r}
+df_abril_recopilada <- df_abril %>%
+                        filter(Tipo == "Recopilada")
+
+ggplot(df_abril_recopilada, aes(Recuento)) +
+  geom_histogram(binwidth = 2)
+```
+
+### Distribucion de completa Abril
+
+```{r}
+df_abril_completa <- df_abril %>%
+                        filter(Tipo == "Completa")
+
+ggplot(df_abril_completa, aes(Recuento)) +
+  geom_histogram(binwidth = 2)
+```
+
+
+### Distribucion de Completa y efectiva Abril
+
+```{r}
+df_abril_completayefectiva <- df_abril %>%
+                        filter(Tipo == "Completa y efectiva")
+
+ggplot(df_abril_completayefectiva, aes(Recuento)) +
+  geom_histogram(binwidth = 1)
+```
+
+## Mayo
+
+```{r}
+df_mayo <- df %>%
+            filter(Mes == "Mayo")
+```
+
+### Recuento Mayo
+
+```{r}
+ggplot(df_mayo, aes(x = Fecha, y = Recuento, color = Tipo)) +
+  geom_line()
+```
+
+### Distribucion de recopilada Mayo
+
+```{r}
+df_mayo_recopilada <- df_mayo %>%
+                        filter(Tipo == "Recopilada")
+
+ggplot(df_mayo_recopilada, aes(Recuento)) +
+  geom_histogram(binwidth = 2)
+```
+
+### Distribucion de completa Mayo
+
+```{r}
+df_mayo_completa <- df_mayo %>%
+                        filter(Tipo == "Completa")
+
+ggplot(df_mayo_completa, aes(Recuento)) +
+  geom_histogram(binwidth = 2)
+```
+
+
+### Distribucion de Completa y efectiva Mayo
+
+```{r}
+df_mayo_completayefectiva <- df_mayo %>%
+                        filter(Tipo == "Completa y efectiva")
+
+ggplot(df_mayo_completayefectiva, aes(Recuento)) +
+  geom_histogram(binwidth = 1)
+```
+
+## Junio
+
+```{r}
+df_junio <- df %>%
+            filter(Mes == "Junio")
+```
+
+### Recuento Junio
+
+```{r}
+ggplot(df_junio, aes(x = Fecha, y = Recuento, color = Tipo)) +
+  geom_line()
+```
+
+### Distribucion de recopilada Junio
+
+```{r}
+df_junio_recopilada <- df_junio %>%
+                        filter(Tipo == "Recopilada")
+
+ggplot(df_junio_recopilada, aes(Recuento)) +
+  geom_histogram(binwidth = 2)
+```
+
+### Distribucion de completa Junio
+
+```{r}
+df_junio_completa <- df_junio %>%
+                        filter(Tipo == "Completa")
+
+ggplot(df_junio_completa, aes(Recuento)) +
+  geom_histogram(binwidth = 2)
+```
+
+
+### Distribucion de Completa y efectiva Junio
+
+```{r}
+df_junio_completayefectiva <- df_junio %>%
+                        filter(Tipo == "Completa y efectiva")
+
+ggplot(df_junio_completayefectiva, aes(Recuento)) +
+  geom_histogram(binwidth = 1)
+```

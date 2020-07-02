@@ -358,3 +358,70 @@ df_junio_completayefectiva <- df_junio %>%
 ggplot(df_junio_completayefectiva, aes(Recuento)) +
   geom_histogram(binwidth = 1)
 ```
+
+## Analisis exploratorio
+
+```{r}
+df2 <- read_excel("D:/descargas/Reporte corregido francisco 30junio.xlsx", 
+    sheet = "Evolucion", range = "A3:L127", 
+    col_types = c("date", "text", "text", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "text", "text", "text"))
+
+df2$Dia <- factor(df2$Dia, levels = (1:31))
+
+df2$Mes_letras <- factor(df2$Mes_letras, levels = c("Febrero", "Marzo", "Abril", "Mayo", "Junio"))
+
+df2$dia_letras <- factor(df2$dia_letras, levels = c("lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"))
+
+glimpse(df2)
+```
+
+### Antes del covid
+
+```{r}
+df2_nocovid <- df2 %>%
+                filter(Fecha <= "2020-03-17")
+df2_nocovid
+```
+
+#### Recopiladas VS Completas antes del covid
+
+```{r}
+ggplot(df2_nocovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = dia_letras)) +
+  geom_point() +
+  facet_wrap(~Mes_letras)
+```
+
+#### Completas VS Completas y efectivas antes del covid
+
+```{r}
+ggplot(df2_nocovid, aes(x = `Recuento Completas`, y = `Recuento Completas y Efectivas`, color = dia_letras)) +
+  geom_point() +
+  facet_wrap(~Mes_letras)
+```
+
+### Despues del covid
+
+```{r}
+df2_sicovid <- df2 %>%
+                filter(Fecha > "2020-03-17")
+df2_sicovid
+```
+
+#### Recopiladas VS Completas despues del covid
+
+```{r}
+ggplot(df2_sicovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = dia_letras)) +
+  geom_point() +
+  facet_wrap(~Mes_letras)
+```
+
+#### Completas VS Completas y efectivas despues del covid
+
+```{r}
+ggplot(df2_sicovid, aes(x = `Recuento Completas`, y = `Recuento Completas y Efectivas`, color = dia_letras)) +
+  geom_point() +
+  facet_wrap(~Mes_letras)
+```

@@ -24,6 +24,8 @@ df <- read_excel("D:/descargas/Reporte corregido francisco 30junio.xlsx",
         "text", "text", "text", "text", "numeric", 
         "numeric"))
 
+df$Dia <- factor(df$Dia, levels = (1:31))
+
 df$Mes <- factor(df$Mes, levels = c("Febrero", "Marzo", "Abril", "Mayo", "Junio"))
 
 df$`Dia de la Semana` <- factor(df$`Dia de la Semana`, levels = c("lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"))
@@ -39,14 +41,14 @@ glimpse(df)
 
 ```{r}
 ggplot(df, aes(x = Fecha, y = Recuento, color = Tipo)) +
-  geom_point()
+  geom_line()
 ```
 
 ### Acumulado segun fecha
 
 ```{r}
 ggplot(df, aes(x = Fecha, y = Acumulado, color = Tipo)) +
-  geom_point()
+  geom_line()
 ```
 
 ### Variacion segun los dias
@@ -66,5 +68,159 @@ df_meses <- df %>%
 ggplot(df_meses, aes(x = Mes, y = cantidad, fill = Tipo)) +
   geom_col(position = "dodge") +
    geom_errorbar(aes(ymin = lower, ymax = upper), position = "dodge")
+```
+
+## Febrero
+
+```{r}
+df_febrero <- df %>%
+              filter(Mes == "Febrero")
+df_febrero
+```
+
+### Recuento Febrero
+
+```{r}
+ggplot(df_febrero, aes(x = Dia, y = Recuento, fill = Tipo)) +
+  geom_col(position = "dodge")
+```
+
+## Marzo
+
+```{r}
+df_marzo <- df %>%
+            filter(Mes == "Marzo")
+```
+
+### Recuento Marzo
+
+```{r}
+ggplot(df_marzo, aes(x = Fecha, y = Recuento, color = Tipo)) +
+  geom_line()
+```
+
+### Distribucion de recopilada Marzo
+
+```{r}
+df_marzo_recopilada <- df_marzo %>%
+                        filter(Tipo == "Recopilada")
+
+ggplot(df_marzo_recopilada, aes(Recuento)) +
+  geom_histogram(binwidth = 30)
+```
+
+### Distribucion de completa Marzo
+
+```{r}
+df_marzo_completa <- df_marzo %>%
+                        filter(Tipo == "Completa")
+
+ggplot(df_marzo_completa, aes(Recuento)) +
+  geom_histogram(binwidth = 30)
+```
+
+
+### Distribucion de Completa y efectiva Marzo
+
+```{r}
+df_marzo_completayefectiva <- df_marzo %>%
+                        filter(Tipo == "Completa y efectiva")
+
+ggplot(df_marzo_completayefectiva, aes(Recuento)) +
+  geom_histogram(binwidth = 5)
+```
+
+## Marzo antes del covid
+
+```{r}
+df_marzo_nocovid <- df_marzo %>%
+                    filter(Fecha <= "2020-03-17")
+df_marzo_nocovid                    
+```
+
+### Recuento Marzo sin covid
+
+```{r}
+ggplot(df_marzo_nocovid, aes(x = Fecha, y = Recuento, color = Tipo)) +
+  geom_line()
+```
+
+
+### Distribucion de recopilada Marzo sin covid
+
+```{r}
+df_marzo_recopilada_nocovid <- df_marzo_nocovid %>%
+                        filter(Tipo == "Recopilada")
+
+ggplot(df_marzo_recopilada_nocovid, aes(Recuento)) +
+  geom_histogram(binwidth = 30)
+```
+
+### Distribucion de completa Marzo sin covid
+
+```{r}
+df_marzo_completa_nocovid <- df_marzo_nocovid %>%
+                        filter(Tipo == "Completa")
+
+ggplot(df_marzo_completa_nocovid, aes(Recuento)) +
+  geom_histogram(binwidth = 30)
+```
+
+
+### Distribucion de Completa y efectiva Marzo sin covid
+
+```{r}
+df_marzo_completayefectiva_nocovid <- df_marzo_nocovid %>%
+                        filter(Tipo == "Completa y efectiva")
+
+ggplot(df_marzo_completayefectiva_nocovid, aes(Recuento)) +
+  geom_histogram(binwidth = 5)
+```
+
+## Marzo despues del covid
+
+```{r}
+df_marzo_sicovid <- df_marzo %>%
+                    filter(Fecha > "2020-03-17")
+df_marzo_sicovid                    
+```
+
+### Recuento Marzo con covid
+
+```{r}
+ggplot(df_marzo_sicovid, aes(x = Fecha, y = Recuento, color = Tipo)) +
+  geom_line()
+```
+
+
+### Distribucion de recopilada Marzo con covid
+
+```{r}
+df_marzo_recopilada_sicovid <- df_marzo_sicovid %>%
+                        filter(Tipo == "Recopilada")
+
+ggplot(df_marzo_recopilada_sicovid, aes(Recuento)) +
+  geom_histogram(binwidth = 2)
+```
+
+### Distribucion de completa Marzo con covid
+
+```{r}
+df_marzo_completa_sicovid <- df_marzo_sicovid %>%
+                        filter(Tipo == "Completa")
+
+ggplot(df_marzo_completa_sicovid, aes(Recuento)) +
+  geom_histogram(binwidth = 2)
+```
+
+
+### Distribucion de Completa y efectiva Marzo con covid
+
+```{r}
+df_marzo_completayefectiva_sicovid <- df_marzo_sicovid %>%
+                        filter(Tipo == "Completa y efectiva")
+
+ggplot(df_marzo_completayefectiva_sicovid, aes(Recuento)) +
+  geom_histogram(binwidth = 1)
 ```
 

@@ -51,6 +51,13 @@ ggplot(df, aes(x = Fecha, y = Acumulado, color = Tipo)) +
   geom_line()
 ```
 
+### Variacion segun los meses
+
+```{r}
+ggplot(df, aes(x = Mes, y = Recuento, color = Tipo)) +
+  geom_boxplot()
+```
+
 ### Variacion segun los dias
 
 ```{r}
@@ -386,7 +393,28 @@ df2_nocovid <- df2 %>%
 df2_nocovid
 ```
 
-#### Recopiladas VS Completas antes del covid
+
+```{r}
+df_nocovid <- df %>%
+                filter(Fecha <= "2020-03-17")
+df_nocovid
+```
+
+### Variacion antes del covid segun los meses
+
+```{r}
+ggplot(df_nocovid, aes(x = Mes, y = Recuento, color = Tipo)) +
+  geom_boxplot()
+```
+
+### Variacion antes del covid segun los dias
+
+```{r}
+ggplot(df_nocovid, aes(x = `Dia de la Semana`, y = Recuento, color = Tipo)) +
+  geom_boxplot()
+```
+
+#### Recopiladas VS Completas antes del covid segun meses
 
 ```{r}
 ggplot(df2_nocovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = dia_letras)) +
@@ -394,12 +422,28 @@ ggplot(df2_nocovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, co
   facet_wrap(~Mes_letras)
 ```
 
-#### Completas VS Completas y efectivas antes del covid
+#### Recopiladas VS Completas antes del covid segun dia de la semana
+
+```{r}
+ggplot(df2_nocovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = Mes_letras)) +
+  geom_point() +
+  facet_wrap(~dia_letras)
+```
+
+#### Completas VS Completas y efectivas antes del covid segun meses
 
 ```{r}
 ggplot(df2_nocovid, aes(x = `Recuento Completas`, y = `Recuento Completas y Efectivas`, color = dia_letras)) +
   geom_point() +
   facet_wrap(~Mes_letras)
+```
+
+#### Completas VS Completas y efectivas antes del covid segun dia de la semana
+
+```{r}
+ggplot(df2_nocovid, aes(x = `Recuento Completas`, y = `Recuento Completas y Efectivas`, color = Mes_letras)) +
+  geom_point() +
+  facet_wrap(~dia_letras)
 ```
 
 ### Despues del covid
@@ -410,7 +454,29 @@ df2_sicovid <- df2 %>%
 df2_sicovid
 ```
 
-#### Recopiladas VS Completas despues del covid
+
+```{r}
+df_sicovid <- df %>%
+                filter(Fecha > "2020-03-17")
+df_sicovid
+```
+
+### Variacion despues del covid segun los meses
+
+```{r}
+ggplot(df_sicovid, aes(x = Mes, y = Recuento, color = Tipo)) +
+  geom_boxplot()
+```
+
+### Variacion despues del covid segun los dias
+
+```{r}
+ggplot(df_sicovid, aes(x = `Dia de la Semana`, y = Recuento, color = Tipo)) +
+  geom_boxplot()
+```
+
+
+#### Recopiladas VS Completas despues del covid segun meses
 
 ```{r}
 ggplot(df2_sicovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = dia_letras)) +
@@ -418,10 +484,26 @@ ggplot(df2_sicovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, co
   facet_wrap(~Mes_letras)
 ```
 
-#### Completas VS Completas y efectivas despues del covid
+#### Recopiladas VS Completas despues del covid segun dia de la semana
+
+```{r}
+ggplot(df2_sicovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = Mes_letras)) +
+  geom_point() +
+  facet_wrap(~dia_letras)
+```
+
+#### Completas VS Completas y efectivas despues del covid segun meses
 
 ```{r}
 ggplot(df2_sicovid, aes(x = `Recuento Completas`, y = `Recuento Completas y Efectivas`, color = dia_letras)) +
   geom_point() +
   facet_wrap(~Mes_letras)
+```
+
+#### Completas VS Completas y efectivas despues del covid segun dia de la semana
+
+```{r}
+ggplot(df2_sicovid, aes(x = `Recuento Completas`, y = `Recuento Completas y Efectivas`, color = Mes_letras)) +
+  geom_point() +
+  facet_wrap(~dia_letras)
 ```

@@ -112,7 +112,8 @@ Se mostraran las distribuciones de las encuestas recopiladas y completas a lo la
 bd1_recopilada <- bd1 %>%
                 filter(Tipo == "Recopilada") 
 ggplot(bd1_recopilada, aes(x = Recuento)) +
-  geom_histogram()
+  geom_histogram() +
+  scale_x_log10()
 @
 
 
@@ -122,11 +123,34 @@ ggplot(bd1_recopilada, aes(x = Recuento)) +
 bd1_completa <- bd1 %>%
                 filter(Tipo == "Completa") 
 ggplot(bd1_completa, aes(x = Recuento)) +
-  geom_histogram()
+  geom_histogram() +
+  scale_x_log10()
 @
 
-
 \subsection{Graficos de cajas}
+Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 30 de junio
+
+<<echo=False, fig=True>>=
+ggplot(bd1, aes(x = Tipo, y = Recuento)) +
+  geom_boxplot() +
+  scale_y_log10()
+@
+
+\subsubsection{Por meses}
+
+<<echo=False, fig=True>>=
+ggplot(bd1, aes(x = Mes, y = Recuento, color = Tipo)) +
+  geom_boxplot() +
+  scale_y_log10()
+@
+
+\subsubsection{Por dia de la semana}
+
+<<echo=False, fig=True>>=
+ggplot(bd1, aes(x = Dia, y = Recuento, color = Tipo)) +
+  geom_boxplot() +
+  scale_y_log10()
+@
 
 \subsection{Graficos de puntos}
 

@@ -71,6 +71,15 @@ labs(title =
 "Cantidad de encuestas recogidas del 28 de febrero al 30 de junio")
 @
 
+\subsubsection{escala "y" logaritmica}
+<<echo=False, fig=True>>=
+ggplot(bd1, aes(x = Fecha, y = Recuento, color = Tipo)) +
+geom_line() +
+labs(title = 
+"Cantidad de encuestas recogidas del 28 de febrero al 30 de junio") +
+  scale_y_log10()
+@
+
 \subsection{Graficos de barras}
 Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 30 de junio
 
@@ -106,7 +115,7 @@ ggplot(bd1_tipo, aes(x = Tipo, y = maximo)) +
 \subsection{Histogramas}
 Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 30 de junio
 
-\subsubsection{Recopilada}
+\subsubsection{Recopilada (escala "x" logaritmica)}
 
 <<echo=False, fig=True>>=
 bd1_recopilada <- bd1 %>%
@@ -117,7 +126,7 @@ ggplot(bd1_recopilada, aes(x = Recuento)) +
 @
 
 
-\subsubsection{Completa}
+\subsubsection{Completa (escala "x" logaritmica)}
 
 <<echo=False, fig=True>>=
 bd1_completa <- bd1 %>%
@@ -127,7 +136,7 @@ ggplot(bd1_completa, aes(x = Recuento)) +
   scale_x_log10()
 @
 
-\subsection{Graficos de cajas}
+\subsection{Graficos de cajas (escala "y" logaritmica)}
 Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 30 de junio
 
 <<echo=False, fig=True>>=
@@ -136,7 +145,7 @@ ggplot(bd1, aes(x = Tipo, y = Recuento)) +
   scale_y_log10()
 @
 
-\subsubsection{Por meses}
+\subsubsection{Por meses (escala "y" logaritmica)}
 
 <<echo=False, fig=True>>=
 ggplot(bd1, aes(x = Mes, y = Recuento, color = Tipo)) +
@@ -144,7 +153,7 @@ ggplot(bd1, aes(x = Mes, y = Recuento, color = Tipo)) +
   scale_y_log10()
 @
 
-\subsubsection{Por dia de la semana}
+\subsubsection{Por dia de la semana (escala "y" logaritmica)}
 
 <<echo=False, fig=True>>=
 ggplot(bd1, aes(x = Dia, y = Recuento, color = Tipo)) +
@@ -152,6 +161,34 @@ ggplot(bd1, aes(x = Dia, y = Recuento, color = Tipo)) +
   scale_y_log10()
 @
 
-\subsection{Graficos de puntos}
+\subsection{Graficos de puntos (escala "x" y "y" logaritmica)}
+Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 30 de junio
+
+<<echo=False, fig=True>>=
+ggplot(bd2, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10()
+@
+
+\subsubsection{Por meses (escala "x" y "y" logaritmica)}
+
+<<echo=False, fig=True>>=
+ggplot(bd2, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() +
+  facet_grid(~Mes)
+@
+
+\subsubsection{Por dias (escala "x" y "y" logaritmica)}
+
+<<echo=False, fig=True>>=
+ggplot(bd2, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() +
+  facet_grid(~Dia)
+@
 
 \end{document}

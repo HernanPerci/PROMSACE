@@ -1,0 +1,133 @@
+\documentclass{article}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\title{PROMSACE: Seguimiento de encuestas}
+\author{Hernan Nuñez}
+\date{\today}
+\maketitle
+\begin{abstract}
+Lo mostrado en este documento nos da una vision descriptiva y exploratoria sobre los cambios a traves del tiempo (del 28 febrero al 30 de junio) de las encuestas recopiladas y completas. Se trabajo con Latex y RStudio.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduccion}
+La encuesta sobre la que se respalda el presente informe aun se esta recolectando mediante la platafoma surveymonkey.
+
+\section{bases de datos usadas}
+<<echo=False>>=
+library(tidyverse)
+library(readxl)
+@
+<<echo=False>>=
+bd1 <- 
+read_excel("D:/descargas/Reporte corregido francisco 30junio.xlsx", 
+sheet = "R2", range = "A1:F249", col_types = c("date", 
+        "text", "text", "text", "numeric", 
+        "numeric"))
+#---------------------------------------------------
+bd1$Dia <- factor(bd1$Dia,
+levels = 
+c("lunes", "martes", "miercoles",
+  "jueves", "viernes", "sabado", "domingo"))
+#---------------------------------------------------
+bd1$Mes <- 
+factor(bd1$Mes,
+levels = c("Febrero", "Marzo", "Abril", "Mayo", "Junio"))
+#---------------------------------------------------
+bd1$Tipo <- 
+factor(bd1$Tipo, levels = c("Recopilada", "Completa"))
+#---------------------------------------------------
+glimpse(bd1)
+@
+<<echo=False>>=
+bd2 <- 
+read_excel("D:/descargas/Reporte corregido francisco 30junio.xlsx", 
+sheet = "R2", range = "H1:N125", col_types = c("date", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "text", "text"))
+#---------------------------------------------------
+bd2$Dia <- factor(bd2$Dia,
+levels =
+c("lunes", "martes", "miercoles",
+"jueves", "viernes", "sabado", "domingo"))
+#---------------------------------------------------
+bd2$Mes <- 
+factor(bd2$Mes,
+levels = c("Febrero", "Marzo", "Abril", "Mayo", "Junio"))
+#---------------------------------------------------
+glimpse(bd2)
+@
+
+\section{Panorama general del 28 Febrero al 30 de Junio}
+\subsection{Graficos de lineas}
+Se muestran los cambios de la recoleccion de encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 30 de junio
+
+<<echo=False, fig=True>>=
+ggplot(bd1, aes(x = Fecha, y = Recuento, color = Tipo)) +
+geom_line() +
+labs(title = 
+"Cantidad de encuestas recogidas del 28 de febrero al 30 de junio")
+@
+
+\subsection{Graficos de barras}
+Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 30 de junio
+
+<<echo=False>>=
+bd1_tipo <- bd1 %>%
+  group_by(Tipo) %>%
+  summarise(minimo = min(Recuento), mediana = median(Recuento), maximo = max(Recuento))
+
+@
+
+\subsubsection{Minimo}
+El valor es de cero para recopiladas y completas
+
+<<echo=False, fig=True>>=
+ggplot(bd1_tipo, aes(x = Tipo, y = minimo)) +
+  geom_point()
+@
+
+\subsubsection{Mediana}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_tipo, aes(x = Tipo, y = mediana)) +
+  geom_col()
+@
+
+\subsubsection{Maximo}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_tipo, aes(x = Tipo, y = maximo)) +
+  geom_col()
+@
+
+\subsection{Histogramas}
+Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 30 de junio
+
+\subsubsection{Recopilada}
+
+<<echo=False, fig=True>>=
+bd1_recopilada <- bd1 %>%
+                filter(Tipo == "Recopilada") 
+ggplot(bd1_recopilada, aes(x = Recuento)) +
+  geom_histogram()
+@
+
+
+\subsubsection{Completa}
+
+<<echo=False, fig=True>>=
+bd1_completa <- bd1 %>%
+                filter(Tipo == "Completa") 
+ggplot(bd1_completa, aes(x = Recuento)) +
+  geom_histogram()
+@
+
+
+\subsection{Graficos de cajas}
+
+\subsection{Graficos de puntos}
+
+\end{document}

@@ -316,5 +316,131 @@ ggplot(bd2_sincovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) 
   facet_grid(~Dia)
 @
 
+\section{Panorama despues del covid}
+Esta etapa incluye desde el 18 de marzo hasta el 30 de junio
+
+\subsection{Graficos de lineas}
+Se muestran los cambios de la recoleccion de encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 30 de junio
+
+<<echo=False, fig=True>>=
+bd1_concovid <- bd1 %>%
+            filter(Fecha > "2020-03-17")
+ggplot(bd1_concovid, aes(x = Fecha, y = Recuento, color = Tipo)) +
+geom_line() +
+labs(title = 
+"Cantidad de encuestas recogidas del 18 de marzo hasta el 30 de junio")
+@
+
+\subsection{Graficos de barras}
+Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 30 de junio
+
+<<echo=False>>=
+bd1_concovid_tipo <- bd1_concovid %>%
+  group_by(Tipo) %>%
+  summarise(minimo = min(Recuento), mediana = median(Recuento), maximo = max(Recuento))
+
+@
+
+\subsubsection{Minimo}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_concovid_tipo, aes(x = Tipo, y = minimo)) +
+  geom_point()
+@
+
+\subsubsection{Mediana}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_concovid_tipo, aes(x = Tipo, y = mediana)) +
+  geom_col()
+@
+
+\subsubsection{Maximo}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_concovid_tipo, aes(x = Tipo, y = maximo)) +
+  geom_col()
+@
+
+\subsection{Histogramas}
+Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 30 de junio
+
+\subsubsection{Recopilada (escala "x" logaritmica)}
+
+<<echo=False, fig=True>>=
+bd1_concovid_recopilada <- bd1_concovid %>%
+                filter(Tipo == "Recopilada") 
+ggplot(bd1_concovid_recopilada, aes(x = Recuento)) +
+  geom_histogram() +
+  scale_x_log10()
+@
+
+
+\subsubsection{Completa (escala "x" logaritmica)}
+
+<<echo=False, fig=True>>=
+bd1_concovid_completa <- bd1_concovid %>%
+                filter(Tipo == "Completa") 
+ggplot(bd1_concovid_completa, aes(x = Recuento)) +
+  geom_histogram() +
+  scale_x_log10()
+@
+
+\subsection{Graficos de cajas (escala "y" logaritmica)}
+Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 30 de junio
+
+<<echo=False, fig=True>>=
+ggplot(bd1_concovid, aes(x = Tipo, y = Recuento)) +
+  geom_boxplot() +
+  scale_y_log10()
+@
+
+\subsubsection{Por meses (escala "y" logaritmica)}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_concovid, aes(x = Mes, y = Recuento, color = Tipo)) +
+  geom_boxplot() +
+  scale_y_log10()
+@
+
+\subsubsection{Por dia de la semana (escala "y" logaritmica)}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_concovid, aes(x = Dia, y = Recuento, color = Tipo)) +
+  geom_boxplot() +
+  scale_y_log10()
+@
+
+\subsection{Graficos de puntos (escala "x" y "y" logaritmica)}
+Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 30 de junio
+
+<<echo=False, fig=True>>=
+bd2_concovid <- bd2 %>%
+                filter(Fecha > "2020-03-17")
+ggplot(bd2_concovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+  geom_point()  +
+  scale_x_log10() +
+  scale_y_log10()
+@
+
+\subsubsection{Por meses (escala "x" y "y" logaritmica)}
+
+<<echo=False, fig=True>>=
+ggplot(bd2_concovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() +
+  facet_grid(~Mes)
+@
+
+\subsubsection{Por dias (escala "x" y "y" logaritmica)}
+
+<<echo=False, fig=True>>=
+ggplot(bd2_concovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+  geom_point() +  
+  scale_x_log10() +
+  scale_y_log10() +
+  facet_grid(~Dia)
+@
 
 \end{document}

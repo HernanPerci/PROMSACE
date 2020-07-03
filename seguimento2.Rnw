@@ -188,7 +188,7 @@ ggplot(bd2, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
   geom_point() +
   scale_x_log10() +
   scale_y_log10() +
-  facet_grid(~Dia)
+  facet_wrap(~Dia)
 @
 
 \section{Panorama antes del covid}
@@ -313,7 +313,7 @@ ggplot(bd2_sincovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) 
   geom_point() +  
   scale_x_log10() +
   scale_y_log10() +
-  facet_grid(~Dia)
+  facet_wrap(~Dia)
 @
 
 \section{Panorama despues del covid}
@@ -440,7 +440,7 @@ ggplot(bd2_concovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) 
   geom_point() +  
   scale_x_log10() +
   scale_y_log10() +
-  facet_grid(~Dia)
+  facet_wrap(~Dia)
 @
 
 \section{Febrero}
@@ -563,7 +563,7 @@ ggplot(bd2_marzo_sincovid, aes(x = `Recuento Recopiladas`, y = `Recuento Complet
   geom_point() +   
   scale_x_log10() +
   scale_y_log10() +
-  facet_grid(~Dia)
+  facet_wrap(~Dia)
 @
 
 \section{Marzo despues del covid}
@@ -666,7 +666,7 @@ ggplot(bd2_marzo_concovid, aes(x = `Recuento Recopiladas`, y = `Recuento Complet
 <<echo=False, fig=True>>=
 ggplot(bd2_marzo_concovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
   geom_point() +   
-  facet_grid(~Dia)
+  facet_wrap(~Dia)
 @
 
 \section{Abril}
@@ -776,7 +776,7 @@ ggplot(bd2_abril, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
   geom_point() +
   scale_x_log10() +
   scale_y_log10() +  
-  facet_grid(~Dia)
+  facet_wrap(~Dia)
 @
 
 \section{Mayo}
@@ -886,7 +886,7 @@ ggplot(bd2_mayo, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
   geom_point() +
   scale_x_log10() +
   scale_y_log10() +    
-  facet_grid(~Dia)
+  facet_wrap(~Dia)
 @
 
 \section{Junio}
@@ -987,7 +987,7 @@ ggplot(bd2_junio, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
 <<echo=False, fig=True>>=
 ggplot(bd2_junio, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
   geom_point() +
-  facet_grid(~Dia)
+  facet_wrap(~Dia)
 @
 
 

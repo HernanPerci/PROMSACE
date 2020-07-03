@@ -529,11 +529,6 @@ ggplot(bd1_marzo_sincovid_completa, aes(x = Recuento)) +
 \subsection{Graficos de cajas}
 Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 1 de marzo hasta el 17 de marzo
 
-<<echo=False, fig=True>>=
-ggplot(bd1_marzo_sincovid, aes(x = Tipo, y = Recuento)) +
-  geom_boxplot()
-@
-
 \subsubsection{Marzo sin covid}
 
 <<echo=False, fig=True>>=
@@ -642,11 +637,6 @@ ggplot(bd1_marzo_concovid_completa, aes(x = Recuento)) +
 \subsection{Graficos de cajas}
 Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 31 de marzo
 
-<<echo=False, fig=True>>=
-ggplot(bd1_marzo_concovid, aes(x = Tipo, y = Recuento)) +
-  geom_boxplot()
-@
-
 \subsubsection{Marzo con covid}
 
 <<echo=False, fig=True>>=
@@ -750,12 +740,6 @@ ggplot(bd1_abril_completa, aes(x = Recuento)) +
 \subsection{Graficos de cajas (escala "y" logaritmica)}
 Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo de Abril
 
-<<echo=False, fig=True>>=
-ggplot(bd1_abril, aes(x = Tipo, y = Recuento)) +
-  geom_boxplot() +
-  scale_y_log10()
-@
-
 \subsubsection{Abril (escala "y" logaritmica)}
 
 <<echo=False, fig=True>>=
@@ -792,6 +776,217 @@ ggplot(bd2_abril, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
   geom_point() +
   scale_x_log10() +
   scale_y_log10() +  
+  facet_grid(~Dia)
+@
+
+\section{Mayo}
+\subsection{Graficos de lineas}
+Se muestran los cambios de la recoleccion de encuestas recopiladas y completas a lo largo del periodo de Mayo
+
+<<echo=False, fig=True>>=
+bd1_mayo <- bd1 %>%
+              filter(Mes == "Mayo")
+ggplot(bd1_mayo, aes(x = Fecha, y = Recuento, color = Tipo)) +
+geom_line() +
+labs(title = 
+"Cantidad de encuestas recogidas de Mayo")
+@
+
+\subsection{Graficos de barras}
+Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo de Mayo
+
+<<echo=False>>=
+bd1_mayo_tipo <- bd1_mayo %>%
+  group_by(Tipo) %>%
+  summarise(minimo = min(Recuento), mediana = median(Recuento), maximo = max(Recuento))
+
+@
+
+\subsubsection{Minimo}
+El valor es de cero para recopiladas y completas
+
+<<echo=False, fig=True>>=
+ggplot(bd1_mayo_tipo, aes(x = Tipo, y = minimo)) +
+  geom_point()
+@
+
+\subsubsection{Mediana}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_mayo_tipo, aes(x = Tipo, y = mediana)) +
+  geom_col()
+@
+
+\subsubsection{Maximo}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_mayo_tipo, aes(x = Tipo, y = maximo)) +
+  geom_col()
+@
+
+\subsection{Histogramas}
+Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo de Mayo
+
+\subsubsection{Recopilada (escala "x" logaritmica)}
+
+<<echo=False, fig=True>>=
+bd1_mayo_recopilada <- bd1_mayo %>%
+                filter(Tipo == "Recopilada") 
+ggplot(bd1_mayo_recopilada, aes(x = Recuento)) +
+  geom_histogram() +
+  scale_x_log10()
+@
+
+\subsubsection{Completa (escala "x" logaritmica)}
+
+<<echo=False, fig=True>>=
+bd1_mayo_completa <- bd1_mayo %>%
+                filter(Tipo == "Completa") 
+ggplot(bd1_mayo_completa, aes(x = Recuento)) +
+  geom_histogram() +
+  scale_x_log10()
+@
+
+\subsection{Graficos de cajas (escala "y" logaritmica)}
+Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo de Mayo
+
+\subsubsection{Mayo (escala "y" logaritmica)}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_mayo, aes(x = Mes, y = Recuento, color = Tipo)) +
+  geom_boxplot() +
+  scale_y_log10()
+@
+
+\subsubsection{Por dia de la semana (escala "y" logaritmica)}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_mayo, aes(x = Dia, y = Recuento, color = Tipo)) +
+  geom_boxplot() +
+  scale_y_log10()
+@
+
+\subsection{Graficos de puntos (escala "x" y "y" logaritmica)}
+Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo de Mayo
+
+<<echo=False, fig=True>>=
+bd2_mayo <- bd2 %>%
+              filter(Mes == "Mayo")
+ggplot(bd2_mayo, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10()
+@
+
+
+\subsubsection{Por dias (escala "x" y "y" logaritmica)}
+
+<<echo=False, fig=True>>=
+ggplot(bd2_mayo, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() +    
+  facet_grid(~Dia)
+@
+
+\section{Junio}
+\subsection{Graficos de lineas}
+Se muestran los cambios de la recoleccion de encuestas recopiladas y completas a lo largo del periodo de Junio
+
+<<echo=False, fig=True>>=
+bd1_junio <- bd1 %>%
+              filter(Mes == "Junio")
+ggplot(bd1_junio, aes(x = Fecha, y = Recuento, color = Tipo)) +
+geom_line() +
+labs(title = 
+"Cantidad de encuestas recogidas de Junio")
+@
+
+\subsection{Graficos de barras}
+Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo de Junio
+
+<<echo=False>>=
+bd1_junio_tipo <- bd1_junio %>%
+  group_by(Tipo) %>%
+  summarise(minimo = min(Recuento), mediana = median(Recuento), maximo = max(Recuento))
+
+@
+
+\subsubsection{Minimo}
+El valor es de cero para recopiladas y completas
+
+<<echo=False, fig=True>>=
+ggplot(bd1_junio_tipo, aes(x = Tipo, y = minimo)) +
+  geom_point()
+@
+
+\subsubsection{Mediana}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_junio_tipo, aes(x = Tipo, y = mediana)) +
+  geom_col()
+@
+
+\subsubsection{Maximo}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_junio_tipo, aes(x = Tipo, y = maximo)) +
+  geom_col()
+@
+
+\subsection{Histogramas}
+Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo de Junio
+
+\subsubsection{Recopilada}
+
+<<echo=False, fig=True>>=
+bd1_junio_recopilada <- bd1_junio %>%
+                filter(Tipo == "Recopilada") 
+ggplot(bd1_junio_recopilada, aes(x = Recuento)) +
+  geom_histogram()
+@
+
+\subsubsection{Completa (escala "x" logaritmica)}
+
+<<echo=False, fig=True>>=
+bd1_junio_completa <- bd1_junio %>%
+                filter(Tipo == "Completa") 
+ggplot(bd1_junio_completa, aes(x = Recuento)) +
+  geom_histogram()
+@
+
+\subsection{Graficos de cajas}
+Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo de Junio
+
+\subsubsection{Junio}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_junio, aes(x = Mes, y = Recuento, color = Tipo)) +
+  geom_boxplot()
+@
+
+\subsubsection{Por dia de la semana}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_junio, aes(x = Dia, y = Recuento, color = Tipo)) +
+  geom_boxplot()
+@
+
+\subsection{Graficos de puntos}
+Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo de Junio
+
+<<echo=False, fig=True>>=
+bd2_junio <- bd2 %>%
+              filter(Mes == "Junio")
+ggplot(bd2_junio, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+  geom_point()
+@
+
+\subsubsection{Por dias}
+
+<<echo=False, fig=True>>=
+ggplot(bd2_junio, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+  geom_point() +
   facet_grid(~Dia)
 @
 

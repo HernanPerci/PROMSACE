@@ -7,7 +7,7 @@
 \date{\today}
 \maketitle
 \begin{abstract}
-Lo mostrado en este documento nos da una vision descriptiva y exploratoria sobre los cambios a traves del tiempo (del 28 febrero al 30 de junio) de las encuestas recopiladas y completas. Se trabajo con Latex y RStudio.
+Lo mostrado en este documento nos da una vision descriptiva y exploratoria sobre los cambios a traves del tiempo (del 28 febrero al 30 de junio) de las encuestas recopiladas y completas. Se trabajo con Latex y RStudio. Pueden encontrar el codigo en https://github.com/HernanPerci/PROMSACE
 \end{abstract}
 
 \tableofcontents
@@ -190,5 +190,131 @@ ggplot(bd2, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
   scale_y_log10() +
   facet_grid(~Dia)
 @
+
+\section{Panorama antes del covid}
+Esta etapa incluye desde el 28 de febrero hasta el 17 de marzo
+
+\subsection{Graficos de lineas}
+Se muestran los cambios de la recoleccion de encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 17 de marzo
+
+<<echo=False, fig=True>>=
+bd1_sincovid <- bd1 %>%
+            filter(Fecha <= "2020-03-17")
+ggplot(bd1_sincovid, aes(x = Fecha, y = Recuento, color = Tipo)) +
+geom_line() +
+labs(title = 
+"Cantidad de encuestas recogidas del 28 de febrero al 17 de marzo")
+@
+
+\subsection{Graficos de barras}
+Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 17 de marzo
+
+<<echo=False>>=
+bd1_sincovid_tipo <- bd1_sincovid %>%
+  group_by(Tipo) %>%
+  summarise(minimo = min(Recuento), mediana = median(Recuento), maximo = max(Recuento))
+
+@
+
+\subsubsection{Minimo}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_sincovid_tipo, aes(x = Tipo, y = minimo)) +
+  geom_col()
+@
+
+\subsubsection{Mediana}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_sincovid_tipo, aes(x = Tipo, y = mediana)) +
+  geom_col()
+@
+
+\subsubsection{Maximo}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_sincovid_tipo, aes(x = Tipo, y = maximo)) +
+  geom_col()
+@
+
+\subsection{Histogramas}
+Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 17 de marzo
+
+\subsubsection{Recopilada (escala "x" logaritmica)}
+
+<<echo=False, fig=True>>=
+bd1_sincovid_recopilada <- bd1_sincovid %>%
+                filter(Tipo == "Recopilada") 
+ggplot(bd1_sincovid_recopilada, aes(x = Recuento)) +
+  geom_histogram() +
+  scale_x_log10()
+@
+
+
+\subsubsection{Completa (escala "x" logaritmica)}
+
+<<echo=False, fig=True>>=
+bd1_sincovid_completa <- bd1_sincovid %>%
+                filter(Tipo == "Completa") 
+ggplot(bd1_sincovid_completa, aes(x = Recuento)) +
+  geom_histogram() +
+  scale_x_log10()
+@
+
+\subsection{Graficos de cajas}
+Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 17 de marzo
+
+<<echo=False, fig=True>>=
+ggplot(bd1_sincovid, aes(x = Tipo, y = Recuento)) +
+  geom_boxplot()
+@
+
+\subsubsection{Por meses}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_sincovid, aes(x = Mes, y = Recuento, color = Tipo)) +
+  geom_boxplot()
+@
+
+\subsubsection{Por dia de la semana (escala "y" logaritmica)}
+
+<<echo=False, fig=True>>=
+ggplot(bd1_sincovid, aes(x = Dia, y = Recuento, color = Tipo)) +
+  geom_boxplot() +
+  scale_y_log10()
+@
+
+\subsection{Graficos de puntos (escala "x" y "y" logaritmica)}
+Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 17 de marzo
+
+<<echo=False, fig=True>>=
+bd2_sincovid <- bd2 %>%
+                filter(Fecha <= "2020-03-17")
+ggplot(bd2_sincovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+  geom_point()  +
+  scale_x_log10() +
+  scale_y_log10()
+@
+
+\subsubsection{Por meses (escala "x" y "y" logaritmica)}
+
+<<echo=False, fig=True>>=
+ggplot(bd2_sincovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() +
+  facet_grid(~Mes)
+@
+
+\subsubsection{Por dias (escala "x" y "y" logaritmica)}
+
+<<echo=False, fig=True>>=
+ggplot(bd2_sincovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+  geom_point() +  
+  scale_x_log10() +
+  scale_y_log10() +
+  facet_grid(~Dia)
+@
+
 
 \end{document}

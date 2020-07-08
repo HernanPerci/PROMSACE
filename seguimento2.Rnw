@@ -71,15 +71,6 @@ labs(title =
 "Cantidad de encuestas recogidas del 28 de febrero al 30 de junio")
 @
 
-\subsubsection{escala "y" logaritmica}
-<<echo=False, fig=True>>=
-ggplot(bd1, aes(x = Fecha, y = Recuento, color = Tipo)) +
-geom_line() +
-labs(title = 
-"Cantidad de encuestas recogidas del 28 de febrero al 30 de junio") +
-  scale_y_log10()
-@
-
 \subsection{Graficos de barras}
 Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 30 de junio
 
@@ -87,7 +78,7 @@ Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo
 bd1_tipo <- bd1 %>%
   group_by(Tipo) %>%
   summarise(minimo = min(Recuento), mediana = median(Recuento), maximo = max(Recuento))
-
+bd1_tipo
 @
 
 \subsubsection{Minimo}
@@ -115,105 +106,94 @@ ggplot(bd1_tipo, aes(x = Tipo, y = maximo)) +
 \subsection{Histogramas}
 Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 30 de junio
 
-\subsubsection{Recopilada (escala "x" logaritmica)}
+\subsubsection{Recopilada}
 
 <<echo=False, fig=True>>=
 bd1_recopilada <- bd1 %>%
                 filter(Tipo == "Recopilada") 
 ggplot(bd1_recopilada, aes(x = Recuento)) +
-  geom_histogram() +
-  scale_x_log10()
+  geom_histogram(bins = 100)
 @
 
 
-\subsubsection{Completa (escala "x" logaritmica)}
+\subsubsection{Completa}
 
 <<echo=False, fig=True>>=
 bd1_completa <- bd1 %>%
                 filter(Tipo == "Completa") 
 ggplot(bd1_completa, aes(x = Recuento)) +
-  geom_histogram() +
-  scale_x_log10()
+  geom_histogram(bins = 100)
 @
 
-\subsection{Graficos de cajas (escala "y" logaritmica)}
+\subsection{Graficos de cajas}
 Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 30 de junio
 
 <<echo=False, fig=True>>=
 ggplot(bd1, aes(x = Tipo, y = Recuento)) +
-  geom_boxplot() +
-  scale_y_log10()
+  geom_boxplot()
 @
 
-\subsubsection{Por meses (escala "y" logaritmica)}
+\subsubsection{Por meses}
 
 <<echo=False, fig=True>>=
 ggplot(bd1, aes(x = Mes, y = Recuento, color = Tipo)) +
-  geom_boxplot() +
-  scale_y_log10()
+  geom_boxplot()
 @
 
-\subsubsection{Por dia de la semana (escala "y" logaritmica)}
+\subsubsection{Por dia de la semana}
 
 <<echo=False, fig=True>>=
 ggplot(bd1, aes(x = Dia, y = Recuento, color = Tipo)) +
-  geom_boxplot() +
-  scale_y_log10()
+  geom_boxplot()
 @
 
-\subsection{Graficos de puntos (escala "x" y "y" logaritmica)}
+\subsection{Graficos de puntos}
 Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 30 de junio
 
 <<echo=False, fig=True>>=
 ggplot(bd2, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
-  geom_point() +
-  scale_x_log10() +
-  scale_y_log10()
+  geom_point()
 @
 
-\subsubsection{Por meses (escala "x" y "y" logaritmica)}
+\subsubsection{Por meses}
 
 <<echo=False, fig=True>>=
-ggplot(bd2, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+ggplot(bd2, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = Dia)) +
   geom_point() +
-  scale_x_log10() +
-  scale_y_log10() +
-  facet_grid(~Mes)
+  facet_wrap(~Mes)
 @
 
-\subsubsection{Por dias (escala "x" y "y" logaritmica)}
+\subsubsection{Por dias}
 
 <<echo=False, fig=True>>=
-ggplot(bd2, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+ggplot(bd2, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = Mes)) +
   geom_point() +
-  scale_x_log10() +
-  scale_y_log10() +
   facet_wrap(~Dia)
 @
 
 \section{Panorama antes del covid}
-Esta etapa incluye desde el 28 de febrero hasta el 17 de marzo
+Esta etapa incluye desde el 28 de febrero hasta el 15 de marzo
 
 \subsection{Graficos de lineas}
-Se muestran los cambios de la recoleccion de encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 17 de marzo
+Se muestran los cambios de la recoleccion de encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 15 de marzo
 
 <<echo=False, fig=True>>=
 bd1_sincovid <- bd1 %>%
-            filter(Fecha <= "2020-03-17")
+            filter(Fecha <= "2020-03-15")
 ggplot(bd1_sincovid, aes(x = Fecha, y = Recuento, color = Tipo)) +
 geom_line() +
 labs(title = 
-"Cantidad de encuestas recogidas del 28 de febrero al 17 de marzo")
+"Cantidad de encuestas recogidas del 28 de febrero al 15 de marzo")
 @
 
 \subsection{Graficos de barras}
-Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 17 de marzo
+Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 15 de marzo
 
 <<echo=False>>=
 bd1_sincovid_tipo <- bd1_sincovid %>%
   group_by(Tipo) %>%
   summarise(minimo = min(Recuento), mediana = median(Recuento), maximo = max(Recuento))
-
+bd1_sincovid_tipo
 @
 
 \subsubsection{Minimo}
@@ -238,31 +218,29 @@ ggplot(bd1_sincovid_tipo, aes(x = Tipo, y = maximo)) +
 @
 
 \subsection{Histogramas}
-Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 17 de marzo
+Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 15 de marzo
 
-\subsubsection{Recopilada (escala "x" logaritmica)}
+\subsubsection{Recopilada}
 
 <<echo=False, fig=True>>=
 bd1_sincovid_recopilada <- bd1_sincovid %>%
                 filter(Tipo == "Recopilada") 
 ggplot(bd1_sincovid_recopilada, aes(x = Recuento)) +
-  geom_histogram() +
-  scale_x_log10()
+  geom_histogram(bins = 100)
 @
 
 
-\subsubsection{Completa (escala "x" logaritmica)}
+\subsubsection{Completa}
 
 <<echo=False, fig=True>>=
 bd1_sincovid_completa <- bd1_sincovid %>%
                 filter(Tipo == "Completa") 
 ggplot(bd1_sincovid_completa, aes(x = Recuento)) +
-  geom_histogram() +
-  scale_x_log10()
+  geom_histogram(bins = 100)
 @
 
 \subsection{Graficos de cajas}
-Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 17 de marzo
+Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 15 de marzo
 
 <<echo=False, fig=True>>=
 ggplot(bd1_sincovid, aes(x = Tipo, y = Recuento)) +
@@ -276,69 +254,62 @@ ggplot(bd1_sincovid, aes(x = Mes, y = Recuento, color = Tipo)) +
   geom_boxplot()
 @
 
-\subsubsection{Por dia de la semana (escala "y" logaritmica)}
+\subsubsection{Por dia de la semana}
 
 <<echo=False, fig=True>>=
 ggplot(bd1_sincovid, aes(x = Dia, y = Recuento, color = Tipo)) +
-  geom_boxplot() +
-  scale_y_log10()
+  geom_boxplot()
 @
 
-\subsection{Graficos de puntos (escala "x" y "y" logaritmica)}
-Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 17 de marzo
+\subsection{Graficos de puntos}
+Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo 28 de febrero al 15 de marzo
 
 <<echo=False, fig=True>>=
 bd2_sincovid <- bd2 %>%
-                filter(Fecha <= "2020-03-17")
+                filter(Fecha <= "2020-03-15")
 ggplot(bd2_sincovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
-  geom_point()  +
-  scale_x_log10() +
-  scale_y_log10()
+  geom_point()
 @
 
-\subsubsection{Por meses (escala "x" y "y" logaritmica)}
+\subsubsection{Por meses}
 
 <<echo=False, fig=True>>=
-ggplot(bd2_sincovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+ggplot(bd2_sincovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = Dia)) +
   geom_point() +
-  scale_x_log10() +
-  scale_y_log10() +
-  facet_grid(~Mes)
+  facet_wrap(~Mes)
 @
 
-\subsubsection{Por dias (escala "x" y "y" logaritmica)}
+\subsubsection{Por dias}
 
 <<echo=False, fig=True>>=
-ggplot(bd2_sincovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
-  geom_point() +  
-  scale_x_log10() +
-  scale_y_log10() +
+ggplot(bd2_sincovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = Mes)) +
+  geom_point() +
   facet_wrap(~Dia)
 @
 
 \section{Panorama despues del covid}
-Esta etapa incluye desde el 18 de marzo hasta el 30 de junio
+Esta etapa incluye desde el 16 de marzo hasta el 30 de junio
 
 \subsection{Graficos de lineas}
-Se muestran los cambios de la recoleccion de encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 30 de junio
+Se muestran los cambios de la recoleccion de encuestas recopiladas y completas a lo largo del periodo 16 de marzo hasta el 30 de junio
 
 <<echo=False, fig=True>>=
 bd1_concovid <- bd1 %>%
-            filter(Fecha > "2020-03-17")
+            filter(Fecha > "2020-03-15")
 ggplot(bd1_concovid, aes(x = Fecha, y = Recuento, color = Tipo)) +
 geom_line() +
 labs(title = 
-"Cantidad de encuestas recogidas del 18 de marzo hasta el 30 de junio")
+"Cantidad de encuestas recogidas del 16 de marzo hasta el 30 de junio")
 @
 
 \subsection{Graficos de barras}
-Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 30 de junio
+Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo 16 de marzo hasta el 30 de junio
 
 <<echo=False>>=
 bd1_concovid_tipo <- bd1_concovid %>%
   group_by(Tipo) %>%
   summarise(minimo = min(Recuento), mediana = median(Recuento), maximo = max(Recuento))
-
+bd1_concovid_tipo
 @
 
 \subsubsection{Minimo}
@@ -363,83 +334,72 @@ ggplot(bd1_concovid_tipo, aes(x = Tipo, y = maximo)) +
 @
 
 \subsection{Histogramas}
-Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 30 de junio
+Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 16 de marzo hasta el 30 de junio
 
-\subsubsection{Recopilada (escala "x" logaritmica)}
+\subsubsection{Recopilada}
 
 <<echo=False, fig=True>>=
 bd1_concovid_recopilada <- bd1_concovid %>%
                 filter(Tipo == "Recopilada") 
 ggplot(bd1_concovid_recopilada, aes(x = Recuento)) +
-  geom_histogram() +
-  scale_x_log10()
+  geom_histogram(bins = 100)
 @
 
 
-\subsubsection{Completa (escala "x" logaritmica)}
+\subsubsection{Completa}
 
 <<echo=False, fig=True>>=
 bd1_concovid_completa <- bd1_concovid %>%
                 filter(Tipo == "Completa") 
 ggplot(bd1_concovid_completa, aes(x = Recuento)) +
-  geom_histogram() +
-  scale_x_log10()
+  geom_histogram(bins = 100)
 @
 
-\subsection{Graficos de cajas (escala "y" logaritmica)}
-Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 30 de junio
+\subsection{Graficos de cajas}
+Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 16 de marzo hasta el 30 de junio
 
 <<echo=False, fig=True>>=
 ggplot(bd1_concovid, aes(x = Tipo, y = Recuento)) +
-  geom_boxplot() +
-  scale_y_log10()
+  geom_boxplot()
 @
 
-\subsubsection{Por meses (escala "y" logaritmica)}
+\subsubsection{Por meses}
 
 <<echo=False, fig=True>>=
 ggplot(bd1_concovid, aes(x = Mes, y = Recuento, color = Tipo)) +
-  geom_boxplot() +
-  scale_y_log10()
+  geom_boxplot()
 @
 
-\subsubsection{Por dia de la semana (escala "y" logaritmica)}
+\subsubsection{Por dia de la semana}
 
 <<echo=False, fig=True>>=
 ggplot(bd1_concovid, aes(x = Dia, y = Recuento, color = Tipo)) +
-  geom_boxplot() +
-  scale_y_log10()
+  geom_boxplot()
 @
 
-\subsection{Graficos de puntos (escala "x" y "y" logaritmica)}
-Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 30 de junio
+\subsection{Graficos de puntos}
+Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo 16 de marzo hasta el 30 de junio
 
 <<echo=False, fig=True>>=
 bd2_concovid <- bd2 %>%
-                filter(Fecha > "2020-03-17")
+                filter(Fecha > "2020-03-15")
 ggplot(bd2_concovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
-  geom_point()  +
-  scale_x_log10() +
-  scale_y_log10()
+  geom_point()
 @
 
-\subsubsection{Por meses (escala "x" y "y" logaritmica)}
+\subsubsection{Por meses}
 
 <<echo=False, fig=True>>=
-ggplot(bd2_concovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
+ggplot(bd2_concovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = Dia)) +
   geom_point() +
-  scale_x_log10() +
-  scale_y_log10() +
-  facet_grid(~Mes)
+  facet_wrap(~Mes)
 @
 
-\subsubsection{Por dias (escala "x" y "y" logaritmica)}
+\subsubsection{Por dias}
 
 <<echo=False, fig=True>>=
-ggplot(bd2_concovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
-  geom_point() +  
-  scale_x_log10() +
-  scale_y_log10() +
+ggplot(bd2_concovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = Mes)) +
+  geom_point() +
   facet_wrap(~Dia)
 @
 
@@ -457,28 +417,28 @@ ggplot(bd1_febrero, aes(x = Dia, y = Recuento, fill = Tipo)) +
 @
 
 \section{Marzo antes del covid}
-Esta etapa incluye desde el 1 de marzo hasta el 17 de marzo
+Esta etapa incluye desde el 1 de marzo hasta el 15 de marzo
 
 \subsection{Graficos de lineas}
-Se muestran los cambios de la recoleccion de encuestas recopiladas y completas a lo largo del periodo 1 de marzo hasta el 17 de marzo
+Se muestran los cambios de la recoleccion de encuestas recopiladas y completas a lo largo del periodo 1 de marzo hasta el 15 de marzo
 
 <<echo=False, fig=True>>=
 bd1_marzo_sincovid <- bd1 %>%
-            filter(Fecha > "2020-02-29" & Fecha <= "2020-03-17")
+            filter(Fecha > "2020-02-29" & Fecha <= "2020-03-15")
 ggplot(bd1_marzo_sincovid, aes(x = Fecha, y = Recuento, color = Tipo)) +
 geom_line() +
 labs(title = 
-"Cantidad de encuestas recogidas del 1 de marzo hasta el 17 de marzo")
+"Cantidad de encuestas recogidas del 1 de marzo hasta el 15 de marzo")
 @
 
 \subsection{Graficos de barras}
-Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo 1 de marzo hasta el 17 de marzo
+Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo 1 de marzo hasta el 15 de marzo
 
 <<echo=False>>=
 bd1_marzo_sincovid_tipo <- bd1_marzo_sincovid %>%
   group_by(Tipo) %>%
   summarise(minimo = min(Recuento), mediana = median(Recuento), maximo = max(Recuento))
-
+bd1_marzo_sincovid_tipo
 @
 
 \subsubsection{Minimo}
@@ -503,31 +463,29 @@ ggplot(bd1_marzo_sincovid_tipo, aes(x = Tipo, y = maximo)) +
 @
 
 \subsection{Histogramas}
-Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 1 de marzo hasta el 17 de marzo
+Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 1 de marzo hasta el 15 de marzo
 
-\subsubsection{Recopilada (escala "x" logaritmica)}
+\subsubsection{Recopilada}
 
 <<echo=False, fig=True>>=
 bd1_marzo_sincovid_recopilada <- bd1_marzo_sincovid %>%
                 filter(Tipo == "Recopilada") 
 ggplot(bd1_marzo_sincovid_recopilada, aes(x = Recuento)) +
-  geom_histogram() +
-  scale_x_log10()
+  geom_histogram(bins = 100, binwidth = 10)
 @
 
 
-\subsubsection{Completa (escala "x" logaritmica)}
+\subsubsection{Completa}
 
 <<echo=False, fig=True>>=
 bd1_marzo_sincovid_completa <- bd1_sincovid %>%
                 filter(Tipo == "Completa") 
 ggplot(bd1_marzo_sincovid_completa, aes(x = Recuento)) +
-  geom_histogram() +
-  scale_x_log10()
+  geom_histogram(bins = 100, binwidth = 10)
 @
 
 \subsection{Graficos de cajas}
-Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 1 de marzo hasta el 17 de marzo
+Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 1 de marzo hasta el 15 de marzo
 
 \subsubsection{Marzo sin covid}
 
@@ -536,59 +494,54 @@ ggplot(bd1_marzo_sincovid, aes(x = Mes, y = Recuento, color = Tipo)) +
   geom_boxplot()
 @
 
-\subsubsection{Por dia de la semana (escala "y" logaritmica)}
+\subsubsection{Por dia de la semana}
 
 <<echo=False, fig=True>>=
 ggplot(bd1_marzo_sincovid, aes(x = Dia, y = Recuento, color = Tipo)) +
-  geom_boxplot() +
-  scale_y_log10()
+  geom_boxplot()
 @
 
-\subsection{Graficos de puntos (escala "x" y "y" logaritmica)}
+\subsection{Graficos de puntos}
 Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo 1 de marzo hasta el 17 de marzo
 
 <<echo=False, fig=True>>=
 bd2_marzo_sincovid <- bd2 %>%
-                filter(Fecha > "2020-02-29" & Fecha <= "2020-03-17")
+                filter(Fecha > "2020-02-29" & Fecha <= "2020-03-15")
 ggplot(bd2_marzo_sincovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
-  geom_point()  +
-  scale_x_log10() +
-  scale_y_log10()
+  geom_point()
 @
 
-\subsubsection{Por dias (escala "x" y "y" logaritmica)}
+\subsubsection{Por dias}
 
 <<echo=False, fig=True>>=
 ggplot(bd2_marzo_sincovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
-  geom_point() +   
-  scale_x_log10() +
-  scale_y_log10() +
+  geom_point() +
   facet_wrap(~Dia)
 @
 
 \section{Marzo despues del covid}
-Esta etapa incluye desde el 18 de marzo hasta el 31 de marzo
+Esta etapa incluye desde el 16 de marzo hasta el 31 de marzo
 
 \subsection{Graficos de lineas}
-Se muestran los cambios de la recoleccion de encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 31 de marzo
+Se muestran los cambios de la recoleccion de encuestas recopiladas y completas a lo largo del periodo 16 de marzo hasta el 31 de marzo
 
 <<echo=False, fig=True>>=
 bd1_marzo_concovid <- bd1 %>%
-            filter(Fecha > "2020-03-17" & Fecha <= "2020-03-31")
+            filter(Fecha > "2020-03-15" & Fecha <= "2020-03-31")
 ggplot(bd1_marzo_concovid, aes(x = Fecha, y = Recuento, color = Tipo)) +
 geom_line() +
 labs(title = 
-"Cantidad de encuestas recogidas del 18 de marzo hasta el 31 de marzo")
+"Cantidad de encuestas recogidas del 16 de marzo hasta el 31 de marzo")
 @
 
 \subsection{Graficos de barras}
-Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo 17 de marzo hasta el 31 de marzo
+Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo del periodo 16 de marzo hasta el 31 de marzo
 
 <<echo=False>>=
 bd1_marzo_concovid_tipo <- bd1_marzo_concovid %>%
   group_by(Tipo) %>%
   summarise(minimo = min(Recuento), mediana = median(Recuento), maximo = max(Recuento))
-
+bd1_marzo_concovid_tipo
 @
 
 \subsubsection{Minimo}
@@ -613,7 +566,7 @@ ggplot(bd1_marzo_concovid_tipo, aes(x = Tipo, y = maximo)) +
 @
 
 \subsection{Histogramas}
-Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 31 de marzo
+Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 16 de marzo hasta el 31 de marzo
 
 \subsubsection{Recopilada}
 
@@ -621,7 +574,7 @@ Se mostraran las distribuciones de las encuestas recopiladas y completas a lo la
 bd1_marzo_concovid_recopilada <- bd1_marzo_concovid %>%
                 filter(Tipo == "Recopilada") 
 ggplot(bd1_marzo_concovid_recopilada, aes(x = Recuento)) +
-  geom_histogram()
+  geom_histogram(bins = 100)
 @
 
 
@@ -631,11 +584,11 @@ ggplot(bd1_marzo_concovid_recopilada, aes(x = Recuento)) +
 bd1_marzo_concovid_completa <- bd1_marzo_concovid %>%
                 filter(Tipo == "Completa") 
 ggplot(bd1_marzo_concovid_completa, aes(x = Recuento)) +
-  geom_histogram()
+  geom_histogram(bins = 100)
 @
 
 \subsection{Graficos de cajas}
-Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 31 de marzo
+Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo 16 de marzo hasta el 31 de marzo
 
 \subsubsection{Marzo con covid}
 
@@ -652,11 +605,11 @@ ggplot(bd1_marzo_concovid, aes(x = Dia, y = Recuento, color = Tipo)) +
 @
 
 \subsection{Graficos de puntos}
-Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo 18 de marzo hasta el 31 de marzo
+Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo 16 de marzo hasta el 31 de marzo
 
 <<echo=False, fig=True>>=
 bd2_marzo_concovid <- bd2 %>%
-                filter(Fecha > "2020-03-17" & Fecha <= "2020-03-31")
+                filter(Fecha > "2020-03-15" & Fecha <= "2020-03-31")
 ggplot(bd2_marzo_concovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
   geom_point()
 @
@@ -689,7 +642,7 @@ Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo
 bd1_abril_tipo <- bd1_abril %>%
   group_by(Tipo) %>%
   summarise(minimo = min(Recuento), mediana = median(Recuento), maximo = max(Recuento))
-
+bd1_abril_tipo
 @
 
 \subsubsection{Minimo}
@@ -717,65 +670,57 @@ ggplot(bd1_abril_tipo, aes(x = Tipo, y = maximo)) +
 \subsection{Histogramas}
 Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo de Abril
 
-\subsubsection{Recopilada (escala "x" logaritmica)}
+\subsubsection{Recopilada}
 
 <<echo=False, fig=True>>=
 bd1_abril_recopilada <- bd1_abril %>%
                 filter(Tipo == "Recopilada") 
 ggplot(bd1_abril_recopilada, aes(x = Recuento)) +
-  geom_histogram() +
-  scale_x_log10()
+  geom_histogram(bins = 100)
 @
 
-\subsubsection{Completa (escala "x" logaritmica)}
+\subsubsection{Completa}
 
 <<echo=False, fig=True>>=
 bd1_abril_completa <- bd1_abril %>%
                 filter(Tipo == "Completa") 
 ggplot(bd1_abril_completa, aes(x = Recuento)) +
-  geom_histogram() +
-  scale_x_log10()
+  geom_histogram(bins = 100)
 @
 
-\subsection{Graficos de cajas (escala "y" logaritmica)}
+\subsection{Graficos de cajas}
 Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo de Abril
 
-\subsubsection{Abril (escala "y" logaritmica)}
+\subsubsection{Abril}
 
 <<echo=False, fig=True>>=
 ggplot(bd1_abril, aes(x = Mes, y = Recuento, color = Tipo)) +
-  geom_boxplot() +
-  scale_y_log10()
+  geom_boxplot()
 @
 
-\subsubsection{Por dia de la semana (escala "y" logaritmica)}
+\subsubsection{Por dia de la semana}
 
 <<echo=False, fig=True>>=
 ggplot(bd1_abril, aes(x = Dia, y = Recuento, color = Tipo)) +
-  geom_boxplot() +
-  scale_y_log10()
+  geom_boxplot()
 @
 
-\subsection{Graficos de puntos (escala "x" y "y" logaritmica)}
+\subsection{Graficos de puntos}
 Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo de Abril
 
 <<echo=False, fig=True>>=
 bd2_abril <- bd2 %>%
               filter(Mes == "Abril")
 ggplot(bd2_abril, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
-  geom_point() +
-  scale_x_log10() +
-  scale_y_log10()
+  geom_point()
 @
 
 
-\subsubsection{Por dias (escala "x" y "y" logaritmica)}
+\subsubsection{Por dias}
 
 <<echo=False, fig=True>>=
 ggplot(bd2_abril, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
-  geom_point() +
-  scale_x_log10() +
-  scale_y_log10() +  
+  geom_point() +  
   facet_wrap(~Dia)
 @
 
@@ -799,7 +744,7 @@ Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo
 bd1_mayo_tipo <- bd1_mayo %>%
   group_by(Tipo) %>%
   summarise(minimo = min(Recuento), mediana = median(Recuento), maximo = max(Recuento))
-
+bd1_mayo_tipo
 @
 
 \subsubsection{Minimo}
@@ -827,65 +772,57 @@ ggplot(bd1_mayo_tipo, aes(x = Tipo, y = maximo)) +
 \subsection{Histogramas}
 Se mostraran las distribuciones de las encuestas recopiladas y completas a lo largo del periodo de Mayo
 
-\subsubsection{Recopilada (escala "x" logaritmica)}
+\subsubsection{Recopilada}
 
 <<echo=False, fig=True>>=
 bd1_mayo_recopilada <- bd1_mayo %>%
                 filter(Tipo == "Recopilada") 
 ggplot(bd1_mayo_recopilada, aes(x = Recuento)) +
-  geom_histogram() +
-  scale_x_log10()
+  geom_histogram(bins = 100)
 @
 
-\subsubsection{Completa (escala "x" logaritmica)}
+\subsubsection{Completa}
 
 <<echo=False, fig=True>>=
 bd1_mayo_completa <- bd1_mayo %>%
                 filter(Tipo == "Completa") 
 ggplot(bd1_mayo_completa, aes(x = Recuento)) +
-  geom_histogram() +
-  scale_x_log10()
+  geom_histogram(bins = 100)
 @
 
-\subsection{Graficos de cajas (escala "y" logaritmica)}
+\subsection{Graficos de cajas}
 Se comparan las distribuciones de las encuestas recopiladas y completas a lo largo del periodo de Mayo
 
-\subsubsection{Mayo (escala "y" logaritmica)}
+\subsubsection{Mayo}
 
 <<echo=False, fig=True>>=
 ggplot(bd1_mayo, aes(x = Mes, y = Recuento, color = Tipo)) +
-  geom_boxplot() +
-  scale_y_log10()
+  geom_boxplot()
 @
 
-\subsubsection{Por dia de la semana (escala "y" logaritmica)}
+\subsubsection{Por dia de la semana}
 
 <<echo=False, fig=True>>=
 ggplot(bd1_mayo, aes(x = Dia, y = Recuento, color = Tipo)) +
-  geom_boxplot() +
-  scale_y_log10()
+  geom_boxplot()
 @
 
-\subsection{Graficos de puntos (escala "x" y "y" logaritmica)}
+\subsection{Graficos de puntos}
 Se mostraran las posibles relaciones entre las encuestas recopiladas y completas a lo largo del periodo de Mayo
 
 <<echo=False, fig=True>>=
 bd2_mayo <- bd2 %>%
               filter(Mes == "Mayo")
 ggplot(bd2_mayo, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
-  geom_point() +
-  scale_x_log10() +
-  scale_y_log10()
+  geom_point()
 @
 
 
-\subsubsection{Por dias (escala "x" y "y" logaritmica)}
+\subsubsection{Por dias}
 
 <<echo=False, fig=True>>=
 ggplot(bd2_mayo, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`)) +
-  geom_point() +
-  scale_x_log10() +
-  scale_y_log10() +    
+  geom_point() +    
   facet_wrap(~Dia)
 @
 
@@ -909,7 +846,7 @@ Se comparan las estadisticas de las encuestas recopiladas y completas a lo largo
 bd1_junio_tipo <- bd1_junio %>%
   group_by(Tipo) %>%
   summarise(minimo = min(Recuento), mediana = median(Recuento), maximo = max(Recuento))
-
+bd1_junio_tipo
 @
 
 \subsubsection{Minimo}
@@ -943,16 +880,16 @@ Se mostraran las distribuciones de las encuestas recopiladas y completas a lo la
 bd1_junio_recopilada <- bd1_junio %>%
                 filter(Tipo == "Recopilada") 
 ggplot(bd1_junio_recopilada, aes(x = Recuento)) +
-  geom_histogram()
+  geom_histogram(bins = 100)
 @
 
-\subsubsection{Completa (escala "x" logaritmica)}
+\subsubsection{Completa}
 
 <<echo=False, fig=True>>=
 bd1_junio_completa <- bd1_junio %>%
                 filter(Tipo == "Completa") 
 ggplot(bd1_junio_completa, aes(x = Recuento)) +
-  geom_histogram()
+  geom_histogram(bins = 100)
 @
 
 \subsection{Graficos de cajas}

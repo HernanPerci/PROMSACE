@@ -1,0 +1,150 @@
+\documentclass{article}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\title{PROMSACE: Seguimiento de encuestas}
+\author{Hernan Nuñez}
+\date{\today}
+\maketitle
+\begin{abstract}
+Lo mostrado en este documento nos da una vision descriptiva y exploratoria sobre los cambios a traves del tiempo (del 28 febrero al 30 de junio) de las encuestas recopiladas y completas. Se trabajo con Latex y RStudio. Pueden encontrar el codigo en https://github.com/HernanPerci/PROMSACE
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduccion}
+La encuesta sobre la que se respalda el presente informe aun se esta recolectando mediante la platafoma surveymonkey.
+
+\section{Variables de estudio}
+
+<<echo = FALSE>>=
+library(tidyverse)
+library(readxl)
+@
+
+<<echo = FALSE>>=
+
+bbdd <- read_excel("D:/descargas/Reporte corregido 10julio.xlsx", 
+    sheet = "BD-RV3", range = "A3:J2238", 
+    col_types = c("date", "numeric", "numeric", 
+        "text", "text", "text", "text", "text", 
+        "text", "text"))
+
+#----------------------------------------
+
+bbdd$`Dia de la semana` <- factor(bbdd$`Dia de la semana`, levels = c("lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"))
+
+#----------------------------------------
+
+bbdd$Mes <- factor(bbdd$Mes, levels = c("Febrero", "Marzo", "Abril", "Mayo", "Junio"))
+
+#----------------------------------------
+
+bbdd$`Organo de pertenencia` <- factor(bbdd$`Organo de pertenencia`, levels = c("Órgano de Apoyo (recursos humanos, administración, tecnologías de la información, otros)", "Órgano de Asesoría (jurídica, planeamiento, presupuesto, otros)", "Órgano de Línea", "Otros", "Sin respuesta"), labels = c("apoyo", "asesoria", "linea", "Otros","Sin respuesta"))
+
+#----------------------------------------
+
+bbdd$`Tiempo trabajando en el Estado` <- factor(bbdd$`Tiempo trabajando en el Estado`, levels = c("Menos de dos años","De dos a cinco años", "De seis a diez años", "Más de diez años", "Sin respuesta"), labels = c("[0 - 2>", "[2 - 5]", "[6 - 10]", "<10 a mas>", "Sin respuesta"))
+
+#----------------------------------------
+
+bbdd$`Nivel de gobierno` <- factor(bbdd$`Nivel de gobierno`, levels = c("Local", "Regional", "Nacional", "Sin respuesta"))
+
+glimpse(bbdd)
+
+@
+
+\section{Panorama general del 28 de Febrero al 30 de Junio}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Fecha, y = Hora, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  scale_x_datetime(date_breaks = "1 week", date_labels = "%d-%b") +
+  labs(title = "Cantidad de encuestas completas e incompletas por fecha y Hora") +
+  coord_flip()
+@
+
+Se puede apreciar que hubo mayor recepcion de encuestas diarias hasta el lunes 16 de Marzo y en horario de trabajo.
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Fecha, y = `Organo de pertenencia`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  scale_x_datetime(date_breaks = "1 week", date_labels = "%d-%b") +
+  labs(title = "Cantidad de encuestas completas e incompletas por fecha y organo de pertenencia") +
+  coord_flip()
+
+@
+
+Vemos graficamente que los de organo de linea fueron los que mas contestaban antes del 16 de Marzo.
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Fecha, y = Sexo, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  scale_x_datetime(date_breaks = "1 week", date_labels = "%d-%b") +
+  labs(title = "Cantidad de encuestas completas e incompletas por fecha y sexo") +
+  coord_flip()
+
+@
+
+La proporcion de respuestas entre hombre y mujeres se ve similar en todo el periodo desde el 28 de febrero hasta el 30 de junio, con la aclaracion que se redujeron similarmente las respuestas a partir del 16
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Fecha, y = `Tiempo trabajando en el Estado`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  scale_x_datetime(date_breaks = "1 week", date_labels = "%d-%b") +
+  labs(title = "Cantidad de encuestas completas e incompletas por fecha y tiempo trabajando en el estado") +
+  coord_flip()
+
+@
+
+Antes del 16 de Marzo habian respondido en mayor numero a las encuestas los que estan trabajan de 10 años a mas.
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Fecha, y = `Nivel de gobierno`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  scale_x_datetime(date_breaks = "1 week", date_labels = "%d-%b") +
+  labs(title = "Cantidad de encuestas completas e incompletas por fecha y nivel de gobierno") +
+  coord_flip()
+
+@
+
+Antes del 16 de Marzo obtuvimos mayores cantidades de respuestas del nivel de gobierno Nacional.
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Hora, y = Dia, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y dia")
+
+@
+
+Se podria decir que respondian las encuestas generalmene en el horario de trabajo y antes de la quincena de mes.
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Hora, y = `Dia de la semana`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y dia de la semana") +
+  coord_flip()
+
+@
+
+En este grafico se aprecia mejor que mayormente respondieron a las encuestas en las horas de trabajo y en dias laborales de lunes a viernes.
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Hora, y = Mes, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y mes") +
+  coord_flip()
+
+@
+
+En marzo es donde se obtubo mayor cantidad de respuestas en horarios laborales.
+
+\end{document}

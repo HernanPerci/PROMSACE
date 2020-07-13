@@ -56,6 +56,8 @@ glimpse(bbdd)
 
 \section{Panorama general del 28 de Febrero al 30 de Junio}
 
+\subsection{Cantidad de encuestas completas e incompletas por fecha y Hora}
+
 <<echo = FALSE, fig = TRUE>>=
 
 ggplot(bbdd, aes(x = Fecha, y = Hora, color = `Encuesta completa`)) +
@@ -66,6 +68,8 @@ ggplot(bbdd, aes(x = Fecha, y = Hora, color = `Encuesta completa`)) +
 @
 
 Se puede apreciar que hubo mayor recepcion de encuestas diarias hasta el lunes 16 de Marzo y en horario de trabajo.
+
+\subsection{Cantidad de encuestas completas e incompletas por fecha y organo de pertenencia}
 
 <<echo = FALSE, fig = TRUE>>=
 
@@ -79,6 +83,8 @@ ggplot(bbdd, aes(x = Fecha, y = `Organo de pertenencia`, color = `Encuesta compl
 
 Vemos graficamente que los de organo de linea fueron los que mas contestaban antes del 16 de Marzo.
 
+\subsection{Cantidad de encuestas completas e incompletas por fecha y sexo}
+
 <<echo = FALSE, fig = TRUE>>=
 
 ggplot(bbdd, aes(x = Fecha, y = Sexo, color = `Encuesta completa`)) +
@@ -89,7 +95,9 @@ ggplot(bbdd, aes(x = Fecha, y = Sexo, color = `Encuesta completa`)) +
 
 @
 
-La proporcion de respuestas entre hombre y mujeres se ve similar en todo el periodo desde el 28 de febrero hasta el 30 de junio, con la aclaracion que se redujeron similarmente las respuestas a partir del 16
+La proporcion de respuestas entre hombre y mujeres se ve similar en todo el periodo desde el 28 de febrero hasta el 30 de junio, con la aclaracion que se redujeron similarmente las respuestas a partir del 16.
+
+\subsection{Cantidad de encuestas completas e incompletas por fecha y tiempo trabajando en el estado}
 
 <<echo = FALSE, fig = TRUE>>=
 
@@ -103,6 +111,8 @@ ggplot(bbdd, aes(x = Fecha, y = `Tiempo trabajando en el Estado`, color = `Encue
 
 Antes del 16 de Marzo habian respondido en mayor numero a las encuestas los que estan trabajan de 10 años a mas.
 
+\subsection{Cantidad de encuestas completas e incompletas por fecha y nivel de gobierno}
+
 <<echo = FALSE, fig = TRUE>>=
 
 ggplot(bbdd, aes(x = Fecha, y = `Nivel de gobierno`, color = `Encuesta completa`)) +
@@ -115,6 +125,8 @@ ggplot(bbdd, aes(x = Fecha, y = `Nivel de gobierno`, color = `Encuesta completa`
 
 Antes del 16 de Marzo obtuvimos mayores cantidades de respuestas del nivel de gobierno Nacional.
 
+\subsection{Cantidad de encuestas completas e incompletas por hora y dia}
+
 <<echo = FALSE, fig = TRUE>>=
 
 ggplot(bbdd, aes(x = Hora, y = Dia, color = `Encuesta completa`)) +
@@ -124,6 +136,8 @@ ggplot(bbdd, aes(x = Hora, y = Dia, color = `Encuesta completa`)) +
 @
 
 Se podria decir que respondian las encuestas generalmene en el horario de trabajo y antes de la quincena de mes.
+
+\subsection{Cantidad de encuestas completas e incompletas por hora y dia de la semana}
 
 <<echo = FALSE, fig = TRUE>>=
 
@@ -136,6 +150,8 @@ ggplot(bbdd, aes(x = Hora, y = `Dia de la semana`, color = `Encuesta completa`))
 
 En este grafico se aprecia mejor que mayormente respondieron a las encuestas en las horas de trabajo y en dias laborales de lunes a viernes.
 
+\subsection{Cantidad de encuestas completas e incompletas por hora y mes}
+
 <<echo = FALSE, fig = TRUE>>=
 
 ggplot(bbdd, aes(x = Hora, y = Mes, color = `Encuesta completa`)) +
@@ -146,5 +162,278 @@ ggplot(bbdd, aes(x = Hora, y = Mes, color = `Encuesta completa`)) +
 @
 
 En marzo es donde se obtubo mayor cantidad de respuestas en horarios laborales.
+
+\subsection{Cantidad de encuestas completas e incompletas por hora y organo de pertenencia}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Hora, y = `Organo de pertenencia`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y organo de pertenencia") +
+  coord_flip()
+
+@
+
+A lo largo de las horas laborales los de organo de linea respondieron un poco mas con respecto a los demas.
+
+\subsection{Cantidad de encuestas completas e incompletas por hora y sexo}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Hora, y = Sexo, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y sexo") +
+  coord_flip()
+
+@
+
+Los hombres y las mujeres contestaron en similar proporcion durante las horas laborales.
+
+\subsection{Cantidad de encuestas completas e incompletas por hora y tiempo trabajando en el estado}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Hora, y = `Tiempo trabajando en el Estado`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y tiempo trabajando en el estado") +
+  coord_flip()
+
+@
+
+Los que mas respondieron fueron los que trabajaron de 10 años a mas y durante el horario laboral.
+
+\subsection{Cantidad de encuestas completas e incompletas por hora y nivel de gobierno}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Hora, y = `Nivel de gobierno`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y nivel de gobierno") +
+  coord_flip()
+
+@
+
+Los de nivel de gobierno nacional fueron los que respondieron en mayor cantidad y en horario laboral.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia y mes}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Dia, y = Mes, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia y mes") +
+  coord_flip()
+
+@
+
+Antes del 16 de Marzo se recopilaron la gran mayoria de encuestas que tenemos hasta el 30 de Junio.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia y organo de pertenencia}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Dia, y = `Organo de pertenencia`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia y organo de pertenencia") +
+  coord_flip()
+
+@
+
+Los de organo de linea fueron los que mas contestaron y lo hicieron generalmente alrededor del dia 10.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia y sexo}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Dia, y = Sexo, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia y sexo") +
+  coord_flip()
+
+@
+
+La cantidad de encuestas recopiladas por hombres y mujeres fueron similares y de mayor cantidad alrededor del dia 10.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia y tiempo trabajando en el estado}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Dia, y = `Tiempo trabajando en el Estado`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia y tiempo trabajando en el estado") +
+  coord_flip()
+
+@
+
+Los que tienen de 10 a mas años trabajando en el estado fueron los que mas respondieron y alrededor del dia 10.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia y nivel de gobierno}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Dia, y = `Nivel de gobierno`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia y nivel de gobierno") +
+  coord_flip()
+
+@
+
+Hubo mayor recepcion de respuestas departe del nivel de gobierno nacional y lo hicieron mayormente alrededor del dia 10.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia de la semana y mes}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = `Dia de la semana`, y = Mes, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia de la semana y mes") +
+  coord_flip()
+
+@
+
+Fue en Marzo y de lunes a viernes donde se obtuvo la mayor cantidad de respuestas.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia de la semana y organo de pertenencia}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = `Dia de la semana`, y = `Organo de pertenencia`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia de la semana y organo de pertenencia") +
+  coord_flip()
+
+@
+
+Los de organo de linea respondieron poco mas que los demas y en mayor cantidad de lunes a viernes.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia de la semana y sexo}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = `Dia de la semana`, y = Sexo, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia de la semana y sexo") +
+  coord_flip()
+
+@
+
+Se ve una similar proporcion de respuestas entre los hombres y mujeres todos los dias.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia de la semana y tiempo trabajando en el estado}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = `Dia de la semana`, y = `Tiempo trabajando en el Estado`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia de la semana y tiempo trabajando en el estado") +
+  coord_flip()
+
+@
+
+Los que tienen de 10 a mas años trabajando fueron los que mayormente respondieron y de lunes a viernes en general.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia de la semana y nivel de gobierno}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = `Dia de la semana`, y = `Nivel de gobierno`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia de la semana y nivel de gobierno") +
+  coord_flip()
+
+@
+
+De lunes a viernes fueron los dias que se obtuvieron la mayor cantidad de respuestas y fueron de parte del nivel de gobierno nacional.
+
+\subsection{Cantidad de encuestas completas e incompletas por mes y organo de dependencia}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Mes, y = `Organo de pertenencia`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por mes y organo de dependencia") +
+  coord_flip()
+
+@
+
+Se observa que en marzo se obtuvo la mayor cantidad de respuestas y fue de parte de los de organo de linea.
+
+\subsection{Cantidad de encuestas completas e incompletas por mes y sexo}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Mes, y = Sexo, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por mes y sexo") +
+  coord_flip()
+
+@
+
+La proporcion de las respuestas fue similar a lo largo de los meses entre hombres y mujeres siendo en marzo donde encontramos una mayor cantidad.
+
+\subsection{Cantidad de encuestas completas e incompletas por mes y tiempo trabajando en el estado}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Mes, y = `Tiempo trabajando en el Estado`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por mes y tiempo trabajando en el estado") +
+  coord_flip()
+
+@
+
+En marzo se obtuvo la mayor cantidad de encuestas respondidas siendo los que trabajaron de 10 a mas años los que mas respondieron.
+
+\subsection{Cantidad de encuestas completas e incompletas por mes y nivel de gobierno}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = Mes, y = `Nivel de gobierno`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por mes y nivel de gobierno") +
+  coord_flip()
+
+@
+
+Se obtuvo la mayor cantidad de respuestas de los de nivel de gobierno nacional y en marzo.
+
+\subsection{Cantidad de encuestas completas e incompletas por organo de pertenencia y sexo}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = `Organo de pertenencia`, y = Sexo, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por organo de pertenencia y sexo") +
+  coord_flip()
+
+@
+
+Hay una similar proporcion de respuestas entre los hombres y las mujeres alrededor de los organos de pertenencia.
+
+\subsection{Cantidad de encuestas completas e incompletas por organo de pertenencia y tiempo trabajando en el estado}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = `Organo de pertenencia`, y = `Tiempo trabajando en el Estado`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por organo de pertenencia y tiempo trabajando en el estado") +
+  coord_flip()
+
+@
+
+Se observa que va aumentando la cantidad de respuestas de los organos de pertenencia a traves del tiempo trabajando en el estado.
+
+\subsection{Cantidad de encuestas completas e incompletas por organo de pertenencia y nivel de gobierno}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(x = `Organo de pertenencia`, y = `Nivel de gobierno`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por organo de pertenencia y nivel de gobierno") +
+  coord_flip()
+
+@
+
+En el grafico a manera exploratoria se observa que obtuvimos mas respuestas de los que pertenecen al nivel de gobierno nacional independientemente de a que organo de pertenencia este.
 
 \end{document}

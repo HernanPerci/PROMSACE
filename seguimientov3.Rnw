@@ -436,7 +436,14 @@ ggplot(bbdd, aes(x = `Organo de pertenencia`, y = `Nivel de gobierno`, color = `
 
 En el grafico a manera exploratoria se observa que obtuvimos mas respuestas de los que pertenecen al nivel de gobierno nacional independientemente de a que organo de pertenencia este.
 
-\section{Panorama antes del covid: 28 de febrero hasta el 15 de junio }
+\section{Panorama antes del covid: 28 de febrero hasta el 15 de marzo }
+
+<<>>=
+
+# 1902 observaciones = 85.10% del total
+
+@
+
 
 <<echo = FALSE>>=
 
@@ -828,5 +835,403 @@ ggplot(bbdd_sincovid, aes(x = `Organo de pertenencia`, y = `Nivel de gobierno`, 
 
 En el grafico a manera exploratoria se observa que obtuvimos mas respuestas de los que pertenecen al nivel de gobierno nacional independientemente de a que organo de pertenencia este.
 
+\section{Panorama despues del covid: 16 de marzo hasta el 30 de junio}
+
+<<>>=
+
+# 333 observaciones = 14.89% del total
+
+@
+
+
+<<echo = FALSE>>=
+
+bbdd_concovid <- bbdd %>%
+  filter(Fecha > "2020-03-15")
+
+glimpse(bbdd_concovid)
+
+@
+
+
+\subsection{Cantidad de encuestas completas e incompletas por fecha y Hora}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Fecha, y = Hora, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  scale_x_datetime(date_breaks = "1 week", date_labels = "%d-%b") +
+  labs(title = "Cantidad de encuestas completas e incompletas por fecha y Hora") +
+  coord_flip()
+@
+
+Se puede apreciar que hubo mayor recepcion de encuestas el 16 de marzo alrededor de las 10 de la mañana
+
+\subsection{Cantidad de encuestas completas e incompletas por fecha y organo de pertenencia}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Fecha, y = `Organo de pertenencia`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  scale_x_datetime(date_breaks = "1 week", date_labels = "%d-%b") +
+  labs(title = "Cantidad de encuestas completas e incompletas por fecha y organo de pertenencia") +
+  coord_flip()
+
+@
+
+Vemos graficamente que el 16 de marzo fueron los de otros organos de dependencia quienes completaron mas encuestas y que alrededor del 18 de mayo hay un aumento de respuestas provenientes del organo de apoyo.
+
+\subsection{Cantidad de encuestas completas e incompletas por fecha y sexo}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Fecha, y = Sexo, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  scale_x_datetime(date_breaks = "1 week", date_labels = "%d-%b") +
+  labs(title = "Cantidad de encuestas completas e incompletas por fecha y sexo") +
+  coord_flip()
+
+@
+
+La proporcion de respuestas entre hombre y mujeres se ve similar en todo el periodo y obtuvimos mayores resultados el 16 de marzo.
+
+\subsection{Cantidad de encuestas completas e incompletas por fecha y tiempo trabajando en el estado}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Fecha, y = `Tiempo trabajando en el Estado`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  scale_x_datetime(date_breaks = "1 week", date_labels = "%d-%b") +
+  labs(title = "Cantidad de encuestas completas e incompletas por fecha y tiempo trabajando en el estado") +
+  coord_flip()
+
+@
+
+Hubo mayor cantidad de respuestas el 16 de marzo por parte de los que tienen trabajando hasta 2 años. El 6 de abril se ve un incremento de respuestas por parte de los que trabajan de 10 años a mas y alrededor del 25 de mayo tambien se ve un incremento por parte de los que trabajan hasta 2 años.
+
+\subsection{Cantidad de encuestas completas e incompletas por fecha y nivel de gobierno}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Fecha, y = `Nivel de gobierno`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  scale_x_datetime(date_breaks = "1 week", date_labels = "%d-%b") +
+  labs(title = "Cantidad de encuestas completas e incompletas por fecha y nivel de gobierno") +
+  coord_flip()
+
+@
+
+Los del nivel de gobierno nacional fueron los que mas respondieron el 16 de marzo y aunque despues del 16 siguen siendo casi siempre los que mas responden, la cantidad de respuestas ha bajado.
+
+\subsection{Cantidad de encuestas completas e incompletas por hora y dia}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Hora, y = Dia, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y dia")
+
+@
+
+De manera exploratoria se podria decir que casi todos responden despues de las 8 aproximadamente y cualquier dia del mes. Hay una gran cantidad que respondieron poco despues de la quincena y aproximadamente a las 11 de la mañana pero esto debe ser por el 16 de marzo.
+
+\subsection{Cantidad de encuestas completas e incompletas por hora y dia de la semana}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Hora, y = `Dia de la semana`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y dia de la semana") +
+  coord_flip()
+
+@
+
+En este grafico se aprecia mejor que mayormente respondieron a las encuestas aproximadamente a partir de las 8 pero los grandes cantidades del lunes se debe al lunes 16 de marzo.
+
+\subsection{Cantidad de encuestas completas e incompletas por hora y mes}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Hora, y = Mes, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y mes") +
+  coord_flip()
+
+@
+
+Del 15 de marzo al 30 de junio casi todos responden aproximadamente a partir de las 8.
+
+\subsection{Cantidad de encuestas completas e incompletas por hora y organo de pertenencia}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Hora, y = `Organo de pertenencia`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y organo de pertenencia") +
+  coord_flip()
+
+@
+
+Exploratoriamente podemos decir que del 15 de marzo al 30 de junio casi todos responden aproximadamente a partir de las 8 independientemente del organo de pertenencia.
+
+\subsection{Cantidad de encuestas completas e incompletas por hora y sexo}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Hora, y = Sexo, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y sexo") +
+  coord_flip()
+
+@
+
+Los hombres y las mujeres contestaron en similar proporcion y se obtuvieron mas respuestas de ambos aproximadamente a partir de las 8.
+
+\subsection{Cantidad de encuestas completas e incompletas por hora y tiempo trabajando en el estado}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Hora, y = `Tiempo trabajando en el Estado`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y tiempo trabajando en el estado") +
+  coord_flip()
+
+@
+
+Los que mas respondieron fueron los que trabajaron de 10 años a mas y aproximadamente a partir de las 8.
+
+\subsection{Cantidad de encuestas completas e incompletas por hora y nivel de gobierno}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Hora, y = `Nivel de gobierno`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por hora y nivel de gobierno") +
+  coord_flip()
+
+@
+
+Los de nivel de gobierno nacional fueron los que respondieron en mayor cantidad y aproximadamente a partir de las 8.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia y mes}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Dia, y = Mes, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia y mes") +
+  coord_flip()
+
+@
+
+El 16 de marzo se recopilo unaa gran cantidad de encuestas.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia y organo de pertenencia}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Dia, y = `Organo de pertenencia`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia y organo de pertenencia") +
+  coord_flip()
+
+@
+
+Los de otros organos respondieron en gran cantidad aproximadaamente el 16 que es muy posible que sea el 16 de marzo. Los demas organos se distribuyen similarmente.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia y sexo}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Dia, y = Sexo, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia y sexo") +
+  coord_flip()
+
+@
+
+La cantidad de encuestas recopiladas por hombres y mujeres fueron similares y de mayor cantidad alrededor del dia 16.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia y tiempo trabajando en el estado}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Dia, y = `Tiempo trabajando en el Estado`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia y tiempo trabajando en el estado") +
+  coord_flip()
+
+@
+
+El dia 16 se presenta una gran cantidad de encuestas completas por los que tienen menos de 2 años trabajando en el estado. Se observa que buena parte de encuestas completadas pertenecen a los que trabajan de 10 años a mas.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia y nivel de gobierno}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Dia, y = `Nivel de gobierno`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia y nivel de gobierno") +
+  coord_flip()
+
+@
+
+Hubo mayor recepcion de respuestas departe del nivel de gobierno nacional siendo el dia 16 el dia que mas se recopilo.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia de la semana y mes}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = `Dia de la semana`, y = Mes, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia de la semana y mes") +
+  coord_flip()
+
+@
+
+Fue en Marzo y los lunes donde se recopilaron grandes cantidades de encuestas.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia de la semana y organo de pertenencia}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = `Dia de la semana`, y = `Organo de pertenencia`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia de la semana y organo de pertenencia") +
+  coord_flip()
+
+@
+
+Los de otros organos respondieron poco mas que los demas y en mayor cantidad los lunes.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia de la semana y sexo}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = `Dia de la semana`, y = Sexo, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia de la semana y sexo") +
+  coord_flip()
+
+@
+
+Se ve una similar proporcion de respuestas entre los hombres y mujeres todos los dias siendo los dias laborales donde mas responden.
+
+\subsection{Cantidad de encuestas completas e incompletas por dia de la semana y tiempo trabajando en el estado}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = `Dia de la semana`, y = `Tiempo trabajando en el Estado`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia de la semana y tiempo trabajando en el estado") +
+  coord_flip()
+
+@
+
+Los que tienen de 10 a mas años trabajando fueron los que mayormente respondieron y de lunes a viernes en general. La gran cantidad del lunes de los que tienen menos de 2 años trabajando en el estado se puede deber a que es afectado por el lunes 16 de marzo. 
+
+\subsection{Cantidad de encuestas completas e incompletas por dia de la semana y nivel de gobierno}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = `Dia de la semana`, y = `Nivel de gobierno`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por dia de la semana y nivel de gobierno") +
+  coord_flip()
+
+@
+
+De lunes a viernes fueron los dias que se obtuvieron la mayor cantidad de respuestas y fueron de parte del nivel de gobierno nacional.
+
+\subsection{Cantidad de encuestas completas e incompletas por mes y organo de dependencia}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Mes, y = `Organo de pertenencia`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por mes y organo de dependencia") +
+  coord_flip()
+
+@
+
+Se observa que en marzo y mayo se obtuvieron las mayores cantidades de respuestas y fue de parte de los de otros organos y apoyo respectivamente.
+
+\subsection{Cantidad de encuestas completas e incompletas por mes y sexo}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Mes, y = Sexo, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por mes y sexo") +
+  coord_flip()
+
+@
+
+La proporcion de las respuestas fue similar a lo largo de los meses entre hombres y mujeres.
+
+\subsection{Cantidad de encuestas completas e incompletas por mes y tiempo trabajando en el estado}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Mes, y = `Tiempo trabajando en el Estado`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por mes y tiempo trabajando en el estado") +
+  coord_flip()
+
+@
+
+Durante el 15 hasta el 31 de marzo respondieron mas los que llevan menos de 2 años trabajando en el estado y en los meses de abril, mayo y junio los que respondieron mas fueron los que llevan mas de 10 años trabajando en el estado.
+
+\subsection{Cantidad de encuestas completas e incompletas por mes y nivel de gobierno}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = Mes, y = `Nivel de gobierno`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por mes y nivel de gobierno") +
+  coord_flip()
+
+@
+
+Se obtuvo gran cantidad de respuestas de los de nivel de gobierno nacional y en marzo.
+
+\subsection{Cantidad de encuestas completas e incompletas por organo de pertenencia y sexo}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = `Organo de pertenencia`, y = Sexo, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por organo de pertenencia y sexo") +
+  coord_flip()
+
+@
+
+Hay una similar proporcion de respuestas entre los hombres y las mujeres alrededor de los organos de apoyo y otros reganos pero hay mas hombres en el organo de asesoria y de linea.
+
+\subsection{Cantidad de encuestas completas e incompletas por organo de pertenencia y tiempo trabajando en el estado}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = `Organo de pertenencia`, y = `Tiempo trabajando en el Estado`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por organo de pertenencia y tiempo trabajando en el estado") +
+  coord_flip()
+
+@
+
+Se observa que los que tienen mas de 10 años trabajando en el estado son los que completan mas encuestas.
+
+\subsection{Cantidad de encuestas completas e incompletas por organo de pertenencia y nivel de gobierno}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_concovid, aes(x = `Organo de pertenencia`, y = `Nivel de gobierno`, color = `Encuesta completa`)) +
+  geom_count(alpha = 0.4) +
+  labs(title = "Cantidad de encuestas completas e incompletas por organo de pertenencia y nivel de gobierno") +
+  coord_flip()
+
+@
+
+En el grafico a manera exploratoria se observa que obtuvimos mas respuestas de los que pertenecen al nivel de gobierno nacional independientemente de a que organo de pertenencia este.
 
 \end{document}

@@ -35,6 +35,8 @@ bbdd <- read_excel("C:/Users/PERCI/Downloads/Base de datos SGP al 22julio.xlsx",
 
 #-------------------
 
+bbdd$`Organo de pertenencia` <- factor(bbdd$`Organo de pertenencia`, levels = c("Órgano de Apoyo (recursos humanos, administración, tecnologías de la información, otros)", "Órgano de Asesoría (jurídica, planeamiento, presupuesto, otros)", "Órgano de Línea", "Otros", "Sin respuesta"), labels = c("apoyo", "asesoria", "linea", "Otros","Sin respuesta"))
+
 # bbdd$`Recursos humanos` <- factor(bbdd$`Recursos humanos`, levels = c( "no aplica","Recursos humanos (capacitación, selección de personal, liquidación de beneficios, control de asistencia, etc.)"), labels = c("no aplica","Recursos humanos"))
 
 glimpse(bbdd)

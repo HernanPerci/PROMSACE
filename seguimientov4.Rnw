@@ -1,0 +1,401 @@
+\documentclass{article}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\title{PROMSACE: Seguimiento de encuestas}
+\author{Hernan Nuñez}
+\date{\today}
+\maketitle
+\begin{abstract}
+Lo mostrado en este documento nos da una vision descriptiva y exploratoria sobre los cambios a traves del tiempo (del 28 febrero al 22 de julio) de las encuestas recopiladas y completas. Se trabajo con Latex y RStudio. Pueden encontrar el codigo en https://github.com/HernanPerci/PROMSACE
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduccion}
+La encuesta sobre la que se respalda el presente informe aun se esta recolectando mediante la platafoma surveymonkey.
+
+\section{Variables de estudio}
+
+<<echo = FALSE>>=
+library(tidyverse)
+library(readxl)
+library(lubridate)
+@
+
+<<echo = FALSE>>=
+
+bbdd <- read_excel("C:/Users/PERCI/Downloads/Base de datos SGP al 22julio.xlsx", 
+    range = "A3:Z2261", col_types = c("date", 
+        "text", "text", "text", "text", "text", 
+        "text", "text", "text", "text", "text", 
+        "text", "text", "text", "text", "text", 
+        "text", "text", "text", "text", "text", 
+        "text", "text", "text", "text", "text"))
+
+#-------------------
+
+# bbdd$`Recursos humanos` <- factor(bbdd$`Recursos humanos`, levels = c( "no aplica","Recursos humanos (capacitación, selección de personal, liquidación de beneficios, control de asistencia, etc.)"), labels = c("no aplica","Recursos humanos"))
+
+glimpse(bbdd)
+@
+
+\section{Analisis de la Pregunta 2: Ayúdanos a entender mejor el problema ¿Sabes con qué sistema administrativo se relaciona la experiencia relatada? Si lo sabes, marca hasta dos opciones.}
+
+<<echo = FALSE>>=
+
+bbdd_preg2 <- bbdd %>%
+  select(Fecha, `Recursos humanos` : Otro, `Nivel de gobierno`)
+
+bbdd_preg2 <- bbdd_preg2 %>%
+  filter(`Recursos humanos` != "Sin Respuesta")
+
+glimpse(bbdd_preg2)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+# Use wday() to tabulate release by day of the week
+month(bbdd_preg2$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+month(bbdd_preg2$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_preg2$mes <- month(bbdd_preg2$Fecha, label = TRUE)
+
+# Use wday() to tabulate release by day of the week
+wday(bbdd_preg2$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+wday(bbdd_preg2$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_preg2$dia_de_la_semana <- wday(bbdd_preg2$Fecha, label = TRUE)
+
+# Plot barchart of weekday by type of release
+ggplot(bbdd_preg2, aes(dia_de_la_semana, fill = `Nivel de gobierno`)) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~ mes, ncol = 1, scale = "free_y") +
+  labs(x = "Dias de la semana",y = "Cantidad de respuestas",title = "Cantidad de encuestas que completaron la pregunta 2 por dia de la semana y nivel de gobierno") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+\section{Analisis de la pregunta 3: ¿Cuáles de las siguientes acciones crees que deberíamos realizar para solucionar el problema que nos comentaste? Marca hasta dos opciones.}
+
+<<echo = FALSE>>=
+
+bbdd_preg3 <- bbdd %>%
+  select(Fecha, `Cambiar el marco normativo` : `Mejorar la coordinación con el ente rector y otras instituciones`, `Nivel de gobierno`)
+
+bbdd_preg3 <- bbdd_preg3 %>%
+  filter(`Cambiar el marco normativo` != "Sin Respuesta")
+
+glimpse(bbdd_preg3)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+# Use wday() to tabulate release by day of the week
+month(bbdd_preg3$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+month(bbdd_preg3$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_preg3$mes <- month(bbdd_preg3$Fecha, label = TRUE)
+
+# Use wday() to tabulate release by day of the week
+wday(bbdd_preg3$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+wday(bbdd_preg3$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_preg3$dia_de_la_semana <- wday(bbdd_preg3$Fecha, label = TRUE)
+
+# Plot barchart of weekday by type of release
+ggplot(bbdd_preg3, aes(dia_de_la_semana, fill = `Nivel de gobierno`)) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~ mes, ncol = 1, scale = "free_y") +
+  labs(x = "Dia de la semana",y = "Cantidad de respuestas",title = "Cantidad de encuestas que completaron la pregunta 3 por dia de la semana y nivel de gobierno") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+\section{Encuestas identificadas}
+
+<<echo = FALSE>>=
+
+bbdd_identificado <- bbdd %>%
+  select(Fecha, Identificado)
+
+bbdd_identificado <- bbdd_identificado %>%
+  filter(Identificado != "Sin Respuesta")
+
+glimpse(bbdd_identificado)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+# Use wday() to tabulate release by day of the week
+month(bbdd_identificado$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+month(bbdd_identificado$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_identificado$mes <- month(bbdd_identificado$Fecha, label = TRUE)
+
+# Use wday() to tabulate release by day of the week
+wday(bbdd_identificado$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+wday(bbdd_identificado$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_identificado$dia_de_la_semana <- wday(bbdd_identificado$Fecha, label = TRUE)
+
+# Plot barchart of weekday by type of release
+ggplot(bbdd_identificado, aes(dia_de_la_semana, fill = Identificado)) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~ mes, ncol = 1, scale = "free_y") +
+  labs(x = "Dia de la semana",y = "Cantidad de encuestas identificadas",title = "Cantidad de encuestas identificadas por dia de la semana") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+
+\section{Encuestas priorizadas}
+
+<<echo = FALSE>>=
+
+bbdd_priorizada <- bbdd %>%
+  select(Fecha, Priorizado)
+
+bbdd_priorizada <- bbdd_priorizada %>%
+  filter(Priorizado != "Sin Respuesta")
+
+glimpse(bbdd_priorizada)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+# Use wday() to tabulate release by day of the week
+month(bbdd_priorizada$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+month(bbdd_priorizada$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_priorizada$mes <- month(bbdd_priorizada$Fecha, label = TRUE)
+
+# Use wday() to tabulate release by day of the week
+wday(bbdd_priorizada$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+wday(bbdd_priorizada$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_priorizada$dia_de_la_semana <- wday(bbdd_priorizada$Fecha, label = TRUE)
+
+# Plot barchart of weekday by type of release
+ggplot(bbdd_priorizada, aes(dia_de_la_semana, fill = Priorizado)) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~ mes, ncol = 1, scale = "free_y") +
+  labs(x = "Dia de la semana",y = "Cantidad de encuestas priorizadas",title = "Cantidad de encuestas priorizadas por dia de la semana") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+
+\section{Nivel de gobierno}
+
+<<echo = FALSE>>=
+
+bbdd_gob <- bbdd %>%
+  select(Fecha, `Nivel de gobierno`)
+
+bbdd_gob <- bbdd_gob %>%
+  filter(`Nivel de gobierno` != "Sin Respuesta")
+
+glimpse(bbdd_gob)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+# Use wday() to tabulate release by day of the week
+month(bbdd_gob$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+month(bbdd_gob$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_gob$mes <- month(bbdd_gob$Fecha, label = TRUE)
+
+# Use wday() to tabulate release by day of the week
+wday(bbdd_gob$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+wday(bbdd_gob$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_gob$dia_de_la_semana <- wday(bbdd_gob$Fecha, label = TRUE)
+
+# Plot barchart of weekday by type of release
+ggplot(bbdd_gob, aes(dia_de_la_semana, fill = `Nivel de gobierno`)) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~ mes, ncol = 1, scale = "free_y") +
+  labs(x = "Dia de la semana", y = "cantidad de encuestas respondidas",title = "Cantidad de encuestas por nivel de gobierno por dia de la semana") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+
+\section{Organo de pertenencia}
+
+<<echo = FALSE>>=
+
+bbdd_odp <- bbdd %>%
+  select(Fecha, `Organo de pertenencia`)
+
+bbdd_odp <- bbdd_odp %>%
+  filter(`Organo de pertenencia` != "Sin Respuesta")
+
+glimpse(bbdd_odp)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+# Use wday() to tabulate release by day of the week
+month(bbdd_odp$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+month(bbdd_odp$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_odp$mes <- month(bbdd_odp$Fecha, label = TRUE)
+
+# Use wday() to tabulate release by day of the week
+wday(bbdd_odp$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+wday(bbdd_odp$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_odp$dia_de_la_semana <- wday(bbdd_odp$Fecha, label = TRUE)
+
+# Plot barchart of weekday by type of release
+ggplot(bbdd_odp, aes(dia_de_la_semana, fill = `Organo de pertenencia`)) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~ mes, ncol = 1, scale = "free_y") +
+  labs(x = "Dia de la semana",y = "cantidad de encuestas respondidas",title = "Cantidad de encuestas por organo de pertenencia por dia de la semana") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+\section{Sexo}
+
+<<echo = FALSE>>=
+
+bbdd_sexo <- bbdd %>%
+  select(Fecha, Sexo)
+
+bbdd_sexo <- bbdd_sexo %>%
+  filter(Sexo != "Sin Respuesta")
+
+glimpse(bbdd_sexo)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+# Use wday() to tabulate release by day of the week
+month(bbdd_sexo$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+month(bbdd_sexo$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_sexo$mes <- month(bbdd_sexo$Fecha, label = TRUE)
+
+# Use wday() to tabulate release by day of the week
+wday(bbdd_sexo$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+wday(bbdd_sexo$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_sexo$dia_de_la_semana <- wday(bbdd_sexo$Fecha, label = TRUE)
+
+# Plot barchart of weekday by type of release
+ggplot(bbdd_sexo, aes(dia_de_la_semana, fill = Sexo)) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~ mes, ncol = 1, scale = "free_y") +
+  labs(x = "Dia de la semana",y = "cantidad de encuestas respondidas",title = "Cantidad de encuestas por sexo por dia de la semana") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+
+\section{Años trabajando en el estado}
+
+<<echo = FALSE>>=
+
+bbdd_ate <- bbdd %>%
+  select(Fecha, `Años trabajando en el Estado`)
+
+bbdd_ate <- bbdd_ate %>%
+  filter(`Años trabajando en el Estado` != "Sin Respuesta")
+
+glimpse(bbdd_ate)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+# Use wday() to tabulate release by day of the week
+month(bbdd_ate$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+month(bbdd_ate$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_ate$mes <- month(bbdd_ate$Fecha, label = TRUE)
+
+# Use wday() to tabulate release by day of the week
+wday(bbdd_ate$Fecha) %>% table()
+
+# Add label = TRUE to make table more readable
+wday(bbdd_ate$Fecha, label = TRUE) %>% table()
+
+# Create column wday to hold labelled week days
+bbdd_ate$dia_de_la_semana <- wday(bbdd_ate$Fecha, label = TRUE)
+
+# Plot barchart of weekday by type of release
+ggplot(bbdd_ate, aes(dia_de_la_semana, fill = `Años trabajando en el Estado`)) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~ mes, ncol = 1, scale = "free_y") +
+  labs(x = "Dia de la semana",y = "Cantidad de encuestas respondidas",title = "Cantidad de encuestas por años trabajando en el estado por dia de la semana") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+
+
+\end{document}

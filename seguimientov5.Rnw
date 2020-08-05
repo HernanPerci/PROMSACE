@@ -26,13 +26,17 @@ library(lubridate)
 <<echo = FALSE>>=
 
 bbdd <- read_excel("promsace 3agosto.xlsx", 
-    sheet = "Base de datos", range = "A3:Z3075", 
-    col_types = c("date", "text", "text", 
+    sheet = "Base de datos", range = "A3:AA3380", 
+    col_types = c("date", "text", "text", "text", 
         "text", "text", "text", "text", "text", 
         "text", "text", "text", "text", "text", 
         "text", "text", "text", "text", "text", 
         "text", "text", "text", "text", "text", 
         "text", "text", "text"))
+
+#-------------------
+
+bbdd$lista <- factor(bbdd$lista, levels = c("254102633", "256377828", "262814520", "262814761"), labels = c("Web Link 1", "Piloto", "Lista 2", "Lista 1"))
 
 #-------------------
 
@@ -88,6 +92,232 @@ bbdd$semana <- week(bbdd$Fecha)
 
 glimpse(bbdd)
 @
+
+\section{Colectores}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(dia_de_la_semana)) +
+  geom_bar(aes(fill = lista)) +
+  scale_fill_brewer(palette = "Set1") +
+  facet_wrap(~ semana, scale = "free_y") +
+  labs(x = "Dia de la semana",y = "Cantidad de respuestas",title = "Cantidad de encuestas por lista por dia de la semana y numero de semana del año") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd, aes(hora)) +
+  geom_bar(aes(fill = lista)) +
+  scale_fill_brewer(palette = "Set1") +
+  facet_wrap(~ semana, scale = "free_y") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas por lista por hora y numero de semana del año") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+\subsection{weblink}
+
+<<echo = FALSE>>=
+
+bbdd_weblink1 <- bbdd %>%
+  filter(lista == "Web Link 1")
+
+glimpse(bbdd_weblink1)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_weblink1, aes(hora)) +
+  geom_bar(fill = "red") +
+  facet_wrap(~ semana, scale = "free_y") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas web por hora y numero de semana del año") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+\subsection{Piloto}
+
+<<echo = FALSE>>=
+
+bbdd_piloto <- bbdd %>%
+  filter(lista == "Piloto")
+
+glimpse(bbdd_piloto)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_piloto, aes(hora)) +
+  geom_bar(fill = "Blue") +
+  facet_wrap(~ semana, scale = "free_y") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas piloto por hora y numero de semana del año") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+\subsection{Lista 2}
+
+<<echo = FALSE>>=
+
+bbdd_lista2 <- bbdd %>%
+  filter(lista == "Lista 2")
+
+glimpse(bbdd_lista2)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_lista2, aes(hora)) +
+  geom_bar(fill = "green") +
+  facet_wrap(~ semana, scale = "free_y") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la lista 2 por hora y numero de semana del año") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+\subsection{Lista 1}
+
+<<echo = FALSE>>=
+
+bbdd_lista1 <- bbdd %>%
+  filter(lista == "Lista 1")
+
+glimpse(bbdd_lista1)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_lista1, aes(hora)) +
+  geom_bar(fill = "purple") +
+  facet_wrap(~ semana, scale = "free_y") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la lista 1 por hora y numero de semana del año") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+\subsection{semana 31: 29 de julio al 4 de agosto}
+
+<<echo = FALSE>>=
+
+bbdd_sem31 <- bbdd %>%
+  filter(semana == 31)
+
+glimpse(bbdd_sem31)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_sem31, aes(hora)) +
+  geom_bar(aes(fill = lista)) +
+  scale_fill_brewer(palette = "Set1") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la semana 31 por lista y por hora") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+@
+
+\subsubsection{semana 31 cantidades individuales}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_sem31, aes(hora, fill = lista)) +
+  geom_bar(aes(fill = lista)) +
+  scale_fill_brewer(palette = "Set1") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la semana 31 por lista y por hora") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_stack(0.9), color = "black")
+
+@
+
+\subsubsection{semana31 por dia}
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_sem31, aes(hora)) +
+  geom_bar(aes(fill = lista)) +
+  scale_fill_brewer(palette = "Set1") +
+    facet_wrap(~ dia_de_la_semana, scale = "free_y") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la semana 31 por lista por hora y dia de la semana") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+
+@
+
+\subsubsection{weblink}
+
+<<echo = FALSE>>=
+
+bbdd_sem31_weblink1 <- bbdd_sem31 %>%
+  filter(lista == "Web Link 1")
+
+glimpse(bbdd_sem31_weblink1)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_sem31_weblink1, aes(hora)) +
+  geom_bar(fill = "red") +
+  facet_wrap(~ dia_de_la_semana, scale = "free_y") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas web de la semana 31 por hora y dia de la semana") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+@
+
+\subsubsection{Lista 2}
+
+<<echo = FALSE>>=
+
+bbdd_sem31_lista2 <- bbdd_sem31 %>%
+  filter(lista == "Lista 2")
+
+glimpse(bbdd_sem31_lista2)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_sem31_lista2, aes(hora)) +
+  geom_bar(fill = "blue") +
+  facet_wrap(~ dia_de_la_semana, scale = "free_y") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas lista 2 de la semana 31 por hora y dia de la semana") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+@
+
+\subsubsection{Lista 1}
+
+<<echo = FALSE>>=
+
+bbdd_sem31_lista1 <- bbdd_sem31 %>%
+  filter(lista == "Lista 1")
+
+glimpse(bbdd_sem31_lista1)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_sem31_lista1, aes(hora)) +
+  geom_bar(fill = "green") +
+  facet_wrap(~ dia_de_la_semana, scale = "free_y") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas lista 1 de la semana 31 por hora y dia de la semana") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+
+@
+
 
 \section{Analisis de la Pregunta 2: Ayúdanos a entender mejor el problema ¿Sabes con qué sistema administrativo se relaciona la experiencia relatada? Si lo sabes, marca hasta dos opciones.}
 

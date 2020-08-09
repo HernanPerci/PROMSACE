@@ -1,0 +1,714 @@
+---
+title: "Seguimiento6 - PROMSACE"
+author: "Hernan Nuñez"
+date: "8/8/2020"
+output: html_document
+---
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Librerias
+
+Paquetes usados para el R
+
+```{r}
+
+library(tidyverse)
+library(readxl)
+library(lubridate)
+library(ca)
+library(gplots)
+library(factoextra)
+library(FactoMineR)
+library(GGally)
+library(knitr)
+library(corrplot)
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Base de datos
+
+Vista parcial de la base de datos de la encuesta
+
+```{r}
+
+bbdd <- read_excel("promsace 6agosto6pm.xlsx", 
+    sheet = "Base de datos", range = "A3:AA3997", 
+    col_types = c("date", "text", "text", "text", 
+        "text", "text", "text", "text", "text", 
+        "text", "text", "text", "text", "text", 
+        "text", "text", "text", "text", "text", 
+        "text", "text", "text", "text", "text", 
+        "text", "text", "text"))
+#-------------------
+
+bbdd$`Recursos humanos` <- factor(bbdd$`Recursos humanos`, levels = c("Recursos humanos (capacitación, selección de personal, liquidación de beneficios, control de asistencia, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Abastecimiento <- factor(bbdd$Abastecimiento, levels = c("Abastecimiento (contratación de proveedores, patrimonio, términos de referencia, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Presupuesto público` <- factor(bbdd$`Presupuesto público`, levels = c("Presupuesto público (PIA, PIM, PPR, certificación, devengado, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Tesorería <- factor(bbdd$Tesorería, levels = c("Tesorería (viajes y viáticos, caja única, caja chica, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Contabilidad <- factor(bbdd$Contabilidad, levels = c("Contabilidad (rendición de cuentas, Cuenta General de la República, estados financieros, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Control <- factor(bbdd$Control, levels = c("Control (previo, simultáneo, concurrente, auditorías externas etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Inversión pública` <- factor(bbdd$`Inversión pública`, levels = c("Inversión pública (perfil, formulación, evaluación, expediente técnico, banco de inversiones, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Planeamiento estratégico` <- factor(bbdd$`Planeamiento estratégico`, levels = c("Planeamiento estratégico (POI, PEI, PDC, PESEM)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Modernización de la Gestión Pública` <- factor(bbdd$`Modernización de la Gestión Pública`, levels = c("Modernización de la Gestión Pública (estructura y funcionamiento, procedimientos administrativos, procesos, gobierno abierto, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`No sé` <- factor(bbdd$`No sé`, levels = c("No sé", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Otro <- factor(bbdd$Otro,levels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Cambiar el marco normativo` <- factor(bbdd$`Cambiar el marco normativo`, levels = c("Cambiar el marco normativo", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Potenciar conocimientos y habilidades de los servidores civiles` <- factor(bbdd$`Potenciar conocimientos y habilidades de los servidores civiles`, levels = c("Potenciar conocimientos y habilidades de los servidores civiles", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Articular labores entre áreas` <- factor(bbdd$`Articular labores entre áreas`, levels = c("Articular labores entre áreas", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Mejorar los sistemas informáticos y sistematizar procesos` <- factor(bbdd$`Mejorar los sistemas informáticos y sistematizar procesos`, levels = c("Mejorar los sistemas informáticos y sistematizar procesos", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Mejorar la coordinación con el ente rector y otras instituciones` <- factor(bbdd$`Mejorar la coordinación con el ente rector y otras instituciones`, levels = c("Mejorar la coordinación con el ente rector y otras instituciones", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$lista <- factor(bbdd$lista, levels = c("254102633", "256377828", "262814520", "262814761", "262814235"), labels = c("Web Link 1", "Piloto", "Lista 2", "Lista 1", "Lista 3"))
+
+#-------------------
+
+bbdd$Identificado <- factor(bbdd$Identificado , levels = c("Identificado", "No Identificado", "Viciado", "No Aplica", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Priorizado <- factor(bbdd$Priorizado , levels = c("Si", "No", "Viciado", "No Aplica", "Sin Respuesta"))
+
+#--------------------
+
+bbdd$`Nivel de gobierno` <- factor(bbdd$`Nivel de gobierno` , levels = c("Nacional", "Regional", "Local", "Viciado", "No Identificado", "No Aplica", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Organo de pertenencia` <- factor(bbdd$`Organo de pertenencia`, levels = c("Órgano de Apoyo (recursos humanos, administración, tecnologías de la información, otros)", "Órgano de Asesoría (jurídica, planeamiento, presupuesto, otros)", "Órgano de Línea", "Otros", "Sin Respuesta"), labels = c("apoyo", "asesoria", "linea", "Otros","Sin Respuesta"))
+
+#--------------------
+
+bbdd$Sexo <- factor(bbdd$Sexo , levels = c("Hombre", "Mujer", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Años trabajando en el Estado` <- factor(bbdd$`Años trabajando en el Estado`, levels = c("Menos de dos años", "De dos a cinco años", "De seis a diez años", "Más de diez años", "Sin Respuesta"), labels = c("[0 - 2>", "[2 - 5]", "[6 - 10]", "[11 a más>", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$año <- year(bbdd$Fecha)
+
+#-------------------
+
+bbdd$mes <- month(bbdd$Fecha)
+
+#-------------------
+
+bbdd$dia <- day(bbdd$Fecha)
+
+#-------------------
+
+bbdd$hora <- hour(bbdd$Fecha)
+
+#-------------------
+
+bbdd$minuto <- min(bbdd$Fecha)
+
+#-------------------
+
+bbdd$segundo <- second(bbdd$Fecha)
+
+#-------------------
+
+bbdd$dia_de_la_semana <- wday(bbdd$Fecha, label = TRUE)
+
+#------------------
+
+bbdd$semana <- week(bbdd$Fecha)
+
+head(bbdd)
+
+```
+
+
+## Formato de datos
+
+Las variables que tomaremos para el analisis seran las que provienen de la pregunta 2 y la pregunta 3 del cuestionario debido a que se predeciran las variables lista, nivel de gobierno, organo de pertenencia, sexo y años trabajando para el estado.
+
+```{r}
+
+bbdd.activa <- bbdd[, 4:19]
+head(bbdd.activa)
+
+```
+
+
+## Resumen de los datos
+
+```{r}
+summary(bbdd.activa)
+```
+
+
+```{r}
+
+for (i in 1:16) {
+plot(bbdd.activa[,i], main=colnames(bbdd.activa)[i],
+ylab = "Count", col="steelblue", las = 2)
+}
+
+```
+
+
+No hay ninguna variable cuya mayoria haya marcado "si".
+
+Las variables "recursos humanos" "modernizacion de la gestion publica", de la pregunta 2 y "Potenciar conocimientos y habilidades de los servidores civiles", "Articular labores entre áreas", "Mejorar los sistemas informáticos y sistematizar procesos" de la pregunta 3 son los que mas respuestas afirmativas se obtuvieron por parte de los encuestados.
+
+Si se encuentran categorias de frecuencia muy baja entonces se sugiere quitar la variable respectiva para el analisis.
+
+Lo primero que se hara sera trabajar solo con las 5 variables arriba mencionadas, luego eliminaremos todas las filas que incluyan a un sin respuesta.
+
+## Base de datos de trabajo
+
+```{r}
+
+bbdd.activa.rem <- bbdd.activa %>%
+    select(`Recursos humanos`, `Modernización de la Gestión Pública`, `Potenciar conocimientos y habilidades de los servidores civiles`, `Articular labores entre áreas`, `Mejorar los sistemas informáticos y sistematizar procesos`)
+
+bbdd.activa.rem <- bbdd.activa.rem %>%
+    filter(`Recursos humanos` != "Sin Respuesta")
+
+bbdd.activa.rem <- bbdd.activa.rem %>%
+    filter(`Potenciar conocimientos y habilidades de los servidores civiles` != "Sin Respuesta")
+
+#-------------------
+
+bbdd.activa.rem$`Recursos humanos` <- factor(bbdd.activa.rem$`Recursos humanos`, levels = c("Si", "No"))
+
+#-------------------
+
+bbdd.activa.rem$`Modernización de la Gestión Pública` <- factor(bbdd.activa.rem$`Modernización de la Gestión Pública`, levels = c("Si", "No"))
+
+#-------------------
+
+bbdd.activa.rem$`Potenciar conocimientos y habilidades de los servidores civiles` <- factor(bbdd.activa.rem$`Potenciar conocimientos y habilidades de los servidores civiles`, levels = c("Si", "No"))
+
+#-------------------
+
+bbdd.activa.rem$`Articular labores entre áreas` <- factor(bbdd.activa.rem$`Articular labores entre áreas`, levels = c("Si", "No"))
+
+#-------------------
+
+bbdd.activa.rem$`Mejorar los sistemas informáticos y sistematizar procesos` <- factor(bbdd.activa.rem$`Mejorar los sistemas informáticos y sistematizar procesos`, levels = c("Si", "No"))
+
+head(bbdd.activa.rem)
+```
+
+
+## Resumen de datos de trabajo
+
+```{r}
+
+summary(bbdd.activa.rem)
+
+```
+
+
+```{r}
+
+for (i in 1:5) {
+plot(bbdd.activa.rem[,i], main=colnames(bbdd.activa.rem)[i],
+ylab = "Count", col="steelblue", las = 2)
+}
+
+```
+
+
+Sin contar a los que no respondieron la pregunta 2 y la pregunta 3 vemos que la variable "mejorar los sistemas informaticos y sistematizar procesos" concentra una mayor cantidad de respuestas afirmativas con respecto a las demas variables.
+
+## Análisis MCA
+
+```{r}
+
+res.mca <- MCA(bbdd.activa.rem, graph = FALSE)
+print(res.mca)
+
+```
+
+
+## Atovalores/Varianzas
+
+```{r}
+
+eig.val <- get_eigenvalue(res.mca)
+print(eig.val)
+
+```
+
+
+```{r}
+
+fviz_screeplot(res.mca, addlabels = TRUE, ylim = c(0, 30))
+
+```
+
+
+Trabajaremos con dos dimensiones porque explican gran cantidad de informacion.
+
+## Graficos
+
+```{r}
+
+fviz_mca_biplot(res.mca, label = "var", repel = TRUE, ggtheme = theme_minimal())
+
+```
+
+
+Los puntos cercanos representan individuos similares al igual que los triangulos cercanos.
+
+## Graficos de variables
+
+```{r}
+
+var <- get_mca_var(res.mca)
+var
+
+```
+
+
+### Correlacion entre variables y dimensiones principales
+
+```{r}
+
+fviz_mca_var(res.mca, choice = "mca.cor", repel = TRUE, ggtheme = theme_minimal())
+
+```
+
+
+La correlacion al cuadrado entre las variables y las dimensiones se utilizan como coordenadas.
+
+La variable "mejorar los sistemas informaticos y sistematizar procesos" esta mas correlacionada con la dimension 1 y la variable "articular labores entre areas" esta mas correlacionada con la dimension 2
+
+### coordenadas de las categorias
+
+```{r}
+
+var$coord
+
+```
+
+
+```{r}
+
+fviz_mca_var(res.mca, repel = TRUE, ggtheme = theme_minimal())
+
+```
+
+
+Los que si marcaron "Potenciar conocimientos y habilidades de los servidores civiles" y "recursos humanos" tienen un perfil similar.
+
+### Calidad de la representacion
+
+cos2 mide el grado de asociacion entre la categoria de la variable y el eje particular.
+
+```{r}
+
+var$cos2
+
+```
+
+
+```{r}
+
+fviz_mca_var(res.mca, col.var = "cos2", gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE, ggtheme =theme_minimal())
+
+```
+
+
+cos2 de las categorias con todas las dimensiones
+
+```{r}
+
+corrplot(var$cos2, is.corr = FALSE)
+
+```
+
+
+```{r}
+
+fviz_cos2(res.mca, choice = "var", axes = 1:2)
+
+```
+
+
+Las variables mejor representadas en las 2 dimensiones son "Potenciar conocimientos y habilidades de los servidores civiles", "Mejorar los sistemas informaticos y sistematizar procesos" y "articular labores entre areas".
+
+Probablemente sea necesario trabajar con las dimensiones 3 y 4 para trabajar con las variables "Modernizacion de la gestion publica" y "Recursos humanos".
+
+Anteriormente comentamos que los que si marcaron "Potenciar conocimientos y habilidades de los servidores civiles" y "recursos humanos" tienen un perfil similar, pero viendo que la representacion de la variable recursos humanos es baja entonces se descarta esa associacion.
+
+### Contribucion de las categorias a las dimensiones 1 y 2
+
+```{r}
+
+var$contrib
+
+```
+
+
+Contribuciones de las categorias a la dimension 1
+
+```{r}
+
+fviz_contrib(res.mca, choice = "var", axes = 1)
+
+```
+
+
+La variable "Mejorar los sistemas informaticos y sistematizar procesos" y la categoria si de la variable "Potenciar conocimientos y habilidades de los servidores civiles" son los mas importantes de la dimension 1.
+
+Contribuciones de las categorias a la dimension 2
+
+```{r}
+
+fviz_contrib(res.mca, choice = "var", axes = 2)
+
+```
+
+
+La variable "articular labores entre areas" y la categoria si de "Potenciar conocimientos y habilidades de los servidores civiles" son los mas importantes de la variable 2
+
+Contribuciones de las categorias a las dimensiones 1 y 2
+
+```{r}
+
+fviz_contrib(res.mca, choice = "var", axes = 1:2)
+
+```
+
+
+Las caegorias si de "articular labores entre areas" y "Potenciar conocimientos y habilidades de los servidores civiles" son los mas importantes en explicar la variabilidad en los datos que estamos trabajando
+
+```{r}
+
+fviz_mca_var(res.mca, col.var = "contrib", gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE, ggtheme = theme_minimal())
+
+```
+
+
+## Grafico de individuos
+
+```{r}
+
+ind <- get_mca_ind(res.mca)
+ind
+
+```
+
+
+Parte de las coordenadas de puntos, calidad de la representacion y contribuciones de los individuos
+
+```{r}
+
+head(ind$coord)
+head(ind$cos2)
+head(ind$contrib)
+
+```
+
+
+### Calidad de los individuos
+
+```{r}
+
+fviz_mca_ind(res.mca, col.ind = "cos2", label = "none", gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE, ggtheme = theme_minimal())
+
+```
+
+
+Top 20 individuos que mas aportan a la calidad de las dimensiones 1 y 2
+
+```{r}
+
+fviz_cos2(res.mca, choice = "ind", axes = 1:2, top = 20)
+
+```
+
+
+### Contribucion de los individuos
+
+```{r}
+
+fviz_mca_ind(res.mca, col.ind = "contrib", label = "none", gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE, ggtheme = theme_minimal())
+
+```
+
+Top 20 individuos que mas contribuyen a las dimensiones 1 y 2
+
+```{r}
+
+fviz_contrib(res.mca, choice = "ind", axes = 1:2, top = 20)
+
+```
+
+
+### Individuos por grupos
+
+Primero crearemos una base de datos de respaldo que ayude a agrupar los individuos debido a que hemos eliminado filas por su poca frecuencia de respuestas en la respectiva categoria.
+
+#### Base de datos de respaldo
+
+```{r}
+
+bbdd.activa.rem.resp <- bbdd %>%
+    filter(`Recursos humanos` != "Sin Respuesta")
+
+bbdd.activa.rem.resp <- bbdd.activa.rem.resp %>%
+    filter(`Potenciar conocimientos y habilidades de los servidores civiles` != "Sin Respuesta")
+
+#-------------------
+
+bbdd.activa.rem.resp$`Recursos humanos` <- factor(bbdd.activa.rem.resp$`Recursos humanos`, levels = c("Si", "No"))
+
+#-------------------
+
+bbdd.activa.rem.resp$`Modernización de la Gestión Pública` <- factor(bbdd.activa.rem.resp$`Modernización de la Gestión Pública`, levels = c("Si", "No"))
+
+#-------------------
+
+bbdd.activa.rem.resp$`Potenciar conocimientos y habilidades de los servidores civiles` <- factor(bbdd.activa.rem.resp$`Potenciar conocimientos y habilidades de los servidores civiles`, levels = c("Si", "No"))
+
+#-------------------
+
+bbdd.activa.rem.resp$`Articular labores entre áreas` <- factor(bbdd.activa.rem.resp$`Articular labores entre áreas`, levels = c("Si", "No"))
+
+#-------------------
+
+bbdd.activa.rem.resp$`Mejorar los sistemas informáticos y sistematizar procesos` <- factor(bbdd.activa.rem.resp$`Mejorar los sistemas informáticos y sistematizar procesos`, levels = c("Si", "No"))
+
+head(bbdd.activa.rem.resp)
+```
+
+
+#### Agrupados por lista
+
+```{r}
+
+fviz_mca_ind(res.mca, label = "none", habillage = bbdd.activa.rem.resp$lista, addEllipses = TRUE, ellipse.type = "confidence", ggtheme = theme_minimal())
+
+```
+
+
+#### Agrupados por nivel de gobierno
+
+```{r}
+
+fviz_mca_ind(res.mca, label = "none", habillage = bbdd.activa.rem.resp$`Nivel de gobierno`, addEllipses = TRUE, ellipse.type = "confidence", ggtheme = theme_minimal())
+
+```
+
+
+#### Agrupados por organo de pertenencia
+
+```{r}
+
+fviz_mca_ind(res.mca, label = "none", habillage = bbdd.activa.rem.resp$`Organo de pertenencia`, addEllipses = TRUE, ellipse.type = "confidence", ggtheme = theme_minimal())
+
+```
+
+#### Agrupados por sexo
+
+```{r}
+
+fviz_mca_ind(res.mca, label = "none", habillage = bbdd.activa.rem.resp$Sexo, addEllipses = TRUE, ellipse.type = "confidence", ggtheme = theme_minimal())
+
+```
+
+
+#### Agrupados por años trabajando en el estado
+
+```{r}
+
+fviz_mca_ind(res.mca, label = "none", habillage = bbdd.activa.rem.resp$`Años trabajando en el Estado`, addEllipses = TRUE, ellipse.type = "confidence", ggtheme = theme_minimal())
+
+```
+
+
+## Descripcion de las dimensiones
+
+```{r}
+
+res.desc <- dimdesc(res.mca, axes = c(1, 2))
+
+```
+
+
+### Descripcion de la dimension 1
+
+```{r}
+
+res.desc[[1]]
+
+```
+
+
+### Descripcion de la dimension 2
+
+```{r}
+
+res.desc[[2]]
+
+```
+
+
+## Elementos complementarios
+
+Creamos otra base de datos que nos ayude a seleccionar solo las variables complementarias.
+
+```{r}
+
+bbdd.activa.rem.resp2 <- bbdd.activa.rem.resp %>%
+    select(`Recursos humanos`, `Modernización de la Gestión Pública`, `Potenciar conocimientos y habilidades de los servidores civiles`, `Articular labores entre áreas`, `Mejorar los sistemas informáticos y sistematizar procesos`, lista, `Nivel de gobierno`, `Organo de pertenencia`, Sexo, `Años trabajando en el Estado`)
+
+head(bbdd.activa.rem.resp2)
+
+```
+
+
+```{r}
+
+res2.mca <- MCA(bbdd.activa.rem.resp2, ind.sup = 1:10, quali.sup = 6:10, graph = FALSE)
+
+```
+
+
+Categorias de variables cualitativas complementarias.
+
+```{r}
+
+res2.mca$quali.sup
+
+```
+
+
+Individuos complementarios: usaremos los 10 primeros individuos ya estudiados en el analisis.
+
+```{r}
+
+res2.mca$ind.sup
+
+```
+
+
+### Graficos
+
+```{r}
+
+fviz_mca_biplot(res2.mca, label = "var", repel = TRUE, ggtheme = theme_minimal())
+
+```
+
+
+#### Correlacion entre variables activas y complementarias
+
+```{r}
+
+fviz_mca_var(res2.mca, choice = "mca.cor", repel = TRUE)
+
+```
+
+
+```{r}
+
+fviz_mca_var(res2.mca, repel = TRUE, ggtheme = theme_minimal())
+
+```
+
+
+```{r}
+
+fviz_mca_ind(res2.mca, label = "ind.sup", ggtheme = theme_minimal())
+
+```
+
+
+## Filtrando principales resultados
+
+Filtraremos los resultados mas importantes.
+
+Visualizar categorias con el cos2 >= 0.4
+
+```{r}
+
+fviz_mca_var(res.mca, select.var = list(cos2 = 0.4))
+
+```
+
+
+Top 3 categorias con el cos2 mas alto
+
+```{r}
+
+fviz_mca_var(res.mca, select.var = list(cos2 = 3))
+
+```
+
+
+Top 20 individuos y top 5 categorias que contribuyen. 
+```{r}
+
+fviz_mca_biplot(res.mca, select.ind = list(contrib = 94), select.var = list(contrib = 5), ggtheme = theme_minimal())
+
+```
+
+
+Concluimos que puede haber una asociacion entre los 94 individuos agrupados y la categoria "no" de la variable "Mejorar los sistemas informaticos y sistematizar procesos".

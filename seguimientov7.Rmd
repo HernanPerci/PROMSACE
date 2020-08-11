@@ -1,0 +1,635 @@
+---
+title: "seguimiento v7"
+author: "Hernan Nuñez"
+date: "9/8/2020"
+output: html_document
+---
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Librerias
+
+Paquetes usados para el R
+
+```{r}
+
+library(tidyverse)
+library(readxl)
+library(lubridate)
+library(ca)
+library(gplots)
+library(factoextra)
+library(FactoMineR)
+library(GGally)
+library(knitr)
+library(corrplot)
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Base de datos de la encuesta
+
+Vista parcial de la base de datos de la encuesta
+
+```{r}
+
+bbdd <- read_excel("promsace 6agosto6pm.xlsx", 
+    sheet = "Base de datos", range = "A3:AA3997", 
+    col_types = c("date", "text", "text", "text", 
+        "text", "text", "text", "text", "text", 
+        "text", "text", "text", "text", "text", 
+        "text", "text", "text", "text", "text", 
+        "text", "text", "text", "text", "text", 
+        "text", "text", "text"))
+#-------------------
+
+bbdd$`Recursos humanos` <- factor(bbdd$`Recursos humanos`, levels = c("Recursos humanos (capacitación, selección de personal, liquidación de beneficios, control de asistencia, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Abastecimiento <- factor(bbdd$Abastecimiento, levels = c("Abastecimiento (contratación de proveedores, patrimonio, términos de referencia, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Presupuesto público` <- factor(bbdd$`Presupuesto público`, levels = c("Presupuesto público (PIA, PIM, PPR, certificación, devengado, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Tesorería <- factor(bbdd$Tesorería, levels = c("Tesorería (viajes y viáticos, caja única, caja chica, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Contabilidad <- factor(bbdd$Contabilidad, levels = c("Contabilidad (rendición de cuentas, Cuenta General de la República, estados financieros, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Control <- factor(bbdd$Control, levels = c("Control (previo, simultáneo, concurrente, auditorías externas etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Inversión pública` <- factor(bbdd$`Inversión pública`, levels = c("Inversión pública (perfil, formulación, evaluación, expediente técnico, banco de inversiones, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Planeamiento estratégico` <- factor(bbdd$`Planeamiento estratégico`, levels = c("Planeamiento estratégico (POI, PEI, PDC, PESEM)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Modernización de la Gestión Pública` <- factor(bbdd$`Modernización de la Gestión Pública`, levels = c("Modernización de la Gestión Pública (estructura y funcionamiento, procedimientos administrativos, procesos, gobierno abierto, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`No sé` <- factor(bbdd$`No sé`, levels = c("No sé", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Otro <- factor(bbdd$Otro,levels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Cambiar el marco normativo` <- factor(bbdd$`Cambiar el marco normativo`, levels = c("Cambiar el marco normativo", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Potenciar conocimientos y habilidades de los servidores civiles` <- factor(bbdd$`Potenciar conocimientos y habilidades de los servidores civiles`, levels = c("Potenciar conocimientos y habilidades de los servidores civiles", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Articular labores entre áreas` <- factor(bbdd$`Articular labores entre áreas`, levels = c("Articular labores entre áreas", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Mejorar los sistemas informáticos y sistematizar procesos` <- factor(bbdd$`Mejorar los sistemas informáticos y sistematizar procesos`, levels = c("Mejorar los sistemas informáticos y sistematizar procesos", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Mejorar la coordinación con el ente rector y otras instituciones` <- factor(bbdd$`Mejorar la coordinación con el ente rector y otras instituciones`, levels = c("Mejorar la coordinación con el ente rector y otras instituciones", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$lista <- factor(bbdd$lista, levels = c("254102633", "256377828", "262814520", "262814761", "262814235"), labels = c("Web Link 1", "Piloto", "Lista 2", "Lista 1", "Lista 3"))
+
+#-------------------
+
+bbdd$Identificado <- factor(bbdd$Identificado , levels = c("Identificado", "No Identificado", "Viciado", "No Aplica", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Priorizado <- factor(bbdd$Priorizado , levels = c("Si", "No", "Viciado", "No Aplica", "Sin Respuesta"))
+
+#--------------------
+
+bbdd$`Nivel de gobierno` <- factor(bbdd$`Nivel de gobierno` , levels = c("Nacional", "Regional", "Local", "Viciado", "No Identificado", "No Aplica", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Organo de pertenencia` <- factor(bbdd$`Organo de pertenencia`, levels = c("Órgano de Apoyo (recursos humanos, administración, tecnologías de la información, otros)", "Órgano de Asesoría (jurídica, planeamiento, presupuesto, otros)", "Órgano de Línea", "Otros", "Sin Respuesta"), labels = c("apoyo", "asesoria", "linea", "Otros","Sin Respuesta"))
+
+#--------------------
+
+bbdd$Sexo <- factor(bbdd$Sexo , levels = c("Hombre", "Mujer", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Años trabajando en el Estado` <- factor(bbdd$`Años trabajando en el Estado`, levels = c("Menos de dos años", "De dos a cinco años", "De seis a diez años", "Más de diez años", "Sin Respuesta"), labels = c("[0 - 2>", "[2 - 5]", "[6 - 10]", "[11 a más>", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$año <- year(bbdd$Fecha)
+
+#-------------------
+
+bbdd$mes <- month(bbdd$Fecha)
+
+#-------------------
+
+bbdd$dia <- day(bbdd$Fecha)
+
+#-------------------
+
+bbdd$hora <- hour(bbdd$Fecha)
+
+#-------------------
+
+bbdd$minuto <- min(bbdd$Fecha)
+
+#-------------------
+
+bbdd$segundo <- second(bbdd$Fecha)
+
+#-------------------
+
+bbdd$dia_de_la_semana <- wday(bbdd$Fecha, label = TRUE)
+
+#------------------
+
+bbdd$semana <- week(bbdd$Fecha)
+
+head(bbdd)
+
+```
+
+
+## Formato de datos
+
+Creamos la base de datos de dos variables: organo de pertenencia y años trabajando para el estado. Luego eliminamos las personas que no respondieron tales preguntas.
+
+```{r}
+
+bbdd2 <- bbdd %>%
+  select(`Organo de pertenencia`, `Años trabajando en el Estado`) %>%
+  filter(`Organo de pertenencia` != "Sin Respuesta")
+
+#-------------------
+
+bbdd2$`Organo de pertenencia` <- factor(bbdd2$`Organo de pertenencia`, levels = c("apoyo", "asesoria", "linea", "Otros"))
+
+#-------------------
+
+bbdd2$`Años trabajando en el Estado` <- factor(bbdd2$`Años trabajando en el Estado`, levels = c("[0 - 2>", "[2 - 5]", "[6 - 10]", "[11 a más>"))
+
+bbdd2 <- data.frame(bbdd2$`Organo de pertenencia`, bbdd2$`Años trabajando en el Estado`)
+
+names(bbdd2) <- c("Organo de pertenencia", "Años trabajando para el estado")
+
+head(bbdd2)
+
+```
+
+
+## Grafico de tabla de contingencia y test chi cuadrado
+
+```{r}
+
+dt <- table(bbdd2$`Organo de pertenencia`, bbdd2$`Años trabajando para el estado`)
+
+balloonplot(t(dt), main = "Organo de pertenencia VS Años trabajando para el estado", xlab = "", ylab = "", label = TRUE, show.margins = TRUE)
+
+```
+
+
+Test chi cuadrado de independencia
+
+```{r}
+
+chisq <- chisq.test(dt)
+chisq
+
+```
+
+
+Con un nivel de significancia del 5% vemos que no hay evidencia suficiente para decir que las dos variables son independientes.
+
+
+## Componentes principales
+
+```{r}
+
+res.ca <- CA(dt, graph = FALSE)
+print(res.ca)
+
+```
+
+
+## Autovalores/ Varianzas
+
+Los autovalores determinan el numero de ejes a considerar. Consideran la cantidad de informacion retenida por cada eje.
+
+```{r}
+
+eig.val <- get_eigenvalue(res.ca)
+eig.val
+
+```
+
+
+```{r}
+
+fviz_screeplot(res.ca, addlabels = TRUE, ylim = c(0, 100))
+
+```
+
+El punto sobre la cual la linea toma una curvatura indica la dimensionalidad optima a tomar.
+
+```{r}
+
+fviz_screeplot(res.ca, addlabels = TRUE, ylim = c(0, 100)) +
+  geom_hline(yintercept = max((1/(nrow(dt)-1)) * 100, (1/(ncol(dt)-1)) * 100), linetype = 2, color = "red")
+
+```
+
+
+Cualquier eje incluido por encima de la linea roja debe ser considerado como importante en la solucion de la interpretacion de la data.
+
+```{r}
+
+fviz_ca_biplot(res.ca, repel = TRUE)
+
+```
+
+
+Hay una similitud entre los que pertenecen al organo de linea y los que estan trabajando de 6 años a mas en el estado.
+
+Los de apoyo y asesoria se acercan a los que trabajan de 11 años a mas.
+
+Los de otros organos se acercan a los que trabajan hasta 5 años en el estado.
+
+## Grafico de la variable " Organo de pertenencia"
+
+```{r}
+
+row <- get_ca_row(res.ca)
+row
+
+```
+
+
+### Coordenadas
+
+```{r}
+
+row$coord
+
+```
+
+
+```{r}
+
+fviz_ca_row(res.ca, repel = TRUE)
+
+```
+
+
+No se aprecian perfiles similares entre las categorias de organos de gobierno.
+
+La categoria asesoria esta correlacionado negativamente.
+
+Las categorias asesoria y otros estan bien representados en el mapa.
+
+### Calidad de la representacion
+
+```{r}
+
+row$cos2
+
+```
+
+
+```{r}
+
+fviz_ca_row(res.ca, col.row = "cos2", gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE)
+
+```
+
+
+cos2 de las categorias en todas las dimensiones
+
+```{r}
+
+corrplot(row$cos2, is.corr = FALSE)
+
+```
+
+
+```{r}
+
+fviz_cos2(res.ca, choice = "row", axes = 1:2)
+
+```
+
+
+Todas las categorias estan bien representadas en las dos dimensiones.
+
+### Contribuciones
+
+```{r}
+
+row$contrib
+
+```
+
+
+Segun parece la categoria apoyo es la menos importante en explicar la variabilidad.
+
+```{r}
+
+corrplot(row$contrib, is.corr = FALSE)
+
+```
+
+
+contribucion a la dimension 1
+
+```{r}
+
+fviz_contrib(res.ca, choice = "row", axes = 1)
+
+```
+
+
+contribucion a la dimension 2
+
+```{r}
+
+fviz_contrib(res.ca, choice = "row", axes = 2)
+
+```
+
+
+contribucion a la dimension 1 y 2
+
+```{r}
+
+fviz_contrib(res.ca, choice = "row", axes = 1:2)
+
+```
+
+
+```{r}
+
+fviz_ca_row(res.ca, col.row = "contrib", gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+repel = TRUE)
+
+```
+
+
+Se ve una oposicion entre las categorias otros, linea y asesoria.
+
+
+## Grafico de la variable " Años trabajando para el estado"
+
+### Resultados
+
+```{r}
+
+col <- get_ca_col(res.ca)
+col
+
+```
+
+coordenadas, calidad y representacion
+
+```{r}
+
+col$coord
+col$cos2
+col$contrib
+
+```
+
+
+### Calidad
+
+```{r}
+
+fviz_ca_col(res.ca, col.col = "cos2", gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE)
+
+```
+
+
+```{r}
+
+fviz_cos2(res.ca, choice = "col", axes = 1:2)
+
+```
+
+
+Todas las categorias estan bien representadas en el mapa de factores.
+
+### Contribucion
+
+```{r}
+
+fviz_ca_col(res.ca, col.col = "contrib", gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE)
+
+```
+
+
+```{r}
+
+fviz_contrib(res.ca, choice = "col", axes = 1:2)
+
+```
+
+
+## Grafico biplot
+
+### Biplot simetrico
+
+```{r}
+
+fviz_ca_biplot(res.ca, repel = TRUE)
+
+```
+
+
+### Biplot asimetrico
+
+Sirven para interpretar las distancias entre los atributos de las variables.
+
+En este caso, las categorias de la segunda variable se representan en el espacio de la primera variable.
+
+```{r}
+
+fviz_ca_biplot(res.ca, map = "rowprincipal", arrow = c(TRUE, TRUE), repel = TRUE)
+
+```
+
+
+Existe una fuerte asociacion entre organo de asesoria y los que trabajan de 11 años a mas.
+
+### Contribucion biplot
+
+Contribucion de las filas en los ejes
+
+```{r}
+
+fviz_ca_biplot(res.ca, map = "colgreen", arrow = c(TRUE, TRUE), repel = TRUE)
+
+```
+
+
+La categoria "otros" tiene una importante contribucion al polo positivo de la primera dimension.
+
+Las categoria "linea" y "asesoria" contribuyen a las dos dimensiones en similar medida.
+
+## Descripcion de las dimensiones
+
+Identificaremos las categorias que esten mas asociadas a las dimensiones.
+
+```{r}
+
+res.desc <- dimdesc(res.ca, axes = c(1, 2))
+res.desc
+
+```
+
+
+Descripcion de la dimension 1 por categorias de la primera variable.
+
+```{r}
+
+res.desc[[1]]$row
+
+```
+
+
+Descripcion de la dimension 1 por categorias de la segunda variable.
+
+```{r}
+
+res.desc[[1]]$col
+
+```
+
+
+Descripcion de la dimension 2 por categorias de la primera variable.
+
+```{r}
+
+res.desc[[2]]$row
+
+```
+
+
+Descripcion de la dimension 2 por categorias de la segunda variable.
+
+```{r}
+
+res.desc[[2]]$col
+
+```
+
+
+## Analisis con elementos complementarios
+
+Debido a que las categorias "otros" y "[0 - 2]" tienen valores altos en sus coordenadas y contribuciones, se les va ha tomar como outliers y por tanto se les tratara como categorias complementarias.
+
+```{r}
+
+res2.ca <- CA(dt, row.sup = 4, col.sup = 1, graph = FALSE)
+
+```
+
+
+## Biplot de filas y columnas
+
+```{r}
+
+fviz_ca_biplot(res2.ca, repel = TRUE)
+
+```
+
+
+## Categoria "otros"
+
+Predecimos los resultados de la categoria "otros".
+
+```{r}
+
+res2.ca$row.sup
+
+```
+
+
+```{r}
+
+fviz_ca_row(res2.ca, repel = TRUE)
+
+```
+
+
+## Categoria "0 a 2 años"
+
+```{r}
+
+res2.ca$col.sup
+
+```
+
+
+```{r}
+
+fviz_ca_col(res2.ca, repel = TRUE)
+
+```
+
+
+## Biplots asimetricos con categorias complementarias
+
+```{r}
+
+fviz_ca_biplot(res2.ca, map = "rowprincipal", arrow = c(TRUE, TRUE), repel = TRUE)
+
+```
+
+
+```{r}
+
+fviz_ca_biplot(res2.ca, map = "colprincipal", arrow = c(TRUE, TRUE), repel = TRUE)
+
+```
+
+
+## Concluciones
+
+Se pueden encontrar patrones entre los que trabajan de "6 a 10 años" con el organo de "linea".
+
+Se pueden encontrar patrones entre los que trabajan de "2 a 5 años" en el estado con los de "otros" organos.
+
+Se pueden encontrar patrones entre los que trabajan de 11 años a mas y la categoria "asesoria".
+
+
+
+
+

@@ -712,3 +712,109 @@ fviz_mca_biplot(res.mca, select.ind = list(contrib = 94), select.var = list(cont
 
 
 Concluimos que puede haber una asociacion entre los 94 individuos agrupados y la categoria "no" de la variable "Mejorar los sistemas informaticos y sistematizar procesos".
+
+
+## Agrupacion jerarquica
+
+Formaremos conglomerados con las variables procedentes de la pregunta 2 y 3 cuyas frecuencias de categorias no las hayan excluido del analisis y consideramos a las variables complementarias a predecir las cuales son "lista", "nivel d gobierno", "organo de pertenencia", "sexo" y "años trabajando para el estado.
+
+```{r}
+
+res3.mca <- MCA(bbdd.activa.rem.resp2, ncp = 4, quali.sup = 6:10, graph = FALSE)
+
+```
+
+
+Aplicamos agrupamientos jerarquicos sobre los resultados del analisis de correspondencia multiple.
+
+```{r}
+
+res.hcpc <- HCPC(res3.mca, graph = FALSE)
+
+```
+
+
+Dendograma
+
+```{r}
+
+fviz_dend(res.hcpc, show_labels = FALSE)
+
+```
+
+
+Mapa factor de individuos
+
+```{r}
+
+fviz_cluster(res.hcpc, geom = "point", main = "Factor map")
+
+```
+
+
+### Descripcion por variables
+
+```{r}
+
+res.hcpc$desc.var$test.chi2
+
+```
+
+
+### Descripcion por categorias
+
+```{r}
+
+res.hcpc$desc.var$category
+
+```
+
+
+Las variables que caracterizan mas a los clusteres son las variables "Recursos humanos", "Modernizacion de la Gestion Publica" y "Articular labores entre areas".
+
+Cada cluster esta caracterizado por una categoria de las variables "Recursos humanos", "Modernizacion de la Gestion Publica" y "Articular labores entre areas".
+
+Los individuos que pertenecen al primer cluster marcaron:
+- "si" a "Modernizacion de la Gestion Publica"
+- "si" a "Mejorar los sistemas informaticos sistematizar procesos"
+- "no" a "Recursos humanos"
+- "no" a "Articular labores entre areas"
+- "no" a "Potenciar conocimientos y habilidades de los servidores civiles"
+
+Los individuos que pertenecen al segundo cluster marcaron:
+- "no" a "Modernizacion de la Gestion Publica"
+- "no" a "Articular labores entre areas"
+- "no" a "Recursos humanos".
+
+Los individuos que pertenecen al tercer cluster marcaron:
+- "si" a "Articular labores entre areas"
+- "no" a "Mejorar los sistemas informaticos sistematizar procesos"
+- "no" a "Potenciar conocimientos y habilidades de los servidores civiles"
+- "no" a "Modernizacion de la Gestion Publica"
+
+Los individuos que pertenecen al cuarto cluster marcaron:
+- "si" a "Recursos humanos".
+- "si" a "Potenciar conocimientos y habilidades de los servidores civiles"
+- "no" a "Articular labores entre areas"
+- "no" a "Modernizacion de la Gestion Publica"
+
+
+## Descripcion por individuos
+
+```{r}
+
+res.hcpc$desc.ind$para
+
+```
+
+
+Los individuos mencionados son los mas tipicos en cada cluster.
+
+
+
+
+
+
+
+
+

@@ -5,13 +5,9 @@ date: "8/8/2020"
 output: html_document
 ---
 
-## R Markdown
+## Objetivo del trabajo
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+La finalidad de este trabajo es encontrar asociaciones entre categorias de variables y identificar grupos de individuos con perfil similar en sus respuestas a las preguntas.
 
 ## Librerias
 
@@ -716,7 +712,7 @@ Concluimos que puede haber una asociacion entre los 94 individuos agrupados y la
 
 ## Agrupacion jerarquica
 
-Formaremos conglomerados con las variables procedentes de la pregunta 2 y 3 cuyas frecuencias de categorias no las hayan excluido del analisis y consideramos a las variables complementarias a predecir las cuales son "lista", "nivel d gobierno", "organo de pertenencia", "sexo" y "años trabajando para el estado.
+Formaremos grupos de individuos semejantes con las variables procedentes de la pregunta 2 y 3 cuyas frecuencias de categorias no las hayan excluido del analisis y consideramos a las variables complementarias a predecir las cuales son "lista", "nivel de gobierno", "organo de pertenencia", "sexo" y "años trabajando para el estado.
 
 ```{r}
 
@@ -810,7 +806,38 @@ res.hcpc$desc.ind$para
 
 Los individuos mencionados son los mas tipicos en cada cluster.
 
+## Resumen de concluciones
 
+Puede haber una asociacion entre los 94 individuos agrupados y la categoria "no" de la variable "Mejorar los sistemas informaticos y sistematizar procesos".
+
+Los individuos que pertenecen al primer grupo marcaron:
+"si" a "Modernizacion de la Gestion Publica", "si" a "Mejorar los sistemas informaticos sistematizar procesos", "no" a "Recursos humanos", "no" a "Articular labores entre areas" y "no" a "Potenciar conocimientos y habilidades de los servidores civiles"
+
+Los individuos que pertenecen al segundo grupo marcaron: "no" a "Modernizacion de la Gestion Publica", "no" a "Articular labores entre areas", "no" a "Recursos humanos".
+
+Los individuos que pertenecen al tercer grupo marcaron:
+"si" a "Articular labores entre areas", "no" a "Mejorar los sistemas informaticos sistematizar procesos", "no" a "Potenciar conocimientos y habilidades de los servidores civiles" y "no" a "Modernizacion de la Gestion Publica"
+
+Los individuos que pertenecen al cuarto cluster marcaron: "si" a "Recursos humanos", "si" a "Potenciar conocimientos y habilidades de los servidores civiles", "no" a "Articular labores entre areas" y "no" a "Modernizacion de la Gestion Publica"
+
+Los individuos mas tipicos en el Cluster 1 son: 51, 65, 69, 73 y 90. 
+
+Los individuos mas tipicos en el Cluster 2 son: 26, 30, 40, 49 y 85 
+
+Los individuos mas tipicos en el Cluster 3 son: 10, 13, 45, 47 y 50 
+
+Los individuos mas tipicos en el Cluster 4 son: 14, 42, 48, 56 y 62 
+ 
+## Otras consideraciones
+
+Se pueden mejorar los clusters en funcion de una distancia adecuada a las variables categoricas que seria la distancia de Hamming pues la distancia que se tomo fue la euclidea.
+
+## Fuente
+
+Clustering Categorical Data Based on Distance Vectors
+Author(s): Peng Zhang, Xiaogang Wang and Peter X.-K. Song
+Source: Journal of the American Statistical Association, Vol. 101, No. 473 (Mar., 2006), pp.
+355-367
 
 
 

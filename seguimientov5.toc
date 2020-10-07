@@ -1,0 +1,22 @@
+\contentsline {section}{\numberline {1}Introduccion}{2}%
+\contentsline {section}{\numberline {2}Variables de estudio}{2}%
+\contentsline {section}{\numberline {3}Colectores}{3}%
+\contentsline {subsection}{\numberline {3.1}weblink}{4}%
+\contentsline {subsection}{\numberline {3.2}Piloto}{5}%
+\contentsline {subsection}{\numberline {3.3}Lista 2}{7}%
+\contentsline {subsection}{\numberline {3.4}Lista 1}{8}%
+\contentsline {subsection}{\numberline {3.5}semana 31: 29 de julio al 4 de agosto}{10}%
+\contentsline {subsubsection}{\numberline {3.5.1}semana 31 cantidades individuales}{12}%
+\contentsline {subsubsection}{\numberline {3.5.2}semana31 por dia}{13}%
+\contentsline {subsubsection}{\numberline {3.5.3}weblink}{13}%
+\contentsline {subsubsection}{\numberline {3.5.4}Lista 2}{15}%
+\contentsline {subsubsection}{\numberline {3.5.5}Lista 1}{16}%
+\contentsline {section}{\numberline {4}Analisis de la Pregunta 2: Ayúdanos a entender mejor el problema ¿Sabes con qué sistema administrativo se relaciona la experiencia relatada? Si lo sabes, marca hasta dos opciones.}{18}%
+\contentsline {section}{\numberline {5}Analisis de la pregunta 3: ¿Cuáles de las siguientes acciones crees que deberíamos realizar para solucionar el problema que nos comentaste? Marca hasta dos opciones.}{19}%
+\contentsline {section}{\numberline {6}Encuestas identificadas}{20}%
+\contentsline {section}{\numberline {7}Encuestas priorizadas}{21}%
+\contentsline {section}{\numberline {8}Nivel de gobierno}{22}%
+\contentsline {section}{\numberline {9}Organo de pertenencia}{23}%
+\contentsline {section}{\numberline {10}Sexo}{24}%
+\contentsline {section}{\numberline {11}Años trabajando en el estado}{25}%
+\contentsline {section}{\numberline {12}Encuestas completas}{27}%

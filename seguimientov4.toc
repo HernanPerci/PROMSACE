@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Introduccion}{1}%
+\contentsline {section}{\numberline {2}Variables de estudio}{2}%
+\contentsline {section}{\numberline {3}Analisis de la Pregunta 2: Ayúdanos a entender mejor el problema ¿Sabes con qué sistema administrativo se relaciona la experiencia relatada? Si lo sabes, marca hasta dos opciones.}{2}%
+\contentsline {section}{\numberline {4}Analisis de la pregunta 3: ¿Cuáles de las siguientes acciones crees que deberíamos realizar para solucionar el problema que nos comentaste? Marca hasta dos opciones.}{4}%
+\contentsline {section}{\numberline {5}Encuestas identificadas}{5}%
+\contentsline {section}{\numberline {6}Encuestas priorizadas}{6}%
+\contentsline {section}{\numberline {7}Nivel de gobierno}{7}%
+\contentsline {section}{\numberline {8}Organo de pertenencia}{8}%
+\contentsline {section}{\numberline {9}Sexo}{9}%
+\contentsline {section}{\numberline {10}Años trabajando en el estado}{10}%

@@ -1,0 +1,428 @@
+---
+title: "Promsace 28agosto"
+author: "Hernan Nuñez"
+date: "28/8/2020"
+output: html_document
+---
+
+El objetivo es obtener cuales serian las trabas de la pregunta 1 que mejor representen a la mayoria de los individuos, para eso iremos en la siguente linea:
+
+* Primero: seleccionaremos las preguntas 2 y 3 como base para nuestro analisis.
+
+* Segundo: seleccionaremos cuales son las categorias que mas respondieron
+
+* Tercero: observaremos como los individuos estan agrupados en base a las respuestas de las preguntas de analisis y de las preguntas organo de linea, sexo, años trabajando para el estado y nivel de gobierno, esta ultima esta asociada a la pregunta 4 referente a entidades.
+
+* Cuarto: generaremos grupos de individuos que se relacionan dentro del grupo y que se diferencian de los demas grupos.
+
+* Quinto: obtendremos los individuos que mejor representen a los grupos, sus respuestas con respecto a la pregunta 1 nos daran una nocion de cuales serian las trabas que representan a grupos distintos de individuos. 
+
+* Sexto (adicional): Encontraremos por analisis de clases latentes a grupos de individuos que nos daran otra perspectiva de como estan relacionadas las respuestas.
+
+
+```{r, echo=FALSE, message=FALSE}
+
+library(readxl)
+library(FactoMineR)
+library(factoextra)
+library(missMDA)
+library(tidyverse)
+library(foreign)
+library(knitr)
+library(reshape)
+library(poLCA)
+library(parallel)
+library(broom)
+
+```
+
+## Base de datos inicial
+
+* Excluimos del analisis las encuestas cuyas respuestas de las preguntas 2 en adelante estan vacias (629 de 10088)
+* P2.1 al P2.11 corresponden a la pregunta 2
+* P3.1 al P3.5 corresponden a la pregunta 3
+* 0 y 1 corresponden a los que no y si marcaron respectivamente.
+* P5 organo de linea
+* P6 sexo
+* P7 años trabajando para el estado
+* P4.1 nivel de gobierno
+
+```{r, echo=FALSE, message=FALSE}
+
+promsace_28agosto2am <- read_excel("promsace 28agosto2am.xlsx", 
+                    sheet = "R", range = "C1:V10089")
+
+promsace_28agosto2am[] <- lapply(promsace_28agosto2am, 
+                                 as.factor)
+
+promsace_28agosto2am$P5 <- factor(promsace_28agosto2am$P5, levels = c("Órgano de Apoyo (recursos humanos, administración, tecnologías de la información, otros)", "Órgano de Asesoría (jurídica, planeamiento, presupuesto, otros)", "Órgano de Línea", "Otros"), labels = c("apoyo", "asesoria", "linea", "Otros"))
+
+promsace_28agosto2am$P7  <- factor(promsace_28agosto2am$P7 , levels = c("Menos de dos años", "De dos a cinco años", "De seis a diez años", "Más de diez años"), labels = c("[0 - 2>", "[2 - 5]", "[6 - 10]", "[11 a más>"))
+
+promsace_28agosto2am <- promsace_28agosto2am %>%
+                        filter(!is.na(P2.1))
+
+summary(promsace_28agosto2am)
+
+```
+
+
+## Tratamiento de los sin respuesta
+
+Procesaremos los sin respuesta como valores que hubieran elegido los individuos si es que hubieran marcado.
+
+```{r, echo=FALSE, message=FALSE}
+
+res.impute <- imputeMCA(promsace_28agosto2am, ncp = 5)
+promsace_28agosto2am <- res.impute$completeObs
+summary(promsace_28agosto2am)
+
+```
+
+
+Las principales fuentes de respuestas positivas y que no distorcionan el analisis provienen de las variables P2.1 P2.2 P2.9 P3.1 P3.2 P3.3 P3.4 y P3.5
+
+## Analisis de correspondencia multiple
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=14, fig.height=14}
+
+res <- MCA(res.impute$completeObs, quali.sup = c(3, 4, 5, 6, 7, 8, 10, 11, 17, 18, 19, 20), graph = FALSE)
+
+fviz_screeplot(res, addlabels = TRUE, ylim = c(0, 20))
+
+```
+
+Analizaremos 3 dimensiones que nos explican poco mas del 50% del comportamiento los datos.
+
+## Analisis dimension 1 y 2
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=14, fig.height=14}
+
+fviz_mca_var(res, choice = "mca.cor",
+             repel = TRUE,
+             axes = c(1, 2),
+             ggtheme = theme_minimal())
+
+fviz_mca_var(res,
+             repel = TRUE,
+             axes = c(1, 2),
+             ggtheme = theme_minimal())
+
+fviz_mca_var(res, 
+             col.var = "cos2",
+             axes = c(1, 2),
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE, 
+             ggtheme = theme_minimal())
+
+fviz_cos2(res, choice = "var", axes = 1:2)
+
+fviz_mca_var(res, 
+             col.var = "contrib",
+             axes = c(1, 2),
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE,
+             ggtheme = theme_minimal()
+)
+
+fviz_contrib(res, choice = "var", axes = 1:2)
+
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=14, fig.height=14}
+
+plotellipses(res, axes = c(1, 2))
+
+```
+
+
+* Existe posible asociacion entre las categorias:
+* P3.2_1 con P2.1_1
+* P2.9_1 con P3.4_1
+* P2.2_1 con viciado
+* P3.4_0 con P2.9_0
+
+* Los subgrupos que marcaron si y no se diferencian excepto en las categorias: P2.8, P4.1, P5, P6 y P7.
+
+
+## Analisis dimension 1 y 3
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=14, fig.height=14}
+
+fviz_mca_var(res, choice = "mca.cor",
+             repel = TRUE,
+             axes = c(1, 3),
+             ggtheme = theme_minimal())
+
+fviz_mca_var(res,
+             repel = TRUE,
+             axes = c(1, 3),
+             ggtheme = theme_minimal())
+
+fviz_mca_var(res, 
+             col.var = "cos2",
+             axes = c(1, 3),
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE, 
+             ggtheme = theme_minimal())
+
+fviz_cos2(res, choice = "var", axes = 1:3)
+
+fviz_mca_var(res, 
+             col.var = "contrib",
+             axes = c(1, 3),
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE,
+             ggtheme = theme_minimal()
+)
+
+fviz_contrib(res, choice = "var", axes = 1:3)
+
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=14, fig.height=14}
+
+plotellipses(res, axes = c(1, 3))
+
+```
+
+
+* Existe posible asociacion entre las categorias:
+* P2.2_1 con P3.3_1
+* P3.1_1 con P3.5_1
+* P3.2_1 con viciado con P3.4_0 con P2.1_1
+
+* Los subgrupos que marcaron si y no se diferencian excepto en las categorias: P2.5, P2.6, P2.7, P2.8, P2.10, P2.11, P4.1, P5, P6 y P7.
+
+## Analisis dimension 2 y 3
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=14, fig.height=14}
+
+fviz_mca_var(res, choice = "mca.cor",
+             repel = TRUE,
+             axes = c(2, 3),
+             ggtheme = theme_minimal())
+
+fviz_mca_var(res,
+             repel = TRUE,
+             axes = c(2, 3),
+             ggtheme = theme_minimal())
+
+fviz_mca_var(res, 
+             col.var = "cos2",
+             axes = c(2, 3),
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE, 
+             ggtheme = theme_minimal())
+
+fviz_cos2(res, choice = "var", axes = 2:3)
+
+fviz_mca_var(res, 
+             col.var = "contrib",
+             axes = c(2, 3),
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE,
+             ggtheme = theme_minimal()
+)
+
+fviz_contrib(res, choice = "var", axes = 2:3)
+
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=14, fig.height=14}
+
+plotellipses(res, axes = c(2, 3))
+
+```
+
+
+* Existe posible asociacion entre las categorias:
+* P3.1_1 con P3.5_1
+
+* Los subgrupos que marcaron si y no se diferencian excepto en las categorias: P2.8, P4.1, P5, P6 y P7.
+
+## Analisis cluster jerarquico
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+res.hcpc <- HCPC(res, kk = 100, consol = FALSE, nb.clust = 5, graph = FALSE)
+
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=14, fig.height=14}
+
+fviz_dend(res.hcpc, show_labels = FALSE)
+
+fviz_cluster(res.hcpc, geom = "point", main = "Factor map")
+
+```
+
+
+## Resultados del cluster
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=14, fig.height=14}
+
+res.hcpc$desc.var
+res.hcpc$desc.ind
+
+```
+
+
+No se encuentra una clara diferencia entre los clusters pero podemos analizar los grupos de individuos de cada cluster que mas se alejen del centro de los demas grupos.
+
+* Los individuos del primer grupo se caracterizan por P3.4_1, P3.3_0, P3.5_0, P3.1_0
+* Los individuos del segundo grupo se caracterizan por P3.5_1, P3.3_0, P3.1_0, P2.2_0
+* Los individuos del tercer grupo se caracterizan por P3.1_1, P3.3_0, P3.2_0, P3.4_0
+* Los individuos del cuarto grupo se caracterizan por P3.3_1, P2.2_0, P3.1_0, P3.5_0
+* Los individuos del quinto grupo se caracterizan por P2.2_1, P2.9_0, P3.1_0, P2.11_0
+
+Los individuos pertenecientes a cada cluster y que esten mas alejados a los demas cluster son:
+
+* Los individuos del primer grupo 28, 72, 86, 92, 98
+* Los individuos del segundo grupo 33, 79, 101, 303, 408
+* Los individuos del tercer grupo 145, 296, 347, 621, 803 
+* Los individuos del cuarto grupo 87, 121, 144, 150, 155 
+* Los individuos del quinto grupo 222, 754, 1164, 1203, 1253
+
+## Analisis de clases latentes en base a las respuestas mas importantes de la pregunta 2 y 3 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+promsace_28agosto2am <- promsace_28agosto2am[,c(1, 2, 9, 12, 13, 14, 15, 16)]
+
+f <- cbind(P2.1, P2.2, P2.9, P3.1, P3.2, P3.3, P3.4, P3.5)~1
+
+```
+
+
+
+## Comparacion con diferentes numeros de clases
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+LCA_1a9 <- lapply(1:9, function(x) {poLCA(f, promsace_28agosto2am, nclass = x, nrep = 10)})
+
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=14, fig.height=14}
+
+map_df(LCA_1a9, glance) %>%
+  kable(caption = "Comparación de modelos con 1 a 9 clases")
+
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=14, fig.height=14}
+
+map_df(LCA_1a9, glance) %>% 
+  dplyr::select(-df, -df.residual, -chi.squared) %>% 
+  mutate(modelo = as.character(1:nrow(.))) %>%
+  gather(cantidad, valor, -modelo) %>% 
+  ggplot(aes(x= modelo, y = valor, group = 1)) + 
+    geom_line() + 
+    geom_point() + 
+    facet_wrap(~cantidad, scales = "free") +
+    labs(title = "Comparación de modelos para las principales resuestas de las preguntas 2 y 3") + 
+    theme_minimal()
+
+```
+
+## Modelo de 6 clases
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=14, fig.height=14}
+
+LCA_6clases <- promsace_28agosto2am %>%
+      poLCA(f, ., nclass = 6, nrep = 10, graphs = TRUE)
+
+```
+
+
+Haciendo otro analisis encontramos seis clases de individuos cuyas probabilidades condicionales de marcar si a cada pregunta por clase se encuentra asociado a la altura de cada barra.
+
+Las clases desde la 1 hasta la 6 estan divididas aproximadamente por el 17%, 19%, 14%, 12%, 16% y 19% de los encuestados respectivamente.
+
+La clase 1 se caracteriza principalmente por marcar P3.2, P3.3, P2.1 y P2.9
+La clase 2 se caracteriza principalmente por marcar P3.3, P3.4, P2.9
+La clase 3 se caracteriza principalmente por marcar P3.4, P3.2, P2.9 y P2.1
+La clase 4 se caracteriza principalmente por marcar P3.5, P2.9 y P3.2
+La clase 5 se caracteriza principalmente por marcar P3.4, P3.5 y P2.9
+La clase 6 se caracteriza principalmente por marcar P3.1
+
+
+## Concluciones
+
+Las principales fuentes de respuestas provienen de los sistemas administrativos "recursos humanos", "modernizacion de la gestion publica" y "abastecimiento". Con respecto a la pregunta 3 sobre que acciones deben realizar, no existen frecuencias bajas en ninguna de sus respuestas.
+
+Existe una posible asociacion entre:
+
+* "recursos humanos" con "Potenciar conocimientos y habilidades de los servidores civiles".
+* "Modernizacion de la gestion publica" con "Mejorar los sistemas informáticos y sistematizar procesos".
+* "abastecimiento" con "articular labores entre areas".
+* "cambiar el marco normativo" y "Mejorar la coordinación con el ente rector y otras instituciones".
+
+
+Encontramos 5 grupos de individuos los cuales se caracterizan por:
+
+* Los individuos del primer grupo se caracterizan por "Mejorar los sistemas informáticos y sistematizar procesos" y no vincularse con "articular labores entre areas", "cambiar el marco normativo" y "Mejorar la coordinación con el ente rector y otras instituciones".
+* Los individuos del segundo grupo se caracterizan por  "Mejorar la coordinación con el ente rector y otras instituciones" y no vincularse con "articular labores entre areas", "cambiar el marco normativo" y "abastecimiento".
+* Los individuos del tercer grupo se caracterizan por  "cambiar el marco normativo" y no vincularse con "articular labores entre areas", "Potenciar conocimientos y habilidades de los servidores civiles" y "Mejorar los sistemas informáticos y sistematizar procesos".
+* Los individuos del cuarto grupo se caracterizan por "articular labores entre areas" y no vincularse con "abastecimiento", "cambiar el marco normativo" y "Mejorar la coordinación con el ente rector y otras instituciones".
+* Los individuos del quinto grupo se caracterizan por "abastecimiento" y no vincularse con "Modernizacion de la gestion publica", "cambiar el marco normativo" y "Otros (sistemas administrativos)".
+
+
+Las trabas de los individuos que podrian representar al primer grupo son:
+
++ ingreso de documentos al poder judicial y me sucedio en pandemia
++ La traba administrativa que tuve fue cuando solicite modificación de acta de matrimonio y me sucedió cuando lo requeria con urgencia para un trámite RENIEC
++ demora, tramitaba mi titulo
++ Fue solicite el TUPA y no sabían que era y por lo visto tampoco contaban con el mismo y me sucedió cuando hacia trámites varios
++ la traba adminsitrativa que existe en el sector publico es la burocracia que existe en los tramites documentario exigimos mas de lo debido algunos ervidores no hemos aprendido que debemos tener criterio para recepcion de los documentos al usuario y sucede que permitivos  que ves tras vez el usuario tenga que retornar a la institucion y a  la vez el tiempo en la demora de dar la respuesta
+
+
+Las trabas de los individuos que podrian representar al segundo grupo son:
+
++ los bonos covic19  en estos meses
++ LA NO ASIGNACIÓN DE PRESUPUESTO EN TEMAS SOCIALES Y ME SUCEDIO CUANDO SE LE REALIZO LAS GESTIONES PARA LA ASIGNACION QUE LAS MUNICIPALIDADES NO ESTAN DISPUESTOS A INVERTIR  EN CAPACIDAD DE LA CIUDADANIA.
++ LA BUROCRACIA PARA EL TRAMITE DE DESCANSOS MEDICOS O RESTRICCIONES MEDICAS, SUCEDIO ESTA ULTIMA SEMANA CON DOS INSPECTORES DE TRABAJO
++ Trabajo en el Instituto Nacional de Rehabilitación, Oficina de Planeamiento Estrategico-en el Equipo de Proy. y la traba la he tenido en la OPMI MINSA (Oficina de Programac Multianual de Inversiones del Sector Salud) y me sucedió cuando he solicitando Demanda Adicional de inversiones 2020 a la OPMI-MINSA de un proyecto de inversión que esta en liquidación. el cual se encuentra en la Programacion Multianual de inversiones 2020 del Sector clasificado en 1ra prioridad por cumplir con el criterio para ello (estar en proc. de liquidación) el presupuesto solicitado es para pagar obligaciones en dos componentes del Proy.: Supervición de obra y Administración de Proyecto.  por deudas pendientes con el supervisor de obra sujetas a autoriz de Contral Gral y los pagos a ingenieros de la Unidad Ejecutora de Proy de inversión (Componente Adm de Proy.). a la primera solicitud, me observaron que no conocían los antecedentes del proyecto y que sustentara con toda la historia del mismo, se ha reenviado la solicitud con todo documentado, sin embargo ahora me adelantaron una respuesta negativa cuyas razones denotan que no revisaron el sustento enviado, esto denota que pidieron la informacion adicional (mas de 100 paginas bien ordenadas y documentadas) y obvio nadie tiene tiempo para revisar tanto sin embargo me vuelven a rebotar la solicitud. La Institución INR, no tiene con que pagar al supervisor y a los ingenieros mencionados por lo cual nos hacemos sujetos de penalidades o lo que corresponda  por incumplimiento de contratos. todo lo solcicitado se encuentra en el marco de los componentes autorizados en la declaratoria de viabilidad del proyecto, esto denota incapacidades de dominio del tema y la falta de analisis en toda la información solicitada, me la pidieron por gusto, ni la vieron. Los profesionales de Inversiones al asumir los cargos deben ser bien capacitados en su tema deben recibir un proceso de inducción bien responsable y de otro lado permitir la participacion de los interezados mediante reuniones virtuales, que es lo que solicite para poder explicar toda la documentacion con la que sustento la solicitud. Como se aprecia esto atraza los procesos y si se generan denuncias o penalidades por incumplimiento de contratos, tambien son perjuicios al estado por mayores e insulsos gastos en los que se tiene que incurrir. No es la primera vez que en OPMI MINSA desconocen y rechazan las solicitudes de presupuesto sobre todo en el caso del componente administracion de Proyecto, reduciendo el techo de financiamiento aprobado en el proyecto. Debido a que cada componente suma el total del financiamiento de un proyecto cuando es declarado viable y aun nos encontramos por debajo del techo de dicho componente.
++ La traba administrativa que tuve fue para poder atender información solicitada, por los administrados, el congreso u otra entidad publica y me sucedio cuando llega a mi la respuesta de una área que no era la que tenia competencia funcional para atender la solicitud, porque el que derivo los documentos para atención desconocia el ROF institucional y derivo a quien no correspondia, tuve que recanalizar el pedido y eso llevo mas tiempo para atender la solicitud original, este es un caso muy pero muy reiterativo.
+
+Las trabas de los individuos que podrian representar al tercer grupo son:
+
++ cobertura de atenciones sucedió cuando colapsaron los establecimientos de salud
++ Partidas intangibles en el presupuesto / necesitas agilizar y ejecutar medidas de prevención
++ PROCESO DE ADQUISICIÓN DE 02 CAMIONETAS PARA SERENAZGO, DEMASIADO TRAMITE BUROCRÁTICO Y LA NECESIDAD ES URGENTE, PRODUCIENDOSE DEMORA Y UN RETRASO EN LA ADQUISICION DEL MISMO
++ Los contratos suscritos antes de la pandemia no se pueden ejecutar de manera regular, por cuanto la Institucion maneja protocolos de salud que deben cumplirse.
++ La traba administrativa que tengo es la falta de decisión de los diversos niveles de mi empresa, y además de otras instituciones de las cuales dependemos.
+
+Las trabas de los individuos que podrian representar al cuarto grupo son: 
+
++ decidir la signación de saldos de recursos CAS no utilizados, Coordiné con mi superior inmediato
++ La traba administrativa fue que un administrado solicita se le reconozca el pago de preparación de clases y para lo cual presenta una solicitud lo cual es observado por el funcionario que debería dar respuesta por que la firma del DNI no coincidía con la firma de la solicitud, a lo que le ordene como jefe del funcionario a que de tramite a lo solicitado ya que la observación realizada no tenia nada que ver con lo que solicitaba el administrado.
++ Demora en la gestión del Gobierno Regional de Arequipa, SUNAT, Banco de la Nación.  Durante  toda la cuarentena
++ La traba administrativa fue que el número de personal se vio reducido considerablemente, y me sucedió cuando empezó el estado de emergencia sanitaria.
++ costumbre y resignación a la oportunidad de mejora
+
+Las trabas de los individuos que podrian representar al quinto grupo son:
+
++ las areas no estan bien articuladas, donde se permita un adecuado orientación de las gestiones y oportunidad para atenderlo    cuando desempañaba en el area de abastecimiento
++ Mas que una traba es la demora o la burocracia en la Oficina de Logística y esto sucede menudo. 
++ SIEMPRE LOS ATRAZOS O COMPLICACIONES ESTA EN ABASTECIMIENTOS, POR QUE TRABAJA UNA SOLA PERSONA, O SE ABASTECE
++ orden para arreglar equipo de computo de la entidad  Octubre del 2018
++ lentitud en Alta Dirección
+
+Encontramos 6 clases de individuos que se caracterizan principalmente por marcar:
+
++ clase 1: "Potenciar conocimientos y habilidades de los servidores civiles", "articular labores entre areas", "recursos humanos" y "modernizacion de la gestion publica"
++ clase 2: "articular labores entre areas", "mejorar los sistemas informaticos y sistematizar procesos" y
+"modernizacion de la gestion publica"
++ clase 3: "mejorar los sistemas informaticos y sistematizar procesos", "Potenciar conocimientos y habilidades de los servidores civiles", "modernizacion de la gestion publica" y "recursos humanos"
++ clase 4: "Mejorar la coordinación con el ente rector y otras instituciones", "modernizacion de la gestion publica" y "Potenciar conocimientos y habilidades de los servidores civiles"
++ clase 5: "mejorar los sistemas informaticos y sistematizar procesos", "Mejorar la coordinación con el ente rector y otras instituciones" y "modernizacion de la gestion publica"
++ clase 6: "cambiar el marco normativo
+

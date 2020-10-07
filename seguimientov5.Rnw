@@ -21,22 +21,91 @@ La encuesta sobre la que se respalda el presente informe aun se esta recolectand
 library(tidyverse)
 library(readxl)
 library(lubridate)
+library(ca)
+library(gplots)
+library(factoextra)
+library(FactoMineR)
+library(GGally)
+
 @
 
 <<echo = FALSE>>=
 
-bbdd <- read_excel("promsace 3agosto.xlsx", 
-    sheet = "Base de datos", range = "A3:AA3380", 
+bbdd <- read_excel("promsace 6agosto6pm.xlsx", 
+    sheet = "Base de datos", range = "A3:AA3997", 
     col_types = c("date", "text", "text", "text", 
         "text", "text", "text", "text", "text", 
         "text", "text", "text", "text", "text", 
         "text", "text", "text", "text", "text", 
         "text", "text", "text", "text", "text", 
         "text", "text", "text"))
+#-------------------
+
+bbdd$`Recursos humanos` <- factor(bbdd$`Recursos humanos`, levels = c("Recursos humanos (capacitación, selección de personal, liquidación de beneficios, control de asistencia, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
 
 #-------------------
 
-bbdd$lista <- factor(bbdd$lista, levels = c("254102633", "256377828", "262814520", "262814761"), labels = c("Web Link 1", "Piloto", "Lista 2", "Lista 1"))
+bbdd$Abastecimiento <- factor(bbdd$Abastecimiento, levels = c("Abastecimiento (contratación de proveedores, patrimonio, términos de referencia, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Presupuesto público` <- factor(bbdd$`Presupuesto público`, levels = c("Presupuesto público (PIA, PIM, PPR, certificación, devengado, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Tesorería <- factor(bbdd$Tesorería, levels = c("Tesorería (viajes y viáticos, caja única, caja chica, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Contabilidad <- factor(bbdd$Contabilidad, levels = c("Contabilidad (rendición de cuentas, Cuenta General de la República, estados financieros, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Control <- factor(bbdd$Control, levels = c("Control (previo, simultáneo, concurrente, auditorías externas etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Inversión pública` <- factor(bbdd$`Inversión pública`, levels = c("Inversión pública (perfil, formulación, evaluación, expediente técnico, banco de inversiones, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Planeamiento estratégico` <- factor(bbdd$`Planeamiento estratégico`, levels = c("Planeamiento estratégico (POI, PEI, PDC, PESEM)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Modernización de la Gestión Pública` <- factor(bbdd$`Modernización de la Gestión Pública`, levels = c("Modernización de la Gestión Pública (estructura y funcionamiento, procedimientos administrativos, procesos, gobierno abierto, etc.)", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`No sé` <- factor(bbdd$`No sé`, levels = c("No sé", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$Otro <- factor(bbdd$Otro,levels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Cambiar el marco normativo` <- factor(bbdd$`Cambiar el marco normativo`, levels = c("Cambiar el marco normativo", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Potenciar conocimientos y habilidades de los servidores civiles` <- factor(bbdd$`Potenciar conocimientos y habilidades de los servidores civiles`, levels = c("Potenciar conocimientos y habilidades de los servidores civiles", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Articular labores entre áreas` <- factor(bbdd$`Articular labores entre áreas`, levels = c("Articular labores entre áreas", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Mejorar los sistemas informáticos y sistematizar procesos` <- factor(bbdd$`Mejorar los sistemas informáticos y sistematizar procesos`, levels = c("Mejorar los sistemas informáticos y sistematizar procesos", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$`Mejorar la coordinación con el ente rector y otras instituciones` <- factor(bbdd$`Mejorar la coordinación con el ente rector y otras instituciones`, levels = c("Mejorar la coordinación con el ente rector y otras instituciones", "No Aplica", "Sin Respuesta"), labels = c("Si", "No", "Sin Respuesta"))
+
+#-------------------
+
+bbdd$lista <- factor(bbdd$lista, levels = c("254102633", "256377828", "262814520", "262814761", "262814235"), labels = c("Web Link 1", "Piloto", "Lista 2", "Lista 1", "Lista 3"))
 
 #-------------------
 
@@ -53,6 +122,10 @@ bbdd$`Nivel de gobierno` <- factor(bbdd$`Nivel de gobierno` , levels = c("Nacion
 #-------------------
 
 bbdd$`Organo de pertenencia` <- factor(bbdd$`Organo de pertenencia`, levels = c("Órgano de Apoyo (recursos humanos, administración, tecnologías de la información, otros)", "Órgano de Asesoría (jurídica, planeamiento, presupuesto, otros)", "Órgano de Línea", "Otros", "Sin Respuesta"), labels = c("apoyo", "asesoria", "linea", "Otros","Sin Respuesta"))
+
+#--------------------
+
+bbdd$Sexo <- factor(bbdd$Sexo , levels = c("Hombre", "Mujer", "Sin Respuesta"))
 
 #-------------------
 
@@ -93,6 +166,654 @@ bbdd$semana <- week(bbdd$Fecha)
 glimpse(bbdd)
 @
 
+\section{Analisis preg2}
+
+<<echo = FALSE, fig = TRUE>>=
+
+bbdd_preg2 <- bbdd %>%
+  select(`Recursos humanos` : Otro)
+
+bbdd_preg2 <- bbdd_preg2 %>%
+  filter(`Recursos humanos` != "Sin Respuesta")
+
+glimpse(bbdd_preg2)
+ggpairs(bbdd_preg2, title = "Tabla cruzada de las respuestas de la pregunta 2")
+
+@
+
+\subsection{Correspondencia multiple}
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres_preg2 <- mjca(bbdd_preg2, lambda = "Burt", reti = TRUE)
+plot(corres_preg2, mass = TRUE, main = "Análisis de Correspondencias Múltiple")
+
+corres_preg2
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_screeplot(corres_preg2,ylab="Porcentaje de la varianza explicado", xlab="Dimensiones",addlabels = TRUE, ylim = c(0, 30),barcolor="black",linecolor="black",barfill="gold")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres2_preg2 <- MCA(bbdd_preg2,method = "Burt")
+
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_var(corres2_preg2, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE,
+             ggtheme = theme_minimal(),
+ title = "Grafico de correspondencias entre las opciones de la pregunta 2")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+var_preg2 <- get_mca_var(corres2_preg2)
+head(var_preg2$contrib, 11)
+
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg2, col.var ="red", addEllipses=TRUE, ellipse.level=0.95, title = "Correspondencia entre individuos y variables de la pregunta 2") +
+   theme_minimal()
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_contrib(corres2_preg2, choice = "var", axes = 1:2, top = 5)
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_contrib(corres2_preg2, choice = "ind", axes = 1:2, top = 39)
+
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg2, select.ind = list(contrib = 39), select.var = list(contrib = 5), col.var ="red", title = "Top 39 personas que mas contribuyen y Top 5 variables") +
+   theme_minimal()
+
+@
+
+
+\section{analisis preg2 con nivel de gobierno}
+
+<<echo = FALSE, fig = TRUE>>=
+
+bbdd_preg2_ng <- bbdd %>%
+  select(`Recursos humanos` : Otro, `Nivel de gobierno`)
+
+bbdd_preg2_ng <- bbdd_preg2_ng %>%
+  filter(`Recursos humanos` != "Sin Respuesta")
+
+glimpse(bbdd_preg2_ng)
+ggpairs(bbdd_preg2_ng, title = "Tabla cruzada de las respuestas de la pregunta 2 con nivel de gobierno")
+
+@
+
+\subsection{Correspondencia multiple}
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres_preg2_ng <- mjca(bbdd_preg2_ng, lambda = "Burt", reti = TRUE)
+plot(corres_preg2_ng, mass = TRUE, main = "Análisis de Correspondencias Múltiple")
+
+corres_preg2_ng
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_screeplot(corres_preg2_ng,ylab="Porcentaje de la varianza explicado", xlab="Dimensiones",addlabels = TRUE, ylim = c(0, 20),barcolor="black",linecolor="black",barfill="gold")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres2_preg2_ng <- MCA(bbdd_preg2_ng, method = "Burt")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_var(corres2_preg2_ng, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800",                      "#FC4E07"), 
+             repel = TRUE,
+             ggtheme = theme_minimal(),
+ title = "Grafico de correspondencias entre las opciones de la pregunta 2 y nivel de gobierno")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg2_ng, col.var ="red", habillage = 'Nivel de gobierno', addEllipses=TRUE, ellipse.level=0.95, title = "Correspondencia entre individuos y variables de la pregunta 2 con respecto al nivel de gobierno") +
+   theme_minimal()
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg2_ng, select.ind = list(contrib = 50), select.var = list(contrib = 3), col.var ="red", habillage = 'Nivel de gobierno', title = "Top 50 personas que mas contribuyen y Top 3 variables") +
+   theme_minimal()
+
+@
+
+
+\section{analisis preg2 con organo de pertenencia}
+
+<<echo = FALSE, fig = TRUE>>=
+
+bbdd_preg2_odp <- bbdd %>%
+  select(`Recursos humanos` : Otro, `Organo de pertenencia`)
+
+bbdd_preg2_odp <- bbdd_preg2_odp %>%
+  filter(`Recursos humanos` != "Sin Respuesta")
+
+glimpse(bbdd_preg2_odp)
+ggpairs(bbdd_preg2_odp, title = "Tabla cruzada de las respuestas de la pregunta 2 con organo de pertenencia")
+
+@
+
+\subsection{Correspondencia multiple}
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres_preg2_odp <- mjca(bbdd_preg2_odp, lambda = "Burt", reti = TRUE)
+plot(corres_preg2_odp, mass = TRUE, main = "Análisis de Correspondencias Múltiple")
+
+corres_preg2_odp
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_screeplot(corres_preg2_odp,ylab="Porcentaje de la varianza explicado", xlab="Dimensiones",addlabels = TRUE, ylim = c(0, 20),barcolor="black",linecolor="black",barfill="gold")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres2_preg2_odp <- MCA(bbdd_preg2_odp, method = "Burt")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_var(corres2_preg2_odp, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800",                      "#FC4E07"), 
+             repel = TRUE,
+             ggtheme = theme_minimal(),
+ title = "Grafico de correspondencias entre las opciones de la pregunta 2 y organo de pertenencia")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg2_odp, col.var ="red", habillage = 'Organo de pertenencia', addEllipses=TRUE, ellipse.level=0.95, title = "Correspondencia entre individuos y variables de la pregunta 2 con respecto al organo de pertenencia") +
+   theme_minimal()
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg2_odp, select.ind = list(contrib = 50), select.var = list(contrib = 3), col.var ="red", habillage = 'Organo de pertenencia', title = "Top 50 personas que mas contribuyen y Top 3 variables") +
+   theme_minimal()
+
+@
+
+
+\section{analisis preg2 con la variable sexo}
+
+<<echo = FALSE, fig = TRUE>>=
+
+bbdd_preg2_sexo <- bbdd %>%
+  select(`Recursos humanos` : Otro, Sexo)
+
+bbdd_preg2_sexo <- bbdd_preg2_sexo %>%
+  filter(`Recursos humanos` != "Sin Respuesta")
+
+glimpse(bbdd_preg2_sexo)
+ggpairs(bbdd_preg2_sexo, title = "Tabla cruzada de las respuestas de la pregunta 2 con la variable sexo")
+
+@
+
+\subsection{Correspondencia multiple}
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres_preg2_sexo <- mjca(bbdd_preg2_sexo, lambda = "Burt", reti = TRUE)
+plot(corres_preg2_sexo, mass = TRUE, main = "Análisis de Correspondencias Múltiple")
+
+corres_preg2_sexo
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_screeplot(corres_preg2_sexo,ylab="Porcentaje de la varianza explicado", xlab="Dimensiones",addlabels = TRUE, ylim = c(0, 20),barcolor="black",linecolor="black",barfill="gold")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres2_preg2_sexo <- MCA(bbdd_preg2_sexo, method = "Burt")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_var(corres2_preg2_sexo, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800",                      "#FC4E07"), 
+             repel = TRUE,
+             ggtheme = theme_minimal(),
+ title = "Grafico de correspondencias entre las opciones de la pregunta 2 y la variable sexo")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg2_sexo, col.var ="red", habillage = 'Sexo', addEllipses=TRUE, ellipse.level=0.95, title = "Correspondencia entre individuos y variables de la pregunta 2 con respecto a la variable sexo") +
+   theme_minimal()
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg2_sexo, select.ind = list(contrib = 50), select.var = list(contrib = 3), col.var ="red",habillage = 'Sexo', title = "Top 50 personas que mas contribuyen y Top 3 variables") +
+   theme_minimal()
+
+@
+
+
+\section{analisis preg2 con la variable años trabajando para el estado}
+
+<<echo = FALSE, fig = TRUE>>=
+
+bbdd_preg2_atpe <- bbdd %>%
+  select(`Recursos humanos` : Otro, `Años trabajando en el Estado`)
+
+bbdd_preg2_atpe <- bbdd_preg2_atpe %>%
+  filter(`Recursos humanos` != "Sin Respuesta")
+
+glimpse(bbdd_preg2_atpe)
+ggpairs(bbdd_preg2_atpe, title = "Tabla cruzada de las respuestas de la pregunta 2 con la variable años trabajando para el estado")
+
+@
+
+\subsection{Correspondencia multiple}
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres_preg2_atpe <- mjca(bbdd_preg2_atpe, lambda = "Burt", reti = TRUE)
+plot(corres_preg2_atpe, mass = TRUE, main = "Análisis de Correspondencias Múltiple")
+
+corres_preg2_atpe
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_screeplot(corres_preg2_atpe,ylab="Porcentaje de la varianza explicado", xlab="Dimensiones",addlabels = TRUE, ylim = c(0, 20),barcolor="black",linecolor="black",barfill="gold")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres2_preg2_atpe <- MCA(bbdd_preg2_atpe, method = "Burt")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_var(corres2_preg2_atpe, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800",                      "#FC4E07"), 
+             repel = TRUE,
+             ggtheme = theme_minimal(),
+ title = "Grafico de correspondencias entre las opciones de la pregunta 2 y la variable años trabajando para el estado")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg2_atpe, col.var ="red", habillage = 'Años trabajando en el Estado', addEllipses=TRUE, ellipse.level=0.95, title = "Correspondencia entre individuos y variables de la pregunta 2 con respecto a la variable años trabajando para el estado") +
+   theme_minimal()
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg2_atpe, select.ind = list(contrib = 50), select.var = list(contrib = 3), col.var ="red", habillage = 'Años trabajando en el Estado', title = "Top 50 personas que mas contribuyen y Top 3 variables") +
+   theme_minimal()
+
+@
+
+\section{Analisis preg3}
+
+<<echo = FALSE, fig = TRUE>>=
+
+bbdd_preg3 <- bbdd %>%
+  select(`Cambiar el marco normativo` : `Mejorar la coordinación con el ente rector y otras instituciones`)
+
+bbdd_preg3 <- bbdd_preg3 %>%
+  filter(`Cambiar el marco normativo` != "Sin Respuesta")
+
+glimpse(bbdd_preg3)
+
+ggpairs(bbdd_preg3, title = "Tabla cruzada de las respuestas de la pregunta 3")
+
+@
+
+\subsection{Correspondencia multiple}
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres_preg3 <- mjca(bbdd_preg3, lambda = "Burt", reti = TRUE)
+plot(corres_preg3, mass = TRUE, main = "Análisis de Correspondencias Múltiple")
+
+corres_preg3
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_screeplot(corres_preg3,ylab="Porcentaje de la varianza explicado", xlab="Dimensiones",addlabels = TRUE, ylim = c(0, 40),barcolor="black",linecolor="black",barfill="gold")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres2_preg3 <- MCA(bbdd_preg3,method = "Burt")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_var(corres2_preg3, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE,
+             ggtheme = theme_minimal(),
+title ="Grafico de correspondencia entre las opciones de la pregunta 3")
+
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg3, label="var", col.var ="red",     addEllipses=TRUE, ellipse.level=0.95, title = "Correspondencia entre individuos y variables de la pregunta 3") +
+   theme_minimal()
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg3, select.ind = list(contrib = 50), select.var = list(contrib = 3), col.var ="red", title = "Top 50 personas que mas contribuyen y Top 3 variables") +
+   theme_minimal()
+
+@
+
+\section{analisis preg3 con nivel de gobierno}
+
+<<echo = FALSE, fig = TRUE>>=
+
+bbdd_preg3_ng <- bbdd %>%
+  select(`Cambiar el marco normativo` : `Mejorar la coordinación con el ente rector y otras instituciones`, `Nivel de gobierno`)
+
+bbdd_preg3_ng <- bbdd_preg3_ng %>%
+  filter(`Cambiar el marco normativo` != "Sin Respuesta")
+
+glimpse(bbdd_preg3_ng)
+ggpairs(bbdd_preg3_ng, title = "Tabla cruzada de las respuestas de la pregunta 3 con nivel de gobierno")
+
+@
+
+\subsection{Correspondencia multiple}
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres_preg3_ng <- mjca(bbdd_preg3_ng, lambda = "Burt", reti = TRUE)
+plot(corres_preg3_ng, mass = TRUE, main = "Análisis de Correspondencias Múltiple")
+
+corres_preg3_ng
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_screeplot(corres_preg3_ng,ylab="Porcentaje de la varianza explicado", xlab="Dimensiones",addlabels = TRUE, ylim = c(0, 20),barcolor="black",linecolor="black",barfill="gold")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres2_preg3_ng <- MCA(bbdd_preg3_ng, method = "Burt")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_var(corres2_preg3_ng, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800",                      "#FC4E07"), 
+             repel = TRUE,
+             ggtheme = theme_minimal(),
+ title = "Grafico de correspondencias entre las opciones de la pregunta 3 y nivel de gobierno")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg3_ng, col.var ="red", habillage = 'Nivel de gobierno', addEllipses=TRUE, ellipse.level=0.95, title = "Correspondencia entre individuos y variables de la pregunta 3 con respecto al nivel de gobierno") +
+   theme_minimal()
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg3_ng, select.ind = list(contrib = 50), select.var = list(contrib = 3), col.var ="red", habillage = 'Nivel de gobierno', title = "Top 50 personas que mas contribuyen y Top 3 variables") +
+   theme_minimal()
+
+@
+
+\section{analisis preg3 con organo de pertenencia}
+
+<<echo = FALSE, fig = TRUE>>=
+
+bbdd_preg3_odp <- bbdd %>%
+  select(`Cambiar el marco normativo` : `Mejorar la coordinación con el ente rector y otras instituciones`, `Organo de pertenencia`)
+
+bbdd_preg3_odp <- bbdd_preg3_odp %>%
+  filter(`Cambiar el marco normativo` != "Sin Respuesta")
+
+glimpse(bbdd_preg3_odp)
+ggpairs(bbdd_preg3_odp, title = "Tabla cruzada de las respuestas de la pregunta 3 con organo de pertenencia")
+
+@
+
+\subsection{Correspondencia multiple}
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres_preg3_odp <- mjca(bbdd_preg3_odp, lambda = "Burt", reti = TRUE)
+plot(corres_preg3_odp, mass = TRUE, main = "Análisis de Correspondencias Múltiple")
+
+corres_preg3_odp
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_screeplot(corres_preg3_odp,ylab="Porcentaje de la varianza explicado", xlab="Dimensiones",addlabels = TRUE, ylim = c(0, 20),barcolor="black",linecolor="black",barfill="gold")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres2_preg3_odp <- MCA(bbdd_preg3_odp, method = "Burt")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_var(corres2_preg3_odp, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800",                      "#FC4E07"), 
+             repel = TRUE,
+             ggtheme = theme_minimal(),
+ title = "Grafico de correspondencias entre las opciones de la pregunta 3 y organo de pertenencia")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg3_odp, col.var ="red", habillage = 'Organo de pertenencia', addEllipses=TRUE, ellipse.level=0.95, title = "Correspondencia entre individuos y variables de la pregunta 3 con respecto al organo de pertenencia") +
+   theme_minimal()
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg3_odp, select.ind = list(contrib = 50), select.var = list(contrib = 3), col.var ="red", habillage = 'Organo de pertenencia', title = "Top 50 personas que mas contribuyen y Top 3 variables") +
+   theme_minimal()
+
+@
+
+\section{analisis preg3 con la variable sexo}
+
+<<echo = FALSE, fig = TRUE>>=
+
+bbdd_preg3_sexo <- bbdd %>%
+  select(`Cambiar el marco normativo` : `Mejorar la coordinación con el ente rector y otras instituciones`, Sexo)
+
+bbdd_preg3_sexo <- bbdd_preg3_sexo %>%
+  filter(`Cambiar el marco normativo` != "Sin Respuesta")
+
+glimpse(bbdd_preg3_sexo)
+ggpairs(bbdd_preg3_sexo, title = "Tabla cruzada de las respuestas de la pregunta 3 con la variable sexo")
+
+@
+
+\subsection{Correspondencia multiple}
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres_preg3_sexo <- mjca(bbdd_preg3_sexo, lambda = "Burt", reti = TRUE)
+plot(corres_preg3_sexo, mass = TRUE, main = "Análisis de Correspondencias Múltiple")
+
+corres_preg3_sexo
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_screeplot(corres_preg3_sexo,ylab="Porcentaje de la varianza explicado", xlab="Dimensiones",addlabels = TRUE, ylim = c(0, 30),barcolor="black",linecolor="black",barfill="gold")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres2_preg3_sexo <- MCA(bbdd_preg3_sexo, method = "Burt")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_var(corres2_preg3_sexo, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800",                      "#FC4E07"), 
+             repel = TRUE,
+             ggtheme = theme_minimal(),
+ title = "Grafico de correspondencias entre las opciones de la pregunta 3 y la variable sexo")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg3_sexo, col.var ="red", habillage = 'Sexo', addEllipses=TRUE, ellipse.level=0.95, title = "Correspondencia entre individuos y variables de la pregunta 3 con respecto a la variable sexo") +
+   theme_minimal()
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg3_sexo, select.ind = list(contrib = 50), select.var = list(contrib = 3), col.var ="red", habillage = 'Sexo', title = "Top 50 personas que mas contribuyen y Top 3 variables") +
+   theme_minimal()
+
+@
+
+\section{analisis preg3 con la variable años trabajando para el estado}
+
+<<echo = FALSE, fig = TRUE>>=
+
+bbdd_preg3_atpe <- bbdd %>%
+  select(`Cambiar el marco normativo` : `Mejorar la coordinación con el ente rector y otras instituciones`, `Años trabajando en el Estado`)
+
+bbdd_preg3_atpe <- bbdd_preg3_atpe %>%
+  filter(`Cambiar el marco normativo` != "Sin Respuesta")
+
+glimpse(bbdd_preg3_atpe)
+ggpairs(bbdd_preg3_atpe, title = "Tabla cruzada de las respuestas de la pregunta 3 con la variable años trabajando para el estado")
+
+@
+
+\subsection{Correspondencia multiple}
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres_preg3_atpe <- mjca(bbdd_preg3_atpe, lambda = "Burt", reti = TRUE)
+plot(corres_preg3_atpe, mass = TRUE, main = "Análisis de Correspondencias Múltiple")
+
+corres_preg3_atpe
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_screeplot(corres_preg3_atpe,ylab="Porcentaje de la varianza explicado", xlab="Dimensiones",addlabels = TRUE, ylim = c(0, 20),barcolor="black",linecolor="black",barfill="gold")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+corres2_preg3_atpe <- MCA(bbdd_preg3_atpe, method = "Burt")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_var(corres2_preg3_atpe, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800",                      "#FC4E07"), 
+             repel = TRUE,
+             ggtheme = theme_minimal(),
+ title = "Grafico de correspondencias entre las opciones de la pregunta 3 y la variable años trabajando para el estado")
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg3_atpe, col.var ="red", habillage = 'Años trabajando en el Estado', addEllipses=TRUE, ellipse.level=0.95, title = "Correspondencia entre individuos y variables de la pregunta 3 con respecto a la variable años trabajando para el estado") +
+   theme_minimal()
+
+@
+
+<<echo = FALSE, fig = TRUE>>=
+
+fviz_mca_biplot(corres2_preg3_atpe, select.ind = list(contrib = 50), select.var = list(contrib = 3), col.var ="red", habillage = 'Años trabajando en el Estado', title = "Top 50 personas que mas contribuyen y Top 3 variables") +
+   theme_minimal()
+
+@
+
 \section{Colectores}
 
 <<echo = FALSE, fig = TRUE>>=
@@ -102,7 +823,7 @@ ggplot(bbdd, aes(dia_de_la_semana)) +
   scale_fill_brewer(palette = "Set1") +
   facet_wrap(~ semana, scale = "free_y") +
   labs(x = "Dia de la semana",y = "Cantidad de respuestas",title = "Cantidad de encuestas por lista por dia de la semana y numero de semana del año") +
-  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black", size = 5)
 
 
 @
@@ -115,7 +836,7 @@ ggplot(bbdd, aes(hora)) +
   scale_fill_brewer(palette = "Set1") +
   facet_wrap(~ semana, scale = "free_y") +
   labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas por lista por hora y numero de semana del año") +
-  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black", size = 3)
 
 
 @
@@ -137,7 +858,7 @@ ggplot(bbdd_weblink1, aes(hora)) +
   geom_bar(fill = "red") +
   facet_wrap(~ semana, scale = "free_y") +
   labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas web por hora y numero de semana del año") +
-  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black", size = 5)
 
 
 @
@@ -159,7 +880,7 @@ ggplot(bbdd_piloto, aes(hora)) +
   geom_bar(fill = "Blue") +
   facet_wrap(~ semana, scale = "free_y") +
   labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas piloto por hora y numero de semana del año") +
-  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black", size = 5)
 
 
 @
@@ -181,7 +902,7 @@ ggplot(bbdd_lista2, aes(hora)) +
   geom_bar(fill = "green") +
   facet_wrap(~ semana, scale = "free_y") +
   labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la lista 2 por hora y numero de semana del año") +
-  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black", size = 5)
 
 
 @
@@ -203,53 +924,75 @@ ggplot(bbdd_lista1, aes(hora)) +
   geom_bar(fill = "purple") +
   facet_wrap(~ semana, scale = "free_y") +
   labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la lista 1 por hora y numero de semana del año") +
-  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black", size = 5)
 
 
 @
 
-\subsection{semana 31: 29 de julio al 4 de agosto}
+\subsection{Lista 1}
 
 <<echo = FALSE>>=
 
-bbdd_sem31 <- bbdd %>%
-  filter(semana == 31)
+bbdd_lista3 <- bbdd %>%
+  filter(lista == "Lista 3")
 
-glimpse(bbdd_sem31)
+glimpse(bbdd_lista3)
 @
 
 
 <<echo = FALSE, fig = TRUE>>=
 
-ggplot(bbdd_sem31, aes(hora)) +
+ggplot(bbdd_lista1, aes(hora)) +
+  geom_bar(fill = "orange") +
+  facet_wrap(~ semana, scale = "free_y") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la lista 3 por hora y numero de semana del año") +
+  geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black", size = 5)
+
+@
+
+
+\subsection{semana 31 y 32: 29 de julio al 6 de agosto hasta las 6pm}
+
+<<echo = FALSE>>=
+
+bbdd_sem31y32 <- bbdd %>%
+  filter(semana == 31 | semana == 32)
+
+glimpse(bbdd_sem31y32)
+@
+
+
+<<echo = FALSE, fig = TRUE>>=
+
+ggplot(bbdd_sem31y32, aes(hora)) +
   geom_bar(aes(fill = lista)) +
   scale_fill_brewer(palette = "Set1") +
-  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la semana 31 por lista y por hora") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la semana 31 y 32 por lista y por hora") +
   geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
 
 @
 
-\subsubsection{semana 31 cantidades individuales}
+\subsubsection{semana 31 y 32 cantidades individuales}
 
 <<echo = FALSE, fig = TRUE>>=
 
-ggplot(bbdd_sem31, aes(hora, fill = lista)) +
+ggplot(bbdd_sem31y32, aes(hora, fill = lista)) +
   geom_bar(aes(fill = lista)) +
   scale_fill_brewer(palette = "Set1") +
-  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la semana 31 por lista y por hora") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la semana 31 y 32 por lista y por hora") +
   geom_text(stat = 'count', aes(label = ..count..), position = position_stack(0.9), color = "black")
 
 @
 
-\subsubsection{semana31 por dia}
+\subsubsection{semana31 y 32 por dia}
 
 <<echo = FALSE, fig = TRUE>>=
 
-ggplot(bbdd_sem31, aes(hora)) +
+ggplot(bbdd_sem31y32, aes(hora)) +
   geom_bar(aes(fill = lista)) +
   scale_fill_brewer(palette = "Set1") +
     facet_wrap(~ dia_de_la_semana, scale = "free_y") +
-  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la semana 31 por lista por hora y dia de la semana") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas de la semana 31 y 32 por lista por hora y dia de la semana") +
   geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
 
 
@@ -259,19 +1002,19 @@ ggplot(bbdd_sem31, aes(hora)) +
 
 <<echo = FALSE>>=
 
-bbdd_sem31_weblink1 <- bbdd_sem31 %>%
+bbdd_sem31y32_weblink1 <- bbdd_sem31y32 %>%
   filter(lista == "Web Link 1")
 
-glimpse(bbdd_sem31_weblink1)
+glimpse(bbdd_sem31y32_weblink1)
 @
 
 
 <<echo = FALSE, fig = TRUE>>=
 
-ggplot(bbdd_sem31_weblink1, aes(hora)) +
+ggplot(bbdd_sem31y32_weblink1, aes(hora)) +
   geom_bar(fill = "red") +
   facet_wrap(~ dia_de_la_semana, scale = "free_y") +
-  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas web de la semana 31 por hora y dia de la semana") +
+  labs(x = "Hora",y = "Cantidad de respuestas",title = "Cantidad de encuestas web de la semana 31 y 32 por hora y dia de la semana") +
   geom_text(stat = 'count', aes(label = ..count..), position = position_dodge(0.9), color = "black")
 
 @

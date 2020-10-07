@@ -13,7 +13,7 @@ La finalidad de este trabajo es encontrar asociaciones entre categorias de varia
 
 Paquetes usados para el R
 
-```{r}
+```{r, echo=FALSE, message=FALSE}
 
 library(tidyverse)
 library(readxl)

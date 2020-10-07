@@ -1,0 +1,789 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.7.2)  8 JUL 2020 18:41
+entering extended mode
+**./seguimento2.tex
+(seguimento2.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-06-18>
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size10.clo"
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+) (C:/PROGRA~1/R/R-36~1.3/share/texmf/tex/latex\Sweave.sty
+Package: Sweave 
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.
+sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.st
+y"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.
+sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graph
+ics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdfte
+x.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fancyvrb\fancyvrb.
+sty"
+Package: fancyvrb 2020/05/03 v3.6 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count175
+\FV@InFile=\read2
+\FV@TabBox=\box45
+\c@FancyVerbLine=\count176
+\FV@StepNumber=\count177
+\FV@OutFile=\write3
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\textcomp.sty"
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) ("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fontenc.sty
+"
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+) ("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ae\ae.sty"
+Package: ae 2001/02/12 1.3 Almost European Computer Modern
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fontenc.sty"
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+)))
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backen
+d-pdfmode.def"
+File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count178
+\l__pdf_internal_box=\box46
+) (seguimento2.aux)
+\openout1 = `seguimento2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Trying to load font information for T1+aer on input line 4.
+
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ae\t1aer.fd"
+File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
+df.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count179
+\scratchdimen=\dimen137
+\scratchbox=\box47
+\nofMPsegments=\count180
+\nofMParguments=\count181
+\everyMPshowfont=\toks16
+\MPscratchCnt=\count182
+\MPscratchDim=\dimen138
+\MPnumerator=\count183
+\makeMPintoPDFobject=\count184
+\everyMPtoPDFconversion=\toks17
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epsto
+pdf-base.sty"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/generic/infwarerr\infwar
+err.sty"
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/grfext\grfext.sty"
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvdefinekeys\kvd
+efinekeys.sty"
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/kvoptions\kvoption
+s.sty"
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ltxcmds\ltxcmds.
+sty"
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvsetkeys\kvsetk
+eys.sty"
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pdftexcmds\pdfte
+xcmds.sty"
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\iftex.sty"
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+) (seguimento2-concordance.tex)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 9.
+
+Overfull \hbox (54.58937pt too wide) in paragraph at lines 11--12
+\T1/aer/m/n/9 RStu-dio. Pueden en-con-trar el codigo en https://github.com/Hern
+anPerci/PROMSACE 
+ []
+
+(seguimento2.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 4.
+ [1
+
+{C:/Users/PERCI/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3])
+\tf@toc=\write4
+\openout4 = `seguimento2.toc'.
+
+LaTeX Font Info:    Trying to load font information for T1+aett on input line 2
+1.
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ae\t1aett.fd"
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+)
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 37.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
+7.
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
+37.
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1cmtt.fd"
+File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 37.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 38.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 38.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 39.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 39.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 40.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 40.
+
+[4]
+<seguimento2-004.pdf, id=22, 433.62pt x 433.62pt>
+File: seguimento2-004.pdf Graphic file (type pdf)
+<use seguimento2-004.pdf>
+Package pdftex.def Info: seguimento2-004.pdf  used on input line 50.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+<seguimento2-006.pdf, id=23, 433.62pt x 433.62pt>
+File: seguimento2-006.pdf Graphic file (type pdf)
+<use seguimento2-006.pdf>
+Package pdftex.def Info: seguimento2-006.pdf  used on input line 68.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [5 <./seguimento2-004.pdf>]
+<seguimento2-007.pdf, id=32, 433.62pt x 433.62pt>
+File: seguimento2-007.pdf Graphic file (type pdf)
+<use seguimento2-007.pdf>
+Package pdftex.def Info: seguimento2-007.pdf  used on input line 72.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [6 <./seguimento2-006.pdf>]
+<seguimento2-008.pdf, id=41, 433.62pt x 433.62pt>
+File: seguimento2-008.pdf Graphic file (type pdf)
+<use seguimento2-008.pdf>
+Package pdftex.def Info: seguimento2-008.pdf  used on input line 76.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [7 <./seguimento2-007.pdf>]
+<seguimento2-009.pdf, id=51, 433.62pt x 433.62pt>
+File: seguimento2-009.pdf Graphic file (type pdf)
+<use seguimento2-009.pdf>
+Package pdftex.def Info: seguimento2-009.pdf  used on input line 83.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [8 <./seguimento2-008.pdf>]
+<seguimento2-010.pdf, id=60, 433.62pt x 433.62pt>
+File: seguimento2-010.pdf Graphic file (type pdf)
+<use seguimento2-010.pdf>
+Package pdftex.def Info: seguimento2-010.pdf  used on input line 88.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [9 <./seguimento2-009.pdf>]
+<seguimento2-011.pdf, id=69, 433.62pt x 433.62pt>
+File: seguimento2-011.pdf Graphic file (type pdf)
+<use seguimento2-011.pdf>
+Package pdftex.def Info: seguimento2-011.pdf  used on input line 93.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [10 <./seguimento2-010.pdf>]
+<seguimento2-012.pdf, id=78, 433.62pt x 433.62pt>
+File: seguimento2-012.pdf Graphic file (type pdf)
+<use seguimento2-012.pdf>
+Package pdftex.def Info: seguimento2-012.pdf  used on input line 97.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [11 <./seguimento2-011.pdf>]
+<seguimento2-013.pdf, id=87, 433.62pt x 433.62pt>
+File: seguimento2-013.pdf Graphic file (type pdf)
+<use seguimento2-013.pdf>
+Package pdftex.def Info: seguimento2-013.pdf  used on input line 101.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [12 <./seguimento2-012.pdf>]
+<seguimento2-014.pdf, id=96, 433.62pt x 433.62pt>
+File: seguimento2-014.pdf Graphic file (type pdf)
+<use seguimento2-014.pdf>
+Package pdftex.def Info: seguimento2-014.pdf  used on input line 106.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+[13 <./seguimento2-013.pdf>]
+<seguimento2-015.pdf, id=106, 433.62pt x 433.62pt>
+File: seguimento2-015.pdf Graphic file (type pdf)
+<use seguimento2-015.pdf>
+Package pdftex.def Info: seguimento2-015.pdf  used on input line 110.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [14 <./seguimento2-014.pdf>]
+<seguimento2-016.pdf, id=115, 433.62pt x 433.62pt>
+File: seguimento2-016.pdf Graphic file (type pdf)
+<use seguimento2-016.pdf>
+Package pdftex.def Info: seguimento2-016.pdf  used on input line 114.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [15 <./seguimento2-015.pdf>]
+<seguimento2-017.pdf, id=124, 433.62pt x 433.62pt>
+File: seguimento2-017.pdf Graphic file (type pdf)
+<use seguimento2-017.pdf>
+Package pdftex.def Info: seguimento2-017.pdf  used on input line 122.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [16 <./seguimento2-016.pdf>]
+<seguimento2-019.pdf, id=133, 433.62pt x 433.62pt>
+File: seguimento2-019.pdf Graphic file (type pdf)
+<use seguimento2-019.pdf>
+Package pdftex.def Info: seguimento2-019.pdf  used on input line 139.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [17 <./seguimento2-017.pdf>]
+<seguimento2-020.pdf, id=142, 433.62pt x 433.62pt>
+File: seguimento2-020.pdf Graphic file (type pdf)
+<use seguimento2-020.pdf>
+Package pdftex.def Info: seguimento2-020.pdf  used on input line 143.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [18 <./seguimento2-019.pdf>]
+<seguimento2-021.pdf, id=151, 433.62pt x 433.62pt>
+File: seguimento2-021.pdf Graphic file (type pdf)
+<use seguimento2-021.pdf>
+Package pdftex.def Info: seguimento2-021.pdf  used on input line 147.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [19 <./seguimento2-020.pdf>]
+<seguimento2-022.pdf, id=161, 433.62pt x 433.62pt>
+File: seguimento2-022.pdf Graphic file (type pdf)
+<use seguimento2-022.pdf>
+Package pdftex.def Info: seguimento2-022.pdf  used on input line 154.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [20 <./seguimento2-021.pdf>]
+<seguimento2-023.pdf, id=170, 433.62pt x 433.62pt>
+File: seguimento2-023.pdf Graphic file (type pdf)
+<use seguimento2-023.pdf>
+Package pdftex.def Info: seguimento2-023.pdf  used on input line 159.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+[21 <./seguimento2-022.pdf>]
+<seguimento2-024.pdf, id=179, 433.62pt x 433.62pt>
+File: seguimento2-024.pdf Graphic file (type pdf)
+<use seguimento2-024.pdf>
+Package pdftex.def Info: seguimento2-024.pdf  used on input line 164.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [22 <./seguimento2-023.pdf>]
+<seguimento2-025.pdf, id=188, 433.62pt x 433.62pt>
+File: seguimento2-025.pdf Graphic file (type pdf)
+<use seguimento2-025.pdf>
+Package pdftex.def Info: seguimento2-025.pdf  used on input line 168.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [23 <./seguimento2-024.pdf>]
+<seguimento2-026.pdf, id=197, 433.62pt x 433.62pt>
+File: seguimento2-026.pdf Graphic file (type pdf)
+<use seguimento2-026.pdf>
+Package pdftex.def Info: seguimento2-026.pdf  used on input line 172.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [24 <./seguimento2-025.pdf>]
+<seguimento2-027.pdf, id=206, 433.62pt x 433.62pt>
+File: seguimento2-027.pdf Graphic file (type pdf)
+<use seguimento2-027.pdf>
+Package pdftex.def Info: seguimento2-027.pdf  used on input line 177.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [25 <./seguimento2-026.pdf>]
+<seguimento2-028.pdf, id=216, 433.62pt x 433.62pt>
+File: seguimento2-028.pdf Graphic file (type pdf)
+<use seguimento2-028.pdf>
+Package pdftex.def Info: seguimento2-028.pdf  used on input line 181.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [26 <./seguimento2-027.pdf>]
+<seguimento2-029.pdf, id=225, 433.62pt x 433.62pt>
+File: seguimento2-029.pdf Graphic file (type pdf)
+<use seguimento2-029.pdf>
+Package pdftex.def Info: seguimento2-029.pdf  used on input line 185.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [27 <./seguimento2-028.pdf>]
+<seguimento2-030.pdf, id=234, 433.62pt x 433.62pt>
+File: seguimento2-030.pdf Graphic file (type pdf)
+<use seguimento2-030.pdf>
+Package pdftex.def Info: seguimento2-030.pdf  used on input line 193.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [28 <./seguimento2-029.pdf>]
+<seguimento2-032.pdf, id=243, 433.62pt x 433.62pt>
+File: seguimento2-032.pdf Graphic file (type pdf)
+<use seguimento2-032.pdf>
+Package pdftex.def Info: seguimento2-032.pdf  used on input line 210.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+[29 <./seguimento2-030.pdf>]
+<seguimento2-033.pdf, id=252, 433.62pt x 433.62pt>
+File: seguimento2-033.pdf Graphic file (type pdf)
+<use seguimento2-033.pdf>
+Package pdftex.def Info: seguimento2-033.pdf  used on input line 214.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [30 <./seguimento2-032.pdf>]
+<seguimento2-034.pdf, id=261, 433.62pt x 433.62pt>
+File: seguimento2-034.pdf Graphic file (type pdf)
+<use seguimento2-034.pdf>
+Package pdftex.def Info: seguimento2-034.pdf  used on input line 218.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [31 <./seguimento2-033.pdf>]
+<seguimento2-035.pdf, id=271, 433.62pt x 433.62pt>
+File: seguimento2-035.pdf Graphic file (type pdf)
+<use seguimento2-035.pdf>
+Package pdftex.def Info: seguimento2-035.pdf  used on input line 225.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [32 <./seguimento2-034.pdf>]
+<seguimento2-036.pdf, id=280, 433.62pt x 433.62pt>
+File: seguimento2-036.pdf Graphic file (type pdf)
+<use seguimento2-036.pdf>
+Package pdftex.def Info: seguimento2-036.pdf  used on input line 230.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [33 <./seguimento2-035.pdf>]
+<seguimento2-037.pdf, id=289, 433.62pt x 433.62pt>
+File: seguimento2-037.pdf Graphic file (type pdf)
+<use seguimento2-037.pdf>
+Package pdftex.def Info: seguimento2-037.pdf  used on input line 235.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [34 <./seguimento2-036.pdf>]
+<seguimento2-038.pdf, id=298, 433.62pt x 433.62pt>
+File: seguimento2-038.pdf Graphic file (type pdf)
+<use seguimento2-038.pdf>
+Package pdftex.def Info: seguimento2-038.pdf  used on input line 239.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [35 <./seguimento2-037.pdf>]
+<seguimento2-039.pdf, id=307, 433.62pt x 433.62pt>
+File: seguimento2-039.pdf Graphic file (type pdf)
+<use seguimento2-039.pdf>
+Package pdftex.def Info: seguimento2-039.pdf  used on input line 243.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [36 <./seguimento2-038.pdf>]
+<seguimento2-040.pdf, id=316, 433.62pt x 433.62pt>
+File: seguimento2-040.pdf Graphic file (type pdf)
+<use seguimento2-040.pdf>
+Package pdftex.def Info: seguimento2-040.pdf  used on input line 248.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+[37 <./seguimento2-039.pdf>]
+<seguimento2-041.pdf, id=326, 433.62pt x 433.62pt>
+File: seguimento2-041.pdf Graphic file (type pdf)
+<use seguimento2-041.pdf>
+Package pdftex.def Info: seguimento2-041.pdf  used on input line 252.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [38 <./seguimento2-040.pdf>]
+<seguimento2-042.pdf, id=335, 433.62pt x 433.62pt>
+File: seguimento2-042.pdf Graphic file (type pdf)
+<use seguimento2-042.pdf>
+Package pdftex.def Info: seguimento2-042.pdf  used on input line 256.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [39 <./seguimento2-041.pdf>]
+<seguimento2-043.pdf, id=344, 433.62pt x 433.62pt>
+File: seguimento2-043.pdf Graphic file (type pdf)
+<use seguimento2-043.pdf>
+Package pdftex.def Info: seguimento2-043.pdf  used on input line 264.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [40 <./seguimento2-042.pdf>]
+<seguimento2-044.pdf, id=353, 433.62pt x 433.62pt>
+File: seguimento2-044.pdf Graphic file (type pdf)
+<use seguimento2-044.pdf>
+Package pdftex.def Info: seguimento2-044.pdf  used on input line 272.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [41 <./seguimento2-043.pdf>]
+<seguimento2-046.pdf, id=362, 433.62pt x 433.62pt>
+File: seguimento2-046.pdf Graphic file (type pdf)
+<use seguimento2-046.pdf>
+Package pdftex.def Info: seguimento2-046.pdf  used on input line 289.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [42 <./seguimento2-044.pdf>]
+<seguimento2-047.pdf, id=371, 433.62pt x 433.62pt>
+File: seguimento2-047.pdf Graphic file (type pdf)
+<use seguimento2-047.pdf>
+Package pdftex.def Info: seguimento2-047.pdf  used on input line 293.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [43 <./seguimento2-046.pdf>]
+<seguimento2-048.pdf, id=381, 433.62pt x 433.62pt>
+File: seguimento2-048.pdf Graphic file (type pdf)
+<use seguimento2-048.pdf>
+Package pdftex.def Info: seguimento2-048.pdf  used on input line 297.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [44 <./seguimento2-047.pdf>]
+<seguimento2-049.pdf, id=390, 433.62pt x 433.62pt>
+File: seguimento2-049.pdf Graphic file (type pdf)
+<use seguimento2-049.pdf>
+Package pdftex.def Info: seguimento2-049.pdf  used on input line 304.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+[45 <./seguimento2-048.pdf>]
+<seguimento2-050.pdf, id=399, 433.62pt x 433.62pt>
+File: seguimento2-050.pdf Graphic file (type pdf)
+<use seguimento2-050.pdf>
+Package pdftex.def Info: seguimento2-050.pdf  used on input line 309.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [46 <./seguimento2-049.pdf>]
+<seguimento2-051.pdf, id=408, 433.62pt x 433.62pt>
+File: seguimento2-051.pdf Graphic file (type pdf)
+<use seguimento2-051.pdf>
+Package pdftex.def Info: seguimento2-051.pdf  used on input line 316.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [47 <./seguimento2-050.pdf>]
+<seguimento2-052.pdf, id=417, 433.62pt x 433.62pt>
+File: seguimento2-052.pdf Graphic file (type pdf)
+<use seguimento2-052.pdf>
+Package pdftex.def Info: seguimento2-052.pdf  used on input line 320.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [48 <./seguimento2-051.pdf>]
+<seguimento2-053.pdf, id=426, 433.62pt x 433.62pt>
+File: seguimento2-053.pdf Graphic file (type pdf)
+<use seguimento2-053.pdf>
+Package pdftex.def Info: seguimento2-053.pdf  used on input line 325.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [49 <./seguimento2-052.pdf>]
+<seguimento2-054.pdf, id=436, 433.62pt x 433.62pt>
+File: seguimento2-054.pdf Graphic file (type pdf)
+<use seguimento2-054.pdf>
+Package pdftex.def Info: seguimento2-054.pdf  used on input line 329.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [50 <./seguimento2-053.pdf>]
+<seguimento2-055.pdf, id=445, 433.62pt x 433.62pt>
+File: seguimento2-055.pdf Graphic file (type pdf)
+<use seguimento2-055.pdf>
+Package pdftex.def Info: seguimento2-055.pdf  used on input line 337.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [51 <./seguimento2-054.pdf>]
+<seguimento2-057.pdf, id=454, 433.62pt x 433.62pt>
+File: seguimento2-057.pdf Graphic file (type pdf)
+<use seguimento2-057.pdf>
+Package pdftex.def Info: seguimento2-057.pdf  used on input line 354.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [52 <./seguimento2-055.pdf>]
+<seguimento2-058.pdf, id=463, 433.62pt x 433.62pt>
+File: seguimento2-058.pdf Graphic file (type pdf)
+<use seguimento2-058.pdf>
+Package pdftex.def Info: seguimento2-058.pdf  used on input line 358.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+[53 <./seguimento2-057.pdf>]
+<seguimento2-059.pdf, id=472, 433.62pt x 433.62pt>
+File: seguimento2-059.pdf Graphic file (type pdf)
+<use seguimento2-059.pdf>
+Package pdftex.def Info: seguimento2-059.pdf  used on input line 362.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [54 <./seguimento2-058.pdf>]
+<seguimento2-060.pdf, id=481, 433.62pt x 433.62pt>
+File: seguimento2-060.pdf Graphic file (type pdf)
+<use seguimento2-060.pdf>
+Package pdftex.def Info: seguimento2-060.pdf  used on input line 369.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [55 <./seguimento2-059.pdf>]
+<seguimento2-061.pdf, id=491, 433.62pt x 433.62pt>
+File: seguimento2-061.pdf Graphic file (type pdf)
+<use seguimento2-061.pdf>
+Package pdftex.def Info: seguimento2-061.pdf  used on input line 374.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [56 <./seguimento2-060.pdf>]
+<seguimento2-062.pdf, id=500, 433.62pt x 433.62pt>
+File: seguimento2-062.pdf Graphic file (type pdf)
+<use seguimento2-062.pdf>
+Package pdftex.def Info: seguimento2-062.pdf  used on input line 381.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [57 <./seguimento2-061.pdf>]
+<seguimento2-063.pdf, id=509, 433.62pt x 433.62pt>
+File: seguimento2-063.pdf Graphic file (type pdf)
+<use seguimento2-063.pdf>
+Package pdftex.def Info: seguimento2-063.pdf  used on input line 385.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [58 <./seguimento2-062.pdf>]
+<seguimento2-064.pdf, id=518, 433.62pt x 433.62pt>
+File: seguimento2-064.pdf Graphic file (type pdf)
+<use seguimento2-064.pdf>
+Package pdftex.def Info: seguimento2-064.pdf  used on input line 390.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [59 <./seguimento2-063.pdf>]
+<seguimento2-065.pdf, id=527, 433.62pt x 433.62pt>
+File: seguimento2-065.pdf Graphic file (type pdf)
+<use seguimento2-065.pdf>
+Package pdftex.def Info: seguimento2-065.pdf  used on input line 394.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [60 <./seguimento2-064.pdf>]
+<seguimento2-066.pdf, id=536, 433.62pt x 433.62pt>
+File: seguimento2-066.pdf Graphic file (type pdf)
+<use seguimento2-066.pdf>
+Package pdftex.def Info: seguimento2-066.pdf  used on input line 400.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+[61 <./seguimento2-065.pdf>]
+<seguimento2-068.pdf, id=546, 433.62pt x 433.62pt>
+File: seguimento2-068.pdf Graphic file (type pdf)
+<use seguimento2-068.pdf>
+Package pdftex.def Info: seguimento2-068.pdf  used on input line 418.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [62 <./seguimento2-066.pdf>]
+<seguimento2-069.pdf, id=555, 433.62pt x 433.62pt>
+File: seguimento2-069.pdf Graphic file (type pdf)
+<use seguimento2-069.pdf>
+Package pdftex.def Info: seguimento2-069.pdf  used on input line 422.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [63 <./seguimento2-068.pdf>]
+<seguimento2-070.pdf, id=564, 433.62pt x 433.62pt>
+File: seguimento2-070.pdf Graphic file (type pdf)
+<use seguimento2-070.pdf>
+Package pdftex.def Info: seguimento2-070.pdf  used on input line 426.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [64 <./seguimento2-069.pdf>]
+<seguimento2-071.pdf, id=573, 433.62pt x 433.62pt>
+File: seguimento2-071.pdf Graphic file (type pdf)
+<use seguimento2-071.pdf>
+Package pdftex.def Info: seguimento2-071.pdf  used on input line 433.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [65 <./seguimento2-070.pdf>]
+<seguimento2-072.pdf, id=582, 433.62pt x 433.62pt>
+File: seguimento2-072.pdf Graphic file (type pdf)
+<use seguimento2-072.pdf>
+Package pdftex.def Info: seguimento2-072.pdf  used on input line 437.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [66 <./seguimento2-071.pdf>]
+<seguimento2-073.pdf, id=591, 433.62pt x 433.62pt>
+File: seguimento2-073.pdf Graphic file (type pdf)
+<use seguimento2-073.pdf>
+Package pdftex.def Info: seguimento2-073.pdf  used on input line 444.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [67 <./seguimento2-072.pdf>]
+<seguimento2-074.pdf, id=601, 433.62pt x 433.62pt>
+File: seguimento2-074.pdf Graphic file (type pdf)
+<use seguimento2-074.pdf>
+Package pdftex.def Info: seguimento2-074.pdf  used on input line 448.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [68 <./seguimento2-073.pdf>]
+<seguimento2-075.pdf, id=610, 433.62pt x 433.62pt>
+File: seguimento2-075.pdf Graphic file (type pdf)
+<use seguimento2-075.pdf>
+Package pdftex.def Info: seguimento2-075.pdf  used on input line 453.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+[69 <./seguimento2-074.pdf>]
+<seguimento2-076.pdf, id=619, 433.62pt x 433.62pt>
+File: seguimento2-076.pdf Graphic file (type pdf)
+<use seguimento2-076.pdf>
+Package pdftex.def Info: seguimento2-076.pdf  used on input line 458.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [70 <./seguimento2-075.pdf>]
+<seguimento2-077.pdf, id=628, 433.62pt x 433.62pt>
+File: seguimento2-077.pdf Graphic file (type pdf)
+<use seguimento2-077.pdf>
+Package pdftex.def Info: seguimento2-077.pdf  used on input line 464.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [71 <./seguimento2-076.pdf>]
+<seguimento2-079.pdf, id=637, 433.62pt x 433.62pt>
+File: seguimento2-079.pdf Graphic file (type pdf)
+<use seguimento2-079.pdf>
+Package pdftex.def Info: seguimento2-079.pdf  used on input line 482.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [72 <./seguimento2-077.pdf>]
+<seguimento2-080.pdf, id=646, 433.62pt x 433.62pt>
+File: seguimento2-080.pdf Graphic file (type pdf)
+<use seguimento2-080.pdf>
+Package pdftex.def Info: seguimento2-080.pdf  used on input line 486.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [73 <./seguimento2-079.pdf>]
+<seguimento2-081.pdf, id=656, 433.62pt x 433.62pt>
+File: seguimento2-081.pdf Graphic file (type pdf)
+<use seguimento2-081.pdf>
+Package pdftex.def Info: seguimento2-081.pdf  used on input line 490.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [74 <./seguimento2-080.pdf>]
+<seguimento2-082.pdf, id=665, 433.62pt x 433.62pt>
+File: seguimento2-082.pdf Graphic file (type pdf)
+<use seguimento2-082.pdf>
+Package pdftex.def Info: seguimento2-082.pdf  used on input line 497.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [75 <./seguimento2-081.pdf>]
+<seguimento2-083.pdf, id=674, 433.62pt x 433.62pt>
+File: seguimento2-083.pdf Graphic file (type pdf)
+<use seguimento2-083.pdf>
+Package pdftex.def Info: seguimento2-083.pdf  used on input line 501.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [76 <./seguimento2-082.pdf>]
+<seguimento2-084.pdf, id=683, 433.62pt x 433.62pt>
+File: seguimento2-084.pdf Graphic file (type pdf)
+<use seguimento2-084.pdf>
+Package pdftex.def Info: seguimento2-084.pdf  used on input line 508.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+[77 <./seguimento2-083.pdf>]
+<seguimento2-085.pdf, id=692, 433.62pt x 433.62pt>
+File: seguimento2-085.pdf Graphic file (type pdf)
+<use seguimento2-085.pdf>
+Package pdftex.def Info: seguimento2-085.pdf  used on input line 512.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [78 <./seguimento2-084.pdf>]
+<seguimento2-086.pdf, id=701, 433.62pt x 433.62pt>
+File: seguimento2-086.pdf Graphic file (type pdf)
+<use seguimento2-086.pdf>
+Package pdftex.def Info: seguimento2-086.pdf  used on input line 517.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [79 <./seguimento2-085.pdf>]
+<seguimento2-087.pdf, id=711, 433.62pt x 433.62pt>
+File: seguimento2-087.pdf Graphic file (type pdf)
+<use seguimento2-087.pdf>
+Package pdftex.def Info: seguimento2-087.pdf  used on input line 522.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [80 <./seguimento2-086.pdf>]
+<seguimento2-088.pdf, id=720, 433.62pt x 433.62pt>
+File: seguimento2-088.pdf Graphic file (type pdf)
+<use seguimento2-088.pdf>
+Package pdftex.def Info: seguimento2-088.pdf  used on input line 528.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [81 <./seguimento2-087.pdf>]
+<seguimento2-090.pdf, id=729, 433.62pt x 433.62pt>
+File: seguimento2-090.pdf Graphic file (type pdf)
+<use seguimento2-090.pdf>
+Package pdftex.def Info: seguimento2-090.pdf  used on input line 546.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [82 <./seguimento2-088.pdf>]
+<seguimento2-091.pdf, id=738, 433.62pt x 433.62pt>
+File: seguimento2-091.pdf Graphic file (type pdf)
+<use seguimento2-091.pdf>
+Package pdftex.def Info: seguimento2-091.pdf  used on input line 550.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [83 <./seguimento2-090.pdf>]
+<seguimento2-092.pdf, id=747, 433.62pt x 433.62pt>
+File: seguimento2-092.pdf Graphic file (type pdf)
+<use seguimento2-092.pdf>
+Package pdftex.def Info: seguimento2-092.pdf  used on input line 554.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [84 <./seguimento2-091.pdf>]
+<seguimento2-093.pdf, id=756, 433.62pt x 433.62pt>
+File: seguimento2-093.pdf Graphic file (type pdf)
+<use seguimento2-093.pdf>
+Package pdftex.def Info: seguimento2-093.pdf  used on input line 561.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+[85 <./seguimento2-092.pdf>]
+<seguimento2-094.pdf, id=766, 433.62pt x 433.62pt>
+File: seguimento2-094.pdf Graphic file (type pdf)
+<use seguimento2-094.pdf>
+Package pdftex.def Info: seguimento2-094.pdf  used on input line 565.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [86 <./seguimento2-093.pdf>]
+<seguimento2-095.pdf, id=775, 433.62pt x 433.62pt>
+File: seguimento2-095.pdf Graphic file (type pdf)
+<use seguimento2-095.pdf>
+Package pdftex.def Info: seguimento2-095.pdf  used on input line 572.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [87 <./seguimento2-094.pdf>]
+<seguimento2-096.pdf, id=784, 433.62pt x 433.62pt>
+File: seguimento2-096.pdf Graphic file (type pdf)
+<use seguimento2-096.pdf>
+Package pdftex.def Info: seguimento2-096.pdf  used on input line 576.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [88 <./seguimento2-095.pdf>]
+<seguimento2-097.pdf, id=793, 433.62pt x 433.62pt>
+File: seguimento2-097.pdf Graphic file (type pdf)
+<use seguimento2-097.pdf>
+Package pdftex.def Info: seguimento2-097.pdf  used on input line 581.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [89 <./seguimento2-096.pdf>]
+<seguimento2-098.pdf, id=802, 433.62pt x 433.62pt>
+File: seguimento2-098.pdf Graphic file (type pdf)
+<use seguimento2-098.pdf>
+Package pdftex.def Info: seguimento2-098.pdf  used on input line 585.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [90 <./seguimento2-097.pdf>] [91 <./seguimento2-098.pdf>] (seguimento2.aux) ) 
+Here is how much of TeX's memory you used:
+ 2991 strings out of 480790
+ 52899 string characters out of 2895394
+ 275456 words of memory out of 3000000
+ 18932 multiletter control sequences out of 15000+200000
+ 560320 words of font info for 78 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,6n,29p,309b,289s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 
+<C:\Users\PERCI\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\tct
+t1000.pk><C:/Users/PERCI/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmb10.pfb><C:/Users/PERCI/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb><C:/Users/PERCI/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/PERCI/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/PERCI/AppDat
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/P
+ERCI/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pf
+b>
+Output written on seguimento2.pdf (91 pages, 595036 bytes).
+PDF statistics:
+ 847 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 440 words of extra memory for PDF output out of 10000 (max. 10000000)
+

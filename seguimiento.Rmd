@@ -2,7 +2,7 @@
 title: "PROMSACE seguimiento de encuestas"
 author: "Hernan Nuñez"
 date: "1/7/2020"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -28,7 +28,8 @@ df$Dia <- factor(df$Dia, levels = (1:31))
 
 df$Mes <- factor(df$Mes, levels = c("Febrero", "Marzo", "Abril", "Mayo", "Junio"))
 
-df$`Dia de la Semana` <- factor(df$`Dia de la Semana`, levels = c("lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"))
+df$`Dia de la Semana` <- factor(df$`Dia de la Semana`,
+levels = c("lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"))
 
 df$Tipo <- factor(df$Tipo, levels = c("Recopilada","Completa", "Completa y efectiva"))
 
@@ -70,7 +71,8 @@ ggplot(df, aes(x = `Dia de la Semana`, y = Recuento, color = Tipo)) +
 ```{r}
 df_meses <- df %>%
             group_by(Mes, Tipo) %>%
-            summarise(cantidad = sum(Recuento), se = sd(Recuento), upper = cantidad +               se, lower = cantidad - se)
+            summarise(cantidad = sum(Recuento), se = sd(Recuento),
+                      upper = cantidad +               se, lower = cantidad - se)
 
 ggplot(df_meses, aes(x = Mes, y = cantidad, fill = Tipo)) +
   geom_col(position = "dodge") +
@@ -85,7 +87,7 @@ df_febrero <- df %>%
 df_febrero
 ```
 
-### Recuento Febrero
+### Recuento Febrero 
 
 ```{r}
 ggplot(df_febrero, aes(x = Dia, y = Recuento, fill = Tipo)) +
@@ -378,9 +380,11 @@ df2 <- read_excel("D:/descargas/Reporte corregido francisco 30junio.xlsx",
 
 df2$Dia <- factor(df2$Dia, levels = (1:31))
 
-df2$Mes_letras <- factor(df2$Mes_letras, levels = c("Febrero", "Marzo", "Abril", "Mayo", "Junio"))
+df2$Mes_letras <- factor(df2$Mes_letras,
+                         levels = c("Febrero", "Marzo", "Abril", "Mayo", "Junio"))
 
-df2$dia_letras <- factor(df2$dia_letras, levels = c("lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"))
+df2$dia_letras <- factor(df2$dia_letras,
+levels = c("lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"))
 
 glimpse(df2)
 ```
@@ -414,39 +418,53 @@ ggplot(df_nocovid, aes(x = `Dia de la Semana`, y = Recuento, color = Tipo)) +
   geom_boxplot()
 ```
 
+
 #### Recopiladas VS Completas antes del covid segun meses
 
+
 ```{r}
-ggplot(df2_nocovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = dia_letras)) +
+ggplot(df2_nocovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`,
+                        color = dia_letras)) +
   geom_point() +
   facet_wrap(~Mes_letras)
 ```
+
 
 #### Recopiladas VS Completas antes del covid segun dia de la semana
 
+
 ```{r}
-ggplot(df2_nocovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = Mes_letras)) +
+ggplot(df2_nocovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`,
+                        color = Mes_letras)) +
   geom_point() +
   facet_wrap(~dia_letras)
 ```
 
+
 #### Completas VS Completas y efectivas antes del covid segun meses
 
+
 ```{r}
-ggplot(df2_nocovid, aes(x = `Recuento Completas`, y = `Recuento Completas y Efectivas`, color = dia_letras)) +
+ggplot(df2_nocovid, aes(x = `Recuento Completas`,
+                        y = `Recuento Completas y Efectivas`, color = dia_letras)) +
   geom_point() +
   facet_wrap(~Mes_letras)
 ```
 
+
 #### Completas VS Completas y efectivas antes del covid segun dia de la semana
 
+
 ```{r}
-ggplot(df2_nocovid, aes(x = `Recuento Completas`, y = `Recuento Completas y Efectivas`, color = Mes_letras)) +
+ggplot(df2_nocovid, aes(x = `Recuento Completas`,
+                        y = `Recuento Completas y Efectivas`, color = Mes_letras)) +
   geom_point() +
   facet_wrap(~dia_letras)
 ```
 
+
 ### Despues del covid
+
 
 ```{r}
 df2_sicovid <- df2 %>%
@@ -461,14 +479,18 @@ df_sicovid <- df %>%
 df_sicovid
 ```
 
+
 ### Variacion despues del covid segun los meses
+
 
 ```{r}
 ggplot(df_sicovid, aes(x = Mes, y = Recuento, color = Tipo)) +
   geom_boxplot()
 ```
 
+
 ### Variacion despues del covid segun los dias
+
 
 ```{r}
 ggplot(df_sicovid, aes(x = `Dia de la Semana`, y = Recuento, color = Tipo)) +
@@ -476,34 +498,46 @@ ggplot(df_sicovid, aes(x = `Dia de la Semana`, y = Recuento, color = Tipo)) +
 ```
 
 
+
 #### Recopiladas VS Completas despues del covid segun meses
 
+
 ```{r}
-ggplot(df2_sicovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = dia_letras)) +
+ggplot(df2_sicovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`,
+                        color = dia_letras)) +
   geom_point() +
   facet_wrap(~Mes_letras)
 ```
 
+
 #### Recopiladas VS Completas despues del covid segun dia de la semana
 
+
 ```{r}
-ggplot(df2_sicovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`, color = Mes_letras)) +
+ggplot(df2_sicovid, aes(x = `Recuento Recopiladas`, y = `Recuento Completas`,
+                        color = Mes_letras)) +
   geom_point() +
   facet_wrap(~dia_letras)
 ```
 
+
 #### Completas VS Completas y efectivas despues del covid segun meses
 
+
 ```{r}
-ggplot(df2_sicovid, aes(x = `Recuento Completas`, y = `Recuento Completas y Efectivas`, color = dia_letras)) +
+ggplot(df2_sicovid, aes(x = `Recuento Completas`,
+                        y = `Recuento Completas y Efectivas`, color = dia_letras)) +
   geom_point() +
   facet_wrap(~Mes_letras)
 ```
 
+
 #### Completas VS Completas y efectivas despues del covid segun dia de la semana
 
+
 ```{r}
-ggplot(df2_sicovid, aes(x = `Recuento Completas`, y = `Recuento Completas y Efectivas`, color = Mes_letras)) +
+ggplot(df2_sicovid, aes(x = `Recuento Completas`,
+                        y = `Recuento Completas y Efectivas`, color = Mes_letras)) +
   geom_point() +
   facet_wrap(~dia_letras)
 ```

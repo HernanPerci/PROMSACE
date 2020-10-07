@@ -1,0 +1,1386 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.7.2)  4 AUG 2020 20:04
+entering extended mode
+**./seguimientov5.tex
+(seguimientov5.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-06-18>
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size10.clo"
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+) (C:/PROGRA~1/R/R-36~1.3/share/texmf/tex/latex\Sweave.sty
+Package: Sweave 
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.
+sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.st
+y"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.
+sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graph
+ics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdfte
+x.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fancyvrb\fancyvrb.
+sty"
+Package: fancyvrb 2020/05/03 v3.6 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count175
+\FV@InFile=\read2
+\FV@TabBox=\box45
+\c@FancyVerbLine=\count176
+\FV@StepNumber=\count177
+\FV@OutFile=\write3
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\textcomp.sty"
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) ("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fontenc.sty
+"
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+) ("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ae\ae.sty"
+Package: ae 2001/02/12 1.3 Almost European Computer Modern
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fontenc.sty"
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+)))
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backen
+d-pdfmode.def"
+File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count178
+\l__pdf_internal_box=\box46
+) (seguimientov5.aux)
+\openout1 = `seguimientov5.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Trying to load font information for T1+aer on input line 4.
+
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ae\t1aer.fd"
+File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
+df.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count179
+\scratchdimen=\dimen137
+\scratchbox=\box47
+\nofMPsegments=\count180
+\nofMParguments=\count181
+\everyMPshowfont=\toks16
+\MPscratchCnt=\count182
+\MPscratchDim=\dimen138
+\MPnumerator=\count183
+\makeMPintoPDFobject=\count184
+\everyMPtoPDFconversion=\toks17
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epsto
+pdf-base.sty"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/generic/infwarerr\infwar
+err.sty"
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/grfext\grfext.sty"
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvdefinekeys\kvd
+efinekeys.sty"
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/kvoptions\kvoption
+s.sty"
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ltxcmds\ltxcmds.
+sty"
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/generic/kvsetkeys\kvsetk
+eys.sty"
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pdftexcmds\pdfte
+xcmds.sty"
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\iftex.sty"
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+) (seguimientov5-concordance.tex)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 9.
+
+Overfull \hbox (54.58937pt too wide) in paragraph at lines 11--12
+\T1/aer/m/n/9 RStu-dio. Pueden en-con-trar el codigo en https://github.com/Hern
+anPerci/PROMSACE 
+ []
+
+(seguimientov5.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 4.
+ [1
+
+{C:/Users/PERCI/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}])
+\tf@toc=\write4
+\openout4 = `seguimientov5.toc'.
+
+LaTeX Font Info:    Trying to load font information for T1+aett on input line 2
+3.
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ae\t1aett.fd"
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+)
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 28.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
+8.
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
+28.
+
+("C:\Users\PERCI\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1cmtt.fd"
+File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 28.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 29.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 29.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 31.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 31.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 34.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 34.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 35.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 35.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 36.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 36.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 37.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 37.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 38.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 38.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 40.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 40.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 41.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 41.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 42.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 42.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 43.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 43.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 44.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 44.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 45.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 45.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 48.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 48.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 49.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 49.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 51.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 51.
+
+[2]
+<seguimientov5-003.pdf, id=16, 433.62pt x 433.62pt>
+File: seguimientov5-003.pdf Graphic file (type pdf)
+<use seguimientov5-003.pdf>
+Package pdftex.def Info: seguimientov5-003.pdf  used on input line 66.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+<seguimientov5-004.pdf, id=17, 433.62pt x 433.62pt>
+File: seguimientov5-004.pdf Graphic file (type pdf)
+<use seguimientov5-004.pdf>
+Package pdftex.def Info: seguimientov5-004.pdf  used on input line 69.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [3 <./seguimientov5-003.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 79.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 79.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 80.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 80.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 82.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 82.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 85.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 85.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 86.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 86.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 87.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 87.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 88.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 88.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 89.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 89.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 91.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 91.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 92.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 92.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 93.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 93.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 94.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 94.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 95.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 95.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 96.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 96.
+ [4 <./seguimientov5-004.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 99.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 99.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 100.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 100.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 102.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 102.
+<seguimientov5-006.pdf, id=34, 433.62pt x 433.62pt>
+File: seguimientov5-006.pdf Graphic file (type pdf)
+<use seguimientov5-006.pdf>
+Package pdftex.def Info: seguimientov5-006.pdf  used on input line 116.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [5 <./seguimientov5-006.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 126.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 126.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 127.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 127.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 129.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 129.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 132.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 132.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 133.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 133.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 134.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 134.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 135.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 135.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 136.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 136.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 138.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 138.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 139.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 139.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 140.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 140.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 141.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 141.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 142.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 142.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 143.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 143.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 146.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 146.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 147.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 147.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 149.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 149.
+<seguimientov5-008.pdf, id=43, 433.62pt x 433.62pt>
+File: seguimientov5-008.pdf Graphic file (type pdf)
+<use seguimientov5-008.pdf>
+Package pdftex.def Info: seguimientov5-008.pdf  used on input line 163.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [6]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 173.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 173.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 174.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 174.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 176.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 176.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 179.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 179.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 180.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 180.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 181.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 181.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 182.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 182.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 183.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 183.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 185.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 185.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 186.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 186.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 187.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 187.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 188.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 188.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 189.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 189.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 190.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 190.
+ [7 <./seguimientov5-008.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 193.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 193.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 194.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 194.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 196.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 196.
+<seguimientov5-010.pdf, id=56, 433.62pt x 433.62pt>
+File: seguimientov5-010.pdf Graphic file (type pdf)
+<use seguimientov5-010.pdf>
+Package pdftex.def Info: seguimientov5-010.pdf  used on input line 210.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [8 <./seguimientov5-010.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 220.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 220.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 221.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 221.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 223.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 223.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 226.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 226.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 227.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 227.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 228.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 228.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 229.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 229.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 230.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 230.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 232.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 232.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 233.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 233.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 234.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 234.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 235.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 235.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 236.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 236.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 237.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 237.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 240.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 240.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 241.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 241.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 243.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 243.
+<seguimientov5-012.pdf, id=65, 433.62pt x 433.62pt>
+File: seguimientov5-012.pdf Graphic file (type pdf)
+<use seguimientov5-012.pdf>
+Package pdftex.def Info: seguimientov5-012.pdf  used on input line 257.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+[9]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 267.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 267.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 268.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 268.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 270.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 270.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 273.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 273.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 274.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 274.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 275.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 275.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 276.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 276.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 277.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 277.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 279.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 279.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 280.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 280.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 281.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 281.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 282.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 282.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 283.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 283.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 284.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 284.
+ [10 <./seguimientov5-012.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 287.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 287.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 288.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 288.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 290.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 290.
+<seguimientov5-014.pdf, id=77, 433.62pt x 433.62pt>
+File: seguimientov5-014.pdf Graphic file (type pdf)
+<use seguimientov5-014.pdf>
+Package pdftex.def Info: seguimientov5-014.pdf  used on input line 304.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+<seguimientov5-015.pdf, id=78, 433.62pt x 433.62pt>
+File: seguimientov5-015.pdf Graphic file (type pdf)
+<use seguimientov5-015.pdf>
+Package pdftex.def Info: seguimientov5-015.pdf  used on input line 308.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [11 <./seguimientov5-014.pdf>]
+<seguimientov5-016.pdf, id=87, 433.62pt x 433.62pt>
+File: seguimientov5-016.pdf Graphic file (type pdf)
+<use seguimientov5-016.pdf>
+Package pdftex.def Info: seguimientov5-016.pdf  used on input line 312.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [12 <./seguimientov5-015.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 322.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 322.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 323.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 323.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 325.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 325.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 328.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 328.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 329.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 329.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 330.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 330.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 331.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 331.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 332.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 332.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 334.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 334.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 335.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 335.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 336.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 336.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 337.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 337.
+ [13 <./seguimientov5-016.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 338.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 338.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 339.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 339.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 342.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 342.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 343.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 343.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 345.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 345.
+<seguimientov5-018.pdf, id=105, 433.62pt x 433.62pt>
+File: seguimientov5-018.pdf Graphic file (type pdf)
+<use seguimientov5-018.pdf>
+Package pdftex.def Info: seguimientov5-018.pdf  used on input line 359.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [14 <./seguimientov5-018.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 369.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 369.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 370.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 370.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 372.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 372.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 375.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 375.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 376.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 376.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 377.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 377.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 378.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 378.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 379.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 379.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 381.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 381.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 382.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 382.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 383.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 383.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 384.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 384.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 385.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 385.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 386.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 386.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 389.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 389.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 390.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 390.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 392.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 392.
+<seguimientov5-020.pdf, id=114, 433.62pt x 433.62pt>
+File: seguimientov5-020.pdf Graphic file (type pdf)
+<use seguimientov5-020.pdf>
+Package pdftex.def Info: seguimientov5-020.pdf  used on input line 406.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+[15]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 416.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 416.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 417.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 417.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 419.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 419.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 422.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 422.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 423.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 423.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 424.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 424.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 425.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 425.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 426.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 426.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 428.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 428.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 429.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 429.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 430.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 430.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 431.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 431.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 432.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 432.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 433.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 433.
+ [16 <./seguimientov5-020.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 436.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 436.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 437.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 437.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 439.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 439.
+<seguimientov5-022.pdf, id=126, 433.62pt x 433.62pt>
+File: seguimientov5-022.pdf Graphic file (type pdf)
+<use seguimientov5-022.pdf>
+Package pdftex.def Info: seguimientov5-022.pdf  used on input line 453.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [17 <./seguimientov5-022.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 463.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 463.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 465.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 465.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 468.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 468.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 469.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 469.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 470.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 470.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 471.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 471.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 472.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 472.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 474.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 474.
+<seguimientov5-024.pdf, id=135, 433.62pt x 433.62pt>
+File: seguimientov5-024.pdf Graphic file (type pdf)
+<use seguimientov5-024.pdf>
+Package pdftex.def Info: seguimientov5-024.pdf  used on input line 481.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [18]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 490.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 490.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 491.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 491.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 492.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 492.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 493.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 493.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 494.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 494.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 495.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 495.
+<seguimientov5-026.pdf, id=139, 433.62pt x 433.62pt>
+File: seguimientov5-026.pdf Graphic file (type pdf)
+<use seguimientov5-026.pdf>
+Package pdftex.def Info: seguimientov5-026.pdf  used on input line 502.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+[19 <./seguimientov5-024.pdf>]
+<seguimientov5-028.pdf, id=149, 433.62pt x 433.62pt>
+File: seguimientov5-028.pdf Graphic file (type pdf)
+<use seguimientov5-028.pdf>
+Package pdftex.def Info: seguimientov5-028.pdf  used on input line 518.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [20 <./seguimientov5-026.pdf>]
+<seguimientov5-030.pdf, id=158, 433.62pt x 433.62pt>
+File: seguimientov5-030.pdf Graphic file (type pdf)
+<use seguimientov5-030.pdf>
+Package pdftex.def Info: seguimientov5-030.pdf  used on input line 535.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [21 <./seguimientov5-028.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 545.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 545.
+<seguimientov5-032.pdf, id=167, 433.62pt x 433.62pt>
+File: seguimientov5-032.pdf Graphic file (type pdf)
+<use seguimientov5-032.pdf>
+Package pdftex.def Info: seguimientov5-032.pdf  used on input line 552.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [22 <./seguimientov5-030.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 562.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 562.
+<seguimientov5-034.pdf, id=176, 433.62pt x 433.62pt>
+File: seguimientov5-034.pdf Graphic file (type pdf)
+<use seguimientov5-034.pdf>
+Package pdftex.def Info: seguimientov5-034.pdf  used on input line 569.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [23 <./seguimientov5-032.pdf>]
+<seguimientov5-036.pdf, id=185, 433.62pt x 433.62pt>
+File: seguimientov5-036.pdf Graphic file (type pdf)
+<use seguimientov5-036.pdf>
+Package pdftex.def Info: seguimientov5-036.pdf  used on input line 585.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+[24 <./seguimientov5-034.pdf>]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 595.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family aett in TS1 encoding.
+(textcomp)             Default family used instead on input line 595.
+<seguimientov5-038.pdf, id=194, 433.62pt x 433.62pt>
+File: seguimientov5-038.pdf Graphic file (type pdf)
+<use seguimientov5-038.pdf>
+Package pdftex.def Info: seguimientov5-038.pdf  used on input line 602.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [25 <./seguimientov5-036.pdf>]
+<seguimientov5-039.pdf, id=204, 433.62pt x 433.62pt>
+File: seguimientov5-039.pdf Graphic file (type pdf)
+<use seguimientov5-039.pdf>
+Package pdftex.def Info: seguimientov5-039.pdf  used on input line 606.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+ [26 <./seguimientov5-038.pdf>] [27 <./seguimientov5-039.pdf>] (seguimientov5.a
+ux) ) 
+Here is how much of TeX's memory you used:
+ 2595 strings out of 480790
+ 42059 string characters out of 2895394
+ 277458 words of memory out of 3000000
+ 18536 multiletter control sequences out of 15000+200000
+ 560320 words of font info for 78 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,6n,29p,312b,284s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\PERCI\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi6
+00\tctt1000.pk><C:/Users/PERCI/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmb10.pfb><C:/Users/PERCI/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/PERCI/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/PERCI/AppData/Loca
+l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/PERCI/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/U
+sers/PERCI/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmt
+t10.pfb>
+Output written on seguimientov5.pdf (27 pages, 329602 bytes).
+PDF statistics:
+ 245 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 110 words of extra memory for PDF output out of 10000 (max. 10000000)
+

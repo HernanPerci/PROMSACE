@@ -1,0 +1,119 @@
+\contentsline {section}{\numberline {1}Introduccion}{4}%
+\contentsline {section}{\numberline {2}bases de datos usadas}{4}%
+\contentsline {section}{\numberline {3}Panorama general del 28 Febrero al 30 de Junio}{5}%
+\contentsline {subsection}{\numberline {3.1}Graficos de lineas}{5}%
+\contentsline {subsection}{\numberline {3.2}Graficos de barras}{5}%
+\contentsline {subsubsection}{\numberline {3.2.1}Minimo}{5}%
+\contentsline {subsubsection}{\numberline {3.2.2}Mediana}{7}%
+\contentsline {subsubsection}{\numberline {3.2.3}Maximo}{8}%
+\contentsline {subsection}{\numberline {3.3}Histogramas}{8}%
+\contentsline {subsubsection}{\numberline {3.3.1}Recopilada}{9}%
+\contentsline {subsubsection}{\numberline {3.3.2}Completa}{10}%
+\contentsline {subsection}{\numberline {3.4}Graficos de cajas}{10}%
+\contentsline {subsubsection}{\numberline {3.4.1}Por meses}{12}%
+\contentsline {subsubsection}{\numberline {3.4.2}Por dia de la semana}{13}%
+\contentsline {subsection}{\numberline {3.5}Graficos de puntos}{13}%
+\contentsline {subsubsection}{\numberline {3.5.1}Por meses}{15}%
+\contentsline {subsubsection}{\numberline {3.5.2}Por dias}{16}%
+\contentsline {section}{\numberline {4}Panorama antes del covid}{16}%
+\contentsline {subsection}{\numberline {4.1}Graficos de lineas}{16}%
+\contentsline {subsection}{\numberline {4.2}Graficos de barras}{17}%
+\contentsline {subsubsection}{\numberline {4.2.1}Minimo}{18}%
+\contentsline {subsubsection}{\numberline {4.2.2}Mediana}{19}%
+\contentsline {subsubsection}{\numberline {4.2.3}Maximo}{20}%
+\contentsline {subsection}{\numberline {4.3}Histogramas}{20}%
+\contentsline {subsubsection}{\numberline {4.3.1}Recopilada}{21}%
+\contentsline {subsubsection}{\numberline {4.3.2}Completa}{22}%
+\contentsline {subsection}{\numberline {4.4}Graficos de cajas}{22}%
+\contentsline {subsubsection}{\numberline {4.4.1}Por meses}{24}%
+\contentsline {subsubsection}{\numberline {4.4.2}Por dia de la semana}{25}%
+\contentsline {subsection}{\numberline {4.5}Graficos de puntos}{25}%
+\contentsline {subsubsection}{\numberline {4.5.1}Por meses}{27}%
+\contentsline {subsubsection}{\numberline {4.5.2}Por dias}{28}%
+\contentsline {section}{\numberline {5}Panorama despues del covid}{28}%
+\contentsline {subsection}{\numberline {5.1}Graficos de lineas}{28}%
+\contentsline {subsection}{\numberline {5.2}Graficos de barras}{29}%
+\contentsline {subsubsection}{\numberline {5.2.1}Minimo}{30}%
+\contentsline {subsubsection}{\numberline {5.2.2}Mediana}{31}%
+\contentsline {subsubsection}{\numberline {5.2.3}Maximo}{32}%
+\contentsline {subsection}{\numberline {5.3}Histogramas}{32}%
+\contentsline {subsubsection}{\numberline {5.3.1}Recopilada}{33}%
+\contentsline {subsubsection}{\numberline {5.3.2}Completa}{34}%
+\contentsline {subsection}{\numberline {5.4}Graficos de cajas}{34}%
+\contentsline {subsubsection}{\numberline {5.4.1}Por meses}{36}%
+\contentsline {subsubsection}{\numberline {5.4.2}Por dia de la semana}{37}%
+\contentsline {subsection}{\numberline {5.5}Graficos de puntos}{37}%
+\contentsline {subsubsection}{\numberline {5.5.1}Por meses}{39}%
+\contentsline {subsubsection}{\numberline {5.5.2}Por dias}{40}%
+\contentsline {section}{\numberline {6}Febrero}{40}%
+\contentsline {subsection}{\numberline {6.1}Grafico de Columnas}{40}%
+\contentsline {section}{\numberline {7}Marzo antes del covid}{41}%
+\contentsline {subsection}{\numberline {7.1}Graficos de lineas}{41}%
+\contentsline {subsection}{\numberline {7.2}Graficos de barras}{42}%
+\contentsline {subsubsection}{\numberline {7.2.1}Minimo}{43}%
+\contentsline {subsubsection}{\numberline {7.2.2}Mediana}{44}%
+\contentsline {subsubsection}{\numberline {7.2.3}Maximo}{45}%
+\contentsline {subsection}{\numberline {7.3}Histogramas}{45}%
+\contentsline {subsubsection}{\numberline {7.3.1}Recopilada}{46}%
+\contentsline {subsubsection}{\numberline {7.3.2}Completa}{47}%
+\contentsline {subsection}{\numberline {7.4}Graficos de cajas}{47}%
+\contentsline {subsubsection}{\numberline {7.4.1}Marzo sin covid}{48}%
+\contentsline {subsubsection}{\numberline {7.4.2}Por dia de la semana}{49}%
+\contentsline {subsection}{\numberline {7.5}Graficos de puntos}{49}%
+\contentsline {subsubsection}{\numberline {7.5.1}Por dias}{51}%
+\contentsline {section}{\numberline {8}Marzo despues del covid}{51}%
+\contentsline {subsection}{\numberline {8.1}Graficos de lineas}{51}%
+\contentsline {subsection}{\numberline {8.2}Graficos de barras}{52}%
+\contentsline {subsubsection}{\numberline {8.2.1}Minimo}{53}%
+\contentsline {subsubsection}{\numberline {8.2.2}Mediana}{54}%
+\contentsline {subsubsection}{\numberline {8.2.3}Maximo}{55}%
+\contentsline {subsection}{\numberline {8.3}Histogramas}{55}%
+\contentsline {subsubsection}{\numberline {8.3.1}Recopilada}{56}%
+\contentsline {subsubsection}{\numberline {8.3.2}Completa}{57}%
+\contentsline {subsection}{\numberline {8.4}Graficos de cajas}{57}%
+\contentsline {subsubsection}{\numberline {8.4.1}Marzo con covid}{58}%
+\contentsline {subsubsection}{\numberline {8.4.2}Por dia de la semana}{59}%
+\contentsline {subsection}{\numberline {8.5}Graficos de puntos}{59}%
+\contentsline {subsubsection}{\numberline {8.5.1}Por dias}{61}%
+\contentsline {section}{\numberline {9}Abril}{61}%
+\contentsline {subsection}{\numberline {9.1}Graficos de lineas}{61}%
+\contentsline {subsection}{\numberline {9.2}Graficos de barras}{62}%
+\contentsline {subsubsection}{\numberline {9.2.1}Minimo}{62}%
+\contentsline {subsubsection}{\numberline {9.2.2}Mediana}{64}%
+\contentsline {subsubsection}{\numberline {9.2.3}Maximo}{65}%
+\contentsline {subsection}{\numberline {9.3}Histogramas}{65}%
+\contentsline {subsubsection}{\numberline {9.3.1}Recopilada}{66}%
+\contentsline {subsubsection}{\numberline {9.3.2}Completa}{67}%
+\contentsline {subsection}{\numberline {9.4}Graficos de cajas}{67}%
+\contentsline {subsubsection}{\numberline {9.4.1}Abril}{68}%
+\contentsline {subsubsection}{\numberline {9.4.2}Por dia de la semana}{69}%
+\contentsline {subsection}{\numberline {9.5}Graficos de puntos}{69}%
+\contentsline {subsubsection}{\numberline {9.5.1}Por dias}{71}%
+\contentsline {section}{\numberline {10}Mayo}{71}%
+\contentsline {subsection}{\numberline {10.1}Graficos de lineas}{71}%
+\contentsline {subsection}{\numberline {10.2}Graficos de barras}{72}%
+\contentsline {subsubsection}{\numberline {10.2.1}Minimo}{72}%
+\contentsline {subsubsection}{\numberline {10.2.2}Mediana}{74}%
+\contentsline {subsubsection}{\numberline {10.2.3}Maximo}{75}%
+\contentsline {subsection}{\numberline {10.3}Histogramas}{75}%
+\contentsline {subsubsection}{\numberline {10.3.1}Recopilada}{76}%
+\contentsline {subsubsection}{\numberline {10.3.2}Completa}{77}%
+\contentsline {subsection}{\numberline {10.4}Graficos de cajas}{77}%
+\contentsline {subsubsection}{\numberline {10.4.1}Mayo}{78}%
+\contentsline {subsubsection}{\numberline {10.4.2}Por dia de la semana}{79}%
+\contentsline {subsection}{\numberline {10.5}Graficos de puntos}{79}%
+\contentsline {subsubsection}{\numberline {10.5.1}Por dias}{81}%
+\contentsline {section}{\numberline {11}Junio}{81}%
+\contentsline {subsection}{\numberline {11.1}Graficos de lineas}{81}%
+\contentsline {subsection}{\numberline {11.2}Graficos de barras}{82}%
+\contentsline {subsubsection}{\numberline {11.2.1}Minimo}{82}%
+\contentsline {subsubsection}{\numberline {11.2.2}Mediana}{84}%
+\contentsline {subsubsection}{\numberline {11.2.3}Maximo}{85}%
+\contentsline {subsection}{\numberline {11.3}Histogramas}{85}%
+\contentsline {subsubsection}{\numberline {11.3.1}Recopilada}{86}%
+\contentsline {subsubsection}{\numberline {11.3.2}Completa}{87}%
+\contentsline {subsection}{\numberline {11.4}Graficos de cajas}{87}%
+\contentsline {subsubsection}{\numberline {11.4.1}Junio}{88}%
+\contentsline {subsubsection}{\numberline {11.4.2}Por dia de la semana}{89}%
+\contentsline {subsection}{\numberline {11.5}Graficos de puntos}{89}%
+\contentsline {subsubsection}{\numberline {11.5.1}Por dias}{91}%

@@ -1,0 +1,92 @@
+\contentsline {section}{\numberline {1}Introduccion}{5}%
+\contentsline {section}{\numberline {2}Variables de estudio}{5}%
+\contentsline {section}{\numberline {3}Panorama general del 28 de Febrero al 30 de Junio}{6}%
+\contentsline {subsection}{\numberline {3.1}Cantidad de encuestas completas e incompletas por fecha y Hora}{6}%
+\contentsline {subsection}{\numberline {3.2}Cantidad de encuestas completas e incompletas por fecha y organo de pertenencia}{7}%
+\contentsline {subsection}{\numberline {3.3}Cantidad de encuestas completas e incompletas por fecha y sexo}{8}%
+\contentsline {subsection}{\numberline {3.4}Cantidad de encuestas completas e incompletas por fecha y tiempo trabajando en el estado}{9}%
+\contentsline {subsection}{\numberline {3.5}Cantidad de encuestas completas e incompletas por fecha y nivel de gobierno}{10}%
+\contentsline {subsection}{\numberline {3.6}Cantidad de encuestas completas e incompletas por hora y dia}{11}%
+\contentsline {subsection}{\numberline {3.7}Cantidad de encuestas completas e incompletas por hora y dia de la semana}{12}%
+\contentsline {subsection}{\numberline {3.8}Cantidad de encuestas completas e incompletas por hora y mes}{13}%
+\contentsline {subsection}{\numberline {3.9}Cantidad de encuestas completas e incompletas por hora y organo de pertenencia}{14}%
+\contentsline {subsection}{\numberline {3.10}Cantidad de encuestas completas e incompletas por hora y sexo}{15}%
+\contentsline {subsection}{\numberline {3.11}Cantidad de encuestas completas e incompletas por hora y tiempo trabajando en el estado}{16}%
+\contentsline {subsection}{\numberline {3.12}Cantidad de encuestas completas e incompletas por hora y nivel de gobierno}{17}%
+\contentsline {subsection}{\numberline {3.13}Cantidad de encuestas completas e incompletas por dia y mes}{18}%
+\contentsline {subsection}{\numberline {3.14}Cantidad de encuestas completas e incompletas por dia y organo de pertenencia}{19}%
+\contentsline {subsection}{\numberline {3.15}Cantidad de encuestas completas e incompletas por dia y sexo}{20}%
+\contentsline {subsection}{\numberline {3.16}Cantidad de encuestas completas e incompletas por dia y tiempo trabajando en el estado}{21}%
+\contentsline {subsection}{\numberline {3.17}Cantidad de encuestas completas e incompletas por dia y nivel de gobierno}{22}%
+\contentsline {subsection}{\numberline {3.18}Cantidad de encuestas completas e incompletas por dia de la semana y mes}{23}%
+\contentsline {subsection}{\numberline {3.19}Cantidad de encuestas completas e incompletas por dia de la semana y organo de pertenencia}{24}%
+\contentsline {subsection}{\numberline {3.20}Cantidad de encuestas completas e incompletas por dia de la semana y sexo}{25}%
+\contentsline {subsection}{\numberline {3.21}Cantidad de encuestas completas e incompletas por dia de la semana y tiempo trabajando en el estado}{26}%
+\contentsline {subsection}{\numberline {3.22}Cantidad de encuestas completas e incompletas por dia de la semana y nivel de gobierno}{27}%
+\contentsline {subsection}{\numberline {3.23}Cantidad de encuestas completas e incompletas por mes y organo de dependencia}{28}%
+\contentsline {subsection}{\numberline {3.24}Cantidad de encuestas completas e incompletas por mes y sexo}{29}%
+\contentsline {subsection}{\numberline {3.25}Cantidad de encuestas completas e incompletas por mes y tiempo trabajando en el estado}{30}%
+\contentsline {subsection}{\numberline {3.26}Cantidad de encuestas completas e incompletas por mes y nivel de gobierno}{31}%
+\contentsline {subsection}{\numberline {3.27}Cantidad de encuestas completas e incompletas por organo de pertenencia y sexo}{32}%
+\contentsline {subsection}{\numberline {3.28}Cantidad de encuestas completas e incompletas por organo de pertenencia y tiempo trabajando en el estado}{33}%
+\contentsline {subsection}{\numberline {3.29}Cantidad de encuestas completas e incompletas por organo de pertenencia y nivel de gobierno}{34}%
+\contentsline {section}{\numberline {4}Panorama antes del covid: 28 de febrero hasta el 15 de marzo }{34}%
+\contentsline {subsection}{\numberline {4.1}Cantidad de encuestas completas e incompletas por fecha y Hora}{35}%
+\contentsline {subsection}{\numberline {4.2}Cantidad de encuestas completas e incompletas por fecha y organo de pertenencia}{36}%
+\contentsline {subsection}{\numberline {4.3}Cantidad de encuestas completas e incompletas por fecha y sexo}{37}%
+\contentsline {subsection}{\numberline {4.4}Cantidad de encuestas completas e incompletas por fecha y tiempo trabajando en el estado}{38}%
+\contentsline {subsection}{\numberline {4.5}Cantidad de encuestas completas e incompletas por fecha y nivel de gobierno}{39}%
+\contentsline {subsection}{\numberline {4.6}Cantidad de encuestas completas e incompletas por hora y dia}{40}%
+\contentsline {subsection}{\numberline {4.7}Cantidad de encuestas completas e incompletas por hora y dia de la semana}{41}%
+\contentsline {subsection}{\numberline {4.8}Cantidad de encuestas completas e incompletas por hora y mes}{42}%
+\contentsline {subsection}{\numberline {4.9}Cantidad de encuestas completas e incompletas por hora y organo de pertenencia}{43}%
+\contentsline {subsection}{\numberline {4.10}Cantidad de encuestas completas e incompletas por hora y sexo}{44}%
+\contentsline {subsection}{\numberline {4.11}Cantidad de encuestas completas e incompletas por hora y tiempo trabajando en el estado}{45}%
+\contentsline {subsection}{\numberline {4.12}Cantidad de encuestas completas e incompletas por hora y nivel de gobierno}{46}%
+\contentsline {subsection}{\numberline {4.13}Cantidad de encuestas completas e incompletas por dia y mes}{47}%
+\contentsline {subsection}{\numberline {4.14}Cantidad de encuestas completas e incompletas por dia y organo de pertenencia}{48}%
+\contentsline {subsection}{\numberline {4.15}Cantidad de encuestas completas e incompletas por dia y sexo}{49}%
+\contentsline {subsection}{\numberline {4.16}Cantidad de encuestas completas e incompletas por dia y tiempo trabajando en el estado}{50}%
+\contentsline {subsection}{\numberline {4.17}Cantidad de encuestas completas e incompletas por dia y nivel de gobierno}{51}%
+\contentsline {subsection}{\numberline {4.18}Cantidad de encuestas completas e incompletas por dia de la semana y mes}{52}%
+\contentsline {subsection}{\numberline {4.19}Cantidad de encuestas completas e incompletas por dia de la semana y organo de pertenencia}{53}%
+\contentsline {subsection}{\numberline {4.20}Cantidad de encuestas completas e incompletas por dia de la semana y sexo}{54}%
+\contentsline {subsection}{\numberline {4.21}Cantidad de encuestas completas e incompletas por dia de la semana y tiempo trabajando en el estado}{55}%
+\contentsline {subsection}{\numberline {4.22}Cantidad de encuestas completas e incompletas por dia de la semana y nivel de gobierno}{56}%
+\contentsline {subsection}{\numberline {4.23}Cantidad de encuestas completas e incompletas por mes y organo de dependencia}{57}%
+\contentsline {subsection}{\numberline {4.24}Cantidad de encuestas completas e incompletas por mes y sexo}{58}%
+\contentsline {subsection}{\numberline {4.25}Cantidad de encuestas completas e incompletas por mes y tiempo trabajando en el estado}{59}%
+\contentsline {subsection}{\numberline {4.26}Cantidad de encuestas completas e incompletas por mes y nivel de gobierno}{60}%
+\contentsline {subsection}{\numberline {4.27}Cantidad de encuestas completas e incompletas por organo de pertenencia y sexo}{61}%
+\contentsline {subsection}{\numberline {4.28}Cantidad de encuestas completas e incompletas por organo de pertenencia y tiempo trabajando en el estado}{62}%
+\contentsline {subsection}{\numberline {4.29}Cantidad de encuestas completas e incompletas por organo de pertenencia y nivel de gobierno}{63}%
+\contentsline {section}{\numberline {5}Panorama despues del covid: 16 de marzo hasta el 30 de junio}{63}%
+\contentsline {subsection}{\numberline {5.1}Cantidad de encuestas completas e incompletas por fecha y Hora}{64}%
+\contentsline {subsection}{\numberline {5.2}Cantidad de encuestas completas e incompletas por fecha y organo de pertenencia}{65}%
+\contentsline {subsection}{\numberline {5.3}Cantidad de encuestas completas e incompletas por fecha y sexo}{66}%
+\contentsline {subsection}{\numberline {5.4}Cantidad de encuestas completas e incompletas por fecha y tiempo trabajando en el estado}{67}%
+\contentsline {subsection}{\numberline {5.5}Cantidad de encuestas completas e incompletas por fecha y nivel de gobierno}{68}%
+\contentsline {subsection}{\numberline {5.6}Cantidad de encuestas completas e incompletas por hora y dia}{69}%
+\contentsline {subsection}{\numberline {5.7}Cantidad de encuestas completas e incompletas por hora y dia de la semana}{70}%
+\contentsline {subsection}{\numberline {5.8}Cantidad de encuestas completas e incompletas por hora y mes}{71}%
+\contentsline {subsection}{\numberline {5.9}Cantidad de encuestas completas e incompletas por hora y organo de pertenencia}{72}%
+\contentsline {subsection}{\numberline {5.10}Cantidad de encuestas completas e incompletas por hora y sexo}{73}%
+\contentsline {subsection}{\numberline {5.11}Cantidad de encuestas completas e incompletas por hora y tiempo trabajando en el estado}{74}%
+\contentsline {subsection}{\numberline {5.12}Cantidad de encuestas completas e incompletas por hora y nivel de gobierno}{75}%
+\contentsline {subsection}{\numberline {5.13}Cantidad de encuestas completas e incompletas por dia y mes}{76}%
+\contentsline {subsection}{\numberline {5.14}Cantidad de encuestas completas e incompletas por dia y organo de pertenencia}{77}%
+\contentsline {subsection}{\numberline {5.15}Cantidad de encuestas completas e incompletas por dia y sexo}{78}%
+\contentsline {subsection}{\numberline {5.16}Cantidad de encuestas completas e incompletas por dia y tiempo trabajando en el estado}{79}%
+\contentsline {subsection}{\numberline {5.17}Cantidad de encuestas completas e incompletas por dia y nivel de gobierno}{80}%
+\contentsline {subsection}{\numberline {5.18}Cantidad de encuestas completas e incompletas por dia de la semana y mes}{81}%
+\contentsline {subsection}{\numberline {5.19}Cantidad de encuestas completas e incompletas por dia de la semana y organo de pertenencia}{82}%
+\contentsline {subsection}{\numberline {5.20}Cantidad de encuestas completas e incompletas por dia de la semana y sexo}{83}%
+\contentsline {subsection}{\numberline {5.21}Cantidad de encuestas completas e incompletas por dia de la semana y tiempo trabajando en el estado}{84}%
+\contentsline {subsection}{\numberline {5.22}Cantidad de encuestas completas e incompletas por dia de la semana y nivel de gobierno}{85}%
+\contentsline {subsection}{\numberline {5.23}Cantidad de encuestas completas e incompletas por mes y organo de dependencia}{86}%
+\contentsline {subsection}{\numberline {5.24}Cantidad de encuestas completas e incompletas por mes y sexo}{87}%
+\contentsline {subsection}{\numberline {5.25}Cantidad de encuestas completas e incompletas por mes y tiempo trabajando en el estado}{88}%
+\contentsline {subsection}{\numberline {5.26}Cantidad de encuestas completas e incompletas por mes y nivel de gobierno}{89}%
+\contentsline {subsection}{\numberline {5.27}Cantidad de encuestas completas e incompletas por organo de pertenencia y sexo}{90}%
+\contentsline {subsection}{\numberline {5.28}Cantidad de encuestas completas e incompletas por organo de pertenencia y tiempo trabajando en el estado}{91}%
+\contentsline {subsection}{\numberline {5.29}Cantidad de encuestas completas e incompletas por organo de pertenencia y nivel de gobierno}{92}%
